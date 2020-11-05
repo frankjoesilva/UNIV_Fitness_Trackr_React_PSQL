@@ -5,7 +5,6 @@ import './Header.css';
 const Header = ({
     currentUser,
     setCurrentUser,
-    userList,
     userToken,
     setUserToken
 }) => {
@@ -23,7 +22,8 @@ const Header = ({
     }
 
     const handleUserLogout = (event) => {
-
+        event.preventDefault()
+        setUserToken('')
     }
 
     const handleUserRegister = (event) => {
@@ -33,10 +33,10 @@ const Header = ({
     return (
         <header>
             <h1>Fitness Trackr</h1>
-            {userToken ? <button>Logout</button> : <Login setUserToken={setUserToken} handleSelectChange={handleSelectChange}
-                handleUserLogin={handleUserLogin}
-                handleUserLogout={handleUserLogout}
-                handleUserRegister={handleUserRegister}
+            {userToken ? <button onClick={handleUserLogout}>Logout</button> : <Login setUserToken={setUserToken} handleSelectChange={handleSelectChange}
+            // handleUserLogin={handleUserLogin}
+            // handleUserLogout={handleUserLogout}
+            // handleUserRegister={handleUserRegister}
             />}
         </header>
     );

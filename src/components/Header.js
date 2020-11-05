@@ -1,47 +1,50 @@
 import React, { useState } from 'react';
-
+import Login from './Login'
 import './Header.css';
 
 const Header = ({
     currentUser,
     setCurrentUser,
-    userList }) => {
-    const handleSubmit = (event) => {
-        event.preventDefault();
-    }
+    userList,
 
-    const handleSelectChange = (event) => {
+}) => {
 
-    }
+    const [userToken, setUserToken] = useState()
+    // const [selectedUser, setSelectedUser] = useState()
 
-    const handleUserLogin = (event) => {
 
-    }
+    // const handleSubmit = async (event) => {
+    //     event.preventDefault();
 
-    const handleUserLogout = (event) => {
+    // }
 
-    }
+    // const handleSelectChange = (event) => {
 
-    const handleUserRegister = (event) => {
+    // }
 
-    }
+    // const handleUserLogin = (event) => {
+
+    // }
+
+    // const handleUserLogout = (event) => {
+    //     event.preventDefault()
+
+
+    // }
+
+    // const handleUserRegister = (event) => {
+
+    // }
 
     return (
         <header>
-            <h1>Welcome to Fitness Trackr</h1>
-            <form
-                className="user-select"
-                onSubmit={handleSubmit} >
-                {
-                    currentUser
-                        ? <button onClick={handleUserLogout}>LOG OUT</button>
-                        : <>
-                            <input onChange={handleSelectChange}></input>
-                            <button onClick={handleUserLogin}>LOG IN</button>
-                            <button onClick={handleUserRegister}>REGISTER</button>
-                        </>
-                }
-            </form>
+            <h1>Fitness Trackr</h1>
+            {userToken ? <button>Logout</button> : <Login setUserToken={setUserToken}
+            // handleSelectChange={handleSelectChange}
+            // handleUserLogin={handleUserLogin}
+            // handleUserLogout={handleUserLogout}
+            // handleUserRegister={handleUserRegister}
+            />}
         </header>
     );
 }

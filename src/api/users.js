@@ -1,12 +1,12 @@
 import axios from 'axios';
 
-const BASE = 'https://calm-castle-35968.herokuapp.com/'
+const BASE = 'https://calm-castle-35968.herokuapp.com/api'
 
-export async function getUserRegister() {
+export async function getUserRegister(username, password) {
     try {
         const { data } = await axios.post(`${BASE}/users/register`, {
-            userName: '',
-            passWord: ''
+            username,
+            password
         });
         return data;
     } catch (error) {
@@ -14,10 +14,13 @@ export async function getUserRegister() {
     }
 }
 
-export async function getUserLogin() {
+export async function getUserLogin(username, password) {
     try {
         const { data } = await axios.post(`${BASE}/users/login`, {
+            username,
+            password
         });
+        console.log('data', data)
         return data;
     } catch (error) {
         throw error;

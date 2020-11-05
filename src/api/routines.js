@@ -1,6 +1,6 @@
-import axios from 'axios';
+const axios = require('axios')
 
-const BASE = 'https://calm-castle-35968.herokuapp.com/'
+const BASE = 'https://calm-castle-35968.herokuapp.com/api'
 
 export async function getRoutines() {
     try {
@@ -19,3 +19,4 @@ export async function getRoutinesByUsername(username) {
         throw error;
     }
 }
+

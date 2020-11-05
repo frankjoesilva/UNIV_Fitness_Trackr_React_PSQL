@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const BASE = 'https://calm-castle-35968.herokuapp.com/'
+const BASE = 'https://calm-castle-35968.herokuapp.com/api'
 
 export async function getActivities() {
     try {

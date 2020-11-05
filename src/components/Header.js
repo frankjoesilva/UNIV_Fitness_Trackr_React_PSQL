@@ -6,44 +6,37 @@ const Header = ({
     currentUser,
     setCurrentUser,
     userList,
-
+    userToken,
+    setUserToken
 }) => {
+    const handleSubmit = async (event) => {
+        event.preventDefault();
 
-    const [userToken, setUserToken] = useState()
-    // const [selectedUser, setSelectedUser] = useState()
+    }
 
+    const handleSelectChange = (event) => {
 
-    // const handleSubmit = async (event) => {
-    //     event.preventDefault();
+    }
 
-    // }
+    const handleUserLogin = (event) => {
 
-    // const handleSelectChange = (event) => {
+    }
 
-    // }
+    const handleUserLogout = (event) => {
 
-    // const handleUserLogin = (event) => {
+    }
 
-    // }
+    const handleUserRegister = (event) => {
 
-    // const handleUserLogout = (event) => {
-    //     event.preventDefault()
-
-
-    // }
-
-    // const handleUserRegister = (event) => {
-
-    // }
+    }
 
     return (
         <header>
             <h1>Fitness Trackr</h1>
-            {userToken ? <button>Logout</button> : <Login setUserToken={setUserToken}
-            // handleSelectChange={handleSelectChange}
-            // handleUserLogin={handleUserLogin}
-            // handleUserLogout={handleUserLogout}
-            // handleUserRegister={handleUserRegister}
+            {userToken ? <button>Logout</button> : <Login setUserToken={setUserToken} handleSelectChange={handleSelectChange}
+                handleUserLogin={handleUserLogin}
+                handleUserLogout={handleUserLogout}
+                handleUserRegister={handleUserRegister}
             />}
         </header>
     );

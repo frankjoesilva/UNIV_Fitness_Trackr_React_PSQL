@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { getUserLogin } from '../api/users';
+import { getUserLogin, getUsersMe } from '../api/users';
 
 
 const Login = ({
@@ -8,7 +8,7 @@ const Login = ({
     handleSelectChange,
     handleUserLogin,
     handleUserRegister,
-    currentUser,
+    userToken,
     setUserToken
 
 }) => {
@@ -26,25 +26,22 @@ const Login = ({
                 console.error(error)
             }
         }} >
-        {
-            currentUser
-                ? <button onClick={handleUserLogout}>LOG OUT</button>
-                : <>
-                    <input value={username} placeholder=' username'
-                        onChange={(event) => {
-                            const username = event.target.value
-                            setUsername(username)
+        <>
+            <input value={username} placeholder=' username'
+                onChange={(event) => {
+                    const username = event.target.value
+                    setUsername(username)
 
-                        }}></input>
-                    <input value={password} placeholder=' password'
-                        onChange={(event) => {
-                            const password = event.target.value
-                            setPassword(password)
-                        }}></input>
-                    <button onClick={handleUserLogin}>LOG IN</button>
-                    <button onClick={handleUserRegister}>REGISTER</button>
-                </>
-        }
+                }}></input>
+            <input value={password} placeholder=' password'
+                onChange={(event) => {
+                    const password = event.target.value
+                    setPassword(password)
+                }}></input>
+            <button onClick={handleUserLogin}>LOG IN</button>
+            <button onClick={handleUserRegister}>REGISTER</button>
+        </>
+
     </form>)
 }
 

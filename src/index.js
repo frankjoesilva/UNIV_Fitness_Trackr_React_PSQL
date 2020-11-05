@@ -9,23 +9,11 @@ import {
 
 const App = () => {
     const [userToken, setUserToken] = useState('')
-    const [userList, setUserList] = useState([]);
-
-
-    useEffect(() => {
-        getUsersMe()
-            .then(users => {
-                setUserList(users)
-                console.log('users', users)
-            })
-            .catch(error => {
-                console.error(error)
-            });
-    }, []);
 
     return (
         <div id="App">
-            <Header userList={userList} userToken={userToken} setUserToken={setUserToken} />
+            <Header userToken={userToken} setUserToken={setUserToken} />
+
         </div>
     );
 }

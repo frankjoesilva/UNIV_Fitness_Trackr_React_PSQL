@@ -2,19 +2,34 @@ import React, { useEffect, useState } from 'react';
 import ReactDOM from 'react-dom';
 import { getUsersMe } from './api/users';
 // import { getActivities } from './api/activities';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 import {
-    Header
+    BrowserRouter as Router,
+    Route,
+    Switch,
+    Redirect
+} from 'react-router-dom';
+
+import {
+    Header,
+    Navbar,
+    Login
 } from './components';
 
 const App = () => {
     const [userToken, setUserToken] = useState('')
 
     return (
-        <div id="App">
-            <Header userToken={userToken} setUserToken={setUserToken} />
-
-        </div>
+        <Router>
+            <div id="App">
+                <Header />
+                <Navbar />
+            </div>
+            <Route path='/login'>
+                <Login setUserToken={setUserToken} />
+            </Route>
+        </Router>
     );
 }
 

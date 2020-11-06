@@ -33,11 +33,7 @@ const Header = ({
     return (
         <header>
             <h1>Fitness Trackr</h1>
-            {userToken ? <button onClick={handleUserLogout}>Logout</button> : <Login setUserToken={setUserToken} handleSelectChange={handleSelectChange}
-            // handleUserLogin={handleUserLogin}
-            // handleUserLogout={handleUserLogout}
-            // handleUserRegister={handleUserRegister}
-            />}
+            {/* {userToken ? <button onClick={handleUserLogout}>Logout</button> : <Login setUserToken={setUserToken} */}
         </header>
     );
 }

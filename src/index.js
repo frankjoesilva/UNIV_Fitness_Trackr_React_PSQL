@@ -25,7 +25,7 @@ const App = () => {
         <Router>
             <div id="App">
                 <Header userToken={userToken} setUserToken={setUserToken} />
-                <Navbar />
+                <Navbar userToken={userToken} setUserToken={setUserToken} />
             </div>
             <Route path='/login'>
                 <Login userToken={userToken} setUserToken={setUserToken} />

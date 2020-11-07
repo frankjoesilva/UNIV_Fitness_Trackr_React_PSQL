@@ -3,6 +3,10 @@ import { getUserLogin } from '../api/users';
 import { Form, Button } from 'react-bootstrap'
 import './Login.css';
 
+import {
+    Redirect
+} from 'react-router-dom'
+
 
 const Login = ({
 
@@ -13,46 +17,92 @@ const Login = ({
 }) => {
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
-    return (<Form
-        className="login"
-        onSubmit={async (event) => {
-            event.preventDefault();
-            try {
-                const token = await getUserLogin(username, password)
-                console.log('token', token)
-                setUserToken(token)
-                setUsername('')
-                setPassword('')
-            } catch (error) {
-                console.error(error)
-            }
-        }} >
+    return (
+        userToken ? <Redirect to="/" /> : <Form
 
-        <Form.Group controlId="formBasicEmail">
-            <Form.Label>Username</Form.Label>
-            <Form.Control value={username} type="username" placeholder="Username" onChange={(event) => {
-                const username = event.target.value
-                setUsername(username)
+            className="login"
+            onSubmit={async (event) => {
+                event.preventDefault();
+                try {
+                    const token = await getUserLogin(username, password)
+                    console.log('token', token)
+                    setUserToken(token)
+                    setUsername('')
+                    setPassword('')
 
-            }} />
+                } catch (error) {
+                    console.error(error)
+                }
+            }} >
+            <Form.Group controlId="formBasicEmail">
+                <Form.Label>Username</Form.Label>
+                <Form.Control value={username} type="username" placeholder="Username" onChange={(event) => {
+                    const username = event.target.value
+                    setUsername(username)
 
-        </Form.Group>
+                }} />
 
-        <Form.Group controlId="formBasicPassword">
-            <Form.Label>Password</Form.Label>
-            <Form.Control value={password} type="password" placeholder="Password" onChange={(event) => {
-                const password = event.target.value
-                setPassword(password)
-            }} />
-        </Form.Group>
-        <Form.Group controlId="formBasicCheckbox">
+            </Form.Group>
 
-        </Form.Group>
-        <Button onClick={handleUserLogin} variant="primary" type="submit">
-            Login
-    </Button>
-    </Form>)
+            <Form.Group controlId="formBasicPassword">
+                <Form.Label>Password</Form.Label>
+                <Form.Control value={password} type="password" placeholder="Password" onChange={(event) => {
+                    const password = event.target.value
+                    setPassword(password)
+                }} />
+            </Form.Group>
+            <Form.Group controlId="formBasicCheckbox">
+
+            </Form.Group>
+            <Button onClick={handleUserLogin} variant="primary" type="submit">
+                Login
+</Button>
+        </Form>)
 }
+
+//     <Form
+
+//     className="login"
+//     onSubmit={async (event) => {
+//         event.preventDefault();
+//         try {
+//             const token = await getUserLogin(username, password)
+//             console.log('token', token)
+//             setUserToken(token)
+//             setUsername('')
+//             setPassword('')
+
+//         } catch (error) {
+//             console.error(error)
+//         }
+//     }} >
+//     {/* <Route exact path="/login">
+//         {userToken ? <Redirect to="/" /> : null}
+//     </Route> */}
+//     <Form.Group controlId="formBasicEmail">
+//         <Form.Label>Username</Form.Label>
+//         <Form.Control value={username} type="username" placeholder="Username" onChange={(event) => {
+//             const username = event.target.value
+//             setUsername(username)
+
+//         }} />
+
+//     </Form.Group>
+
+//     <Form.Group controlId="formBasicPassword">
+//         <Form.Label>Password</Form.Label>
+//         <Form.Control value={password} type="password" placeholder="Password" onChange={(event) => {
+//             const password = event.target.value
+//             setPassword(password)
+//         }} />
+//     </Form.Group>
+//     <Form.Group controlId="formBasicCheckbox">
+
+//     </Form.Group>
+//     <Button onClick={handleUserLogin} variant="primary" type="submit">
+//         Login
+// </Button>
+// </Form>)
 //     return (<form
 //         className="user-select"
 //         onSubmit={async (event) => {

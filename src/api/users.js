@@ -29,7 +29,7 @@ export async function getUserLogin(username, password) {
 
 export async function getUsersMe() {
     try {
-        const { data } = await axios.get(`${BASE}/users/me`);
+        const { data } = await axios.get(`${BASE}/users/me`,);
         return data;
     } catch (error) {
         throw error;

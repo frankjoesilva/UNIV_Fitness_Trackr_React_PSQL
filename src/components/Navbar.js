@@ -1,18 +1,12 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import {
-    BrowserRouter as Router,
-    Route,
-    Switch,
-    Redirect
-} from 'react-router-dom';
 import './Navbar.css';
-import Login from './Login';
-import Home from './Home';
-import Register from './Register';
-import Routines from './MyRoutines';
-import Activities from './Activities';
-import MyRoutines from './MyRoutines';
+// import Login from './Login';
+// import Home from './Home';
+// import Register from './Register';
+// import Routines from './MyRoutines';
+// import Activities from './Activities';
+// import MyRoutines from './MyRoutines';
 
 const Navbar = (props => {
     return (

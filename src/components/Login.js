@@ -1,14 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { getUserLogin } from '../api/users';
 import { Form, Button } from 'react-bootstrap'
+import './Login.css';
 
 
 const Login = ({
-    handleSubmit,
-    handleUserLogout,
-    handleSelectChange,
+
     handleUserLogin,
-    handleUserRegister,
     userToken,
     setUserToken
 
@@ -16,27 +14,28 @@ const Login = ({
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
     return (<Form
-        className="user-select"
+        className="login"
         onSubmit={async (event) => {
             event.preventDefault();
             try {
                 const token = await getUserLogin(username, password)
                 console.log('token', token)
                 setUserToken(token)
+                setUsername('')
+                setPassword('')
             } catch (error) {
                 console.error(error)
             }
         }} >
 
         <Form.Group controlId="formBasicEmail">
-            <Form.Label>Email address</Form.Label>
+            <Form.Label>Username</Form.Label>
             <Form.Control value={username} type="username" placeholder="Username" onChange={(event) => {
                 const username = event.target.value
                 setUsername(username)
+
             }} />
-            <Form.Text className="text-muted">
-                We'll never share your email with anyone else.
-      </Form.Text>
+
         </Form.Group>
 
         <Form.Group controlId="formBasicPassword">
@@ -47,7 +46,7 @@ const Login = ({
             }} />
         </Form.Group>
         <Form.Group controlId="formBasicCheckbox">
-            <Form.Check type="checkbox" label="Check me out" />
+
         </Form.Group>
         <Button onClick={handleUserLogin} variant="primary" type="submit">
             Login

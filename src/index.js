@@ -14,7 +14,8 @@ import {
 import {
     Header,
     Navbar,
-    Login
+    Login,
+    Register
 } from './components';
 
 const App = () => {
@@ -23,11 +24,14 @@ const App = () => {
     return (
         <Router>
             <div id="App">
-                <Header />
+                <Header userToken={userToken} setUserToken={setUserToken} />
                 <Navbar />
             </div>
             <Route path='/login'>
-                <Login setUserToken={setUserToken} />
+                <Login userToken={userToken} setUserToken={setUserToken} />
+            </Route>
+            <Route path='/register'>
+                <Register setUserToken={setUserToken} />
             </Route>
         </Router>
     );

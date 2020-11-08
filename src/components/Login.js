@@ -26,12 +26,11 @@ const Login = ({
                 try {
                     const token = await getUserLogin(username, password)
                     console.log('token', token)
-                    if (!username || !password) {
+                    if (token) {
                         return null
                     } else {
                         setUserToken(token)
                     }
-
                 } catch (error) {
                     throw error
                 }

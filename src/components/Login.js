@@ -26,12 +26,14 @@ const Login = ({
                 try {
                     const token = await getUserLogin(username, password)
                     console.log('token', token)
-                    setUserToken(token)
-                    setUsername('')
-                    setPassword('')
+                    if (!username || !password) {
+                        return null
+                    } else {
+                        setUserToken(token)
+                    }
 
                 } catch (error) {
-                    console.error(error)
+                    throw error
                 }
             }} >
             <Form.Group controlId="formBasicEmail">

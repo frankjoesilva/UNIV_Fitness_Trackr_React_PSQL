@@ -19,6 +19,12 @@ const Login = ({
     const [password, setPassword] = useState('')
     const [error, setError] = useState('')
     const [show, setShow] = useState(true)
+
+    useEffect(() => {
+        setShow(true)
+    }, [userToken])
+
+
     return (
         !userToken ? <Form
 
@@ -64,12 +70,12 @@ const Login = ({
             <Button onClick={handleUserLogin} variant="primary" type="submit">
                 Login
     </Button>
-        </Form> : <Alert variant='success' onClose={() => setShow(false)} dismissible>
-                <Alert.Heading>Success!</Alert.Heading>
-                <p>
-                    Successful Login Congratulations!
+        </Form> : (show) ? <Alert variant='success' onClose={() => setShow(false)} dismissible>
+            <Alert.Heading>Success!</Alert.Heading>
+            <p>
+                Successful Login Congratulations!
         </p>
-            </Alert>
+        </Alert> : <Redirect to='/home' />
     );
 }
 

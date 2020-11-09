@@ -66,12 +66,12 @@ const Register = ({
             <Button onClick={handleUserRegister} variant="primary" type="submit">
                 Register
     </Button>
-        </Form> : <Alert variant='success' onClose={() => setShow(false)} dismissible>
-                <Alert.Heading>Success!</Alert.Heading>
-                <p>
-                    Successful Register Congratulations!
+        </Form> : (show) ? <Alert variant='success' onClose={() => setShow(false)} dismissible>
+            <Alert.Heading>Success!</Alert.Heading>
+            <p>
+                Successful Register Congratulations!
         </p>
-            </Alert>
+        </Alert> : <Redirect to="/home" />
     );
 }
 

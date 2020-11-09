@@ -1,6 +1,6 @@
 const axios = require('axios')
 
-const BASE = 'https://calm-castle-35968.herokuapp.com/api'
+const BASE = 'http:localhost:4000/api'
 
 export async function getRoutines() {
     try {

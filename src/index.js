@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import ReactDOM from 'react-dom';
-import { getUsersMe } from './api/users';
-// import { getActivities } from './api/activities';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import {

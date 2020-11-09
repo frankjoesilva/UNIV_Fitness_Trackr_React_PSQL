@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { getUserLogin, getUsersMe } from '../api/users';
-import { Form, Button } from 'react-bootstrap'
+import { Form, Button, Alert } from 'react-bootstrap'
 import './Login.css';
 
 import {
@@ -18,8 +18,9 @@ const Login = ({
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
     const [error, setError] = useState('')
+    const [show, setShow] = useState(true)
     return (
-        userToken ? <Redirect to="/" /> : <Form
+        !userToken ? <Form
 
             className="login"
             onSubmit={async (event) => {
@@ -62,8 +63,14 @@ const Login = ({
             </Form.Group>
             <Button onClick={handleUserLogin} variant="primary" type="submit">
                 Login
-</Button>
-        </Form>)
+    </Button>
+        </Form> : <Alert variant='success' onClose={() => setShow(false)} dismissible>
+                <Alert.Heading>Success!</Alert.Heading>
+                <p>
+                    Successful Login Congratulations!
+        </p>
+            </Alert>
+    );
 }
 
 

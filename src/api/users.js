@@ -8,6 +8,7 @@ export async function getUserRegister(username, password) {
             username,
             password
         });
+        localStorage.setItem('data.token', data.token)
         return data;
     } catch (error) {
         console.error(error)
@@ -20,6 +21,7 @@ export async function getUserLogin(username, password) {
             username,
             password
         });
+        localStorage.setItem('data.token', data.token)
         return data;
     } catch (error) {
         console.error(error);

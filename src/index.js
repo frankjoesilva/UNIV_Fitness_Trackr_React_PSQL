@@ -29,7 +29,7 @@ const App = () => {
                 <Login userToken={userToken} setUserToken={setUserToken} />
             </Route>
             <Route path='/register'>
-                <Register setUserToken={setUserToken} />
+                <Register userToken={userToken} setUserToken={setUserToken} />
             </Route>
         </Router>
     );

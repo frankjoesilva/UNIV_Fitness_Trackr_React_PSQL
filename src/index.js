@@ -13,7 +13,8 @@ import {
     Header,
     Navbar,
     Login,
-    Register
+    Register,
+    Home
 } from './components';
 
 const App = () => {
@@ -30,6 +31,9 @@ const App = () => {
             </Route>
             <Route path='/register'>
                 <Register userToken={userToken} setUserToken={setUserToken} />
+            </Route>
+            <Route path='/home'>
+                <Home userToken={userToken} setUserToken={setUserToken} />
             </Route>
         </Router>
     );

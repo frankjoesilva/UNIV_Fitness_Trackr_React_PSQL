@@ -38,10 +38,12 @@ const Login = ({
                     if (data.token) {
                         setUserToken(data.token)
                     }
+                    else if (!data.message) {
+                        setError('Incorrect Username or Password')
+                    }
                     else {
                         setError(data.message)
                     }
-
                 } catch (error) {
                     console.error(error)
                 }

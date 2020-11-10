@@ -21,6 +21,10 @@ const Register = ({
     const [error, setError] = useState('')
     const [show, setShow] = useState(true);
 
+    useEffect(() => {
+        setShow(true)
+    }, [userToken])
+
     return (
         !userToken ? <Form
 
@@ -69,7 +73,7 @@ const Register = ({
         </Form> : (show) ? <Alert variant='success' onClose={() => setShow(false)} dismissible>
             <Alert.Heading>Success!</Alert.Heading>
             <p>
-                Successful Register Congratulations!
+                Successful Registration, Congratulations!
         </p>
         </Alert> : <Redirect to="/home" />
     );

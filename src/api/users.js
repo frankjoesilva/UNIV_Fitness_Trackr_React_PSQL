@@ -21,6 +21,7 @@ export async function getUserLogin(username, password) {
             username,
             password
         });
+        console.log('data', data)
         localStorage.setItem('data.token', data.token)
         return data;
     } catch (error) {

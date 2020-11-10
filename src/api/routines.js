@@ -7,7 +7,7 @@ export async function getRoutines() {
         const { data } = await axios.get(`${BASE}/routines`);
         return data;
     } catch (error) {
-        throw error;
+        console.error(error);
     }
 }
 
@@ -16,7 +16,7 @@ export async function getRoutinesByUsername(username) {
         const { data } = await axios.get(`${BASE}/users/${username}/routines`);
         return data;
     } catch (error) {
-        throw error;
+        console.error(error);
     }
 }
 

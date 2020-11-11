@@ -14,6 +14,7 @@ const Header = ({
 
     const handleUserLogout = (event) => {
         event.preventDefault()
+        localStorage.removeItem('token')
         setUserToken('')
     }
 

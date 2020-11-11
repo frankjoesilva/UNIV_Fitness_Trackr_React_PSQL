@@ -22,6 +22,12 @@ const App = () => {
     const [userToken, setUserToken] = useState('')
     const [allRoutines, setAllRoutines] = useState([])
 
+    useEffect(() => {
+        if (localStorage.getItem('token')) {
+            setUserToken(localStorage.getItem('token'))
+        }
+    }, [])
+
     return (
         <Router>
             <div id="App">

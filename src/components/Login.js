@@ -32,9 +32,8 @@ const Login = ({
             onSubmit={async (event) => {
                 event.preventDefault();
                 try {
-                    setError('')
                     if (!username || !password) {
-                        setError('Please enter username or password')
+                        setError('Incorrect Username or Password')
                         return
                     }
                     const data = await getUserLogin(username, password)

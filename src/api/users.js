@@ -44,7 +44,7 @@ export async function getUsersMe(token) {
     try {
         const { data } = await axios.get(`${BASE}/users/me`, {
             headers: {
-                'Authorization': `Bearer ${token}`
+                'Authorization': `Bearer ${data.token}`
             }
         });
         return data;

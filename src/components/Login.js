@@ -33,7 +33,12 @@ const Login = ({
                 event.preventDefault();
                 try {
                     setError('')
+                    if (!username || !password) {
+                        setError('Please enter username or password')
+                        return
+                    }
                     const data = await getUserLogin(username, password)
+
                     console.log('data', data)
                     if (data.token) {
                         setUserToken(data.token)
@@ -46,6 +51,7 @@ const Login = ({
                     }
                 } catch (error) {
                     console.error(error)
+                    setError(error.message)
                 }
             }} >
             <Form.Group controlId="formBasicEmail">

@@ -14,11 +14,13 @@ import {
     Navbar,
     Login,
     Register,
-    Home
+    Home,
+    Routines,
 } from './components';
 
 const App = () => {
     const [userToken, setUserToken] = useState('')
+    const [allRoutines, setAllRoutines] = useState([])
 
     return (
         <Router>
@@ -34,6 +36,9 @@ const App = () => {
             </Route>
             <Route path='/home'>
                 <Home userToken={userToken} setUserToken={setUserToken} />
+            </Route>
+            <Route path='/routines'>
+                <Routines allRoutines={allRoutines} setAllRoutines={setAllRoutines} />
             </Route>
         </Router>
     );

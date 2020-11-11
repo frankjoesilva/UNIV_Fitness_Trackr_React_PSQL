@@ -28,21 +28,22 @@ const publicRoutines = () => {
 
     return (
         <div className='public-routines'>
-            <h3>Routines</h3>
+            <h2>Public Routines</h2>
             {routines.map((routine) => {
                 return (<Card
                     key={routine.id}
-                    style={{ width: '18rem' }}>
+                    style={{ width: '23rem' }}>
 
                     <Card.Body>
-                        <Card.Text>Creator Name:{routine.creatorName}</Card.Text>
-                        <Card.Title>Name:{routine.name}</Card.Title>
+                        <h3>Routines</h3>
+                        <Card.Title>Creator Name:{routine.creatorName}</Card.Title>
+                        <Card.Text>Name:{routine.name}</Card.Text>
                         <Card.Text>Goal:{routine.goal}</Card.Text>
                         <h3>Activities</h3>
                         {routine.activities.map((activity, index) => {
                             return (
                                 <React.Fragment key={index}>
-                                    <Card.Text>Activity Name:{activity.name}</Card.Text>
+                                    <Card.Title>Activity Name:{activity.name}</Card.Title>
                                     <Card.Text>Activity Duration:{activity.duration}</Card.Text>
                                     <Card.Text>Activity Count:{activity.count}</Card.Text>
                                 </React.Fragment>

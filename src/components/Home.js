@@ -6,7 +6,7 @@ const Home = ({
 }) => {
     return (
         <div id="home-page">
-            {userToken ? <h1>Welcome To Fitness Tracker!</h1> : null}
+            <h1>Welcome To Fitness Tracker!</h1>
         </div>
     );
 }

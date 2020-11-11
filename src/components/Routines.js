@@ -39,7 +39,7 @@ const publicRoutines = ({
                     <Card.Title>Public Routines</Card.Title>
                     <Card.Text type="public-routines" placeholder="Username"> {
                         routines.map((routine) => {
-                            <h1>{routine.isPublic}</h1>
+                            <h1>{routine.creatorName}</h1>
                         })
                     }
 

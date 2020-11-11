@@ -18,7 +18,7 @@ const Navbar = ({
                 <ul id="navbar">
                     <li><NavLink to="/home" activeClassName="current">HOME</NavLink></li>
                     <li><NavLink to="/routines" activeClassName="current">ROUTINES</NavLink></li>
-                    <li><NavLink to="/my_routines" activeClassName="current">MY ROUTINES</NavLink></li>
+                    {userToken && <li><NavLink to="/my_routines" activeClassName="current">MY ROUTINES</NavLink></li>}
                     <li><NavLink to="/activities" activeClassName="current">ACTIVITIES</NavLink></li>
                     {!userToken && <li><NavLink to="/login" activeClassName="current">LOGIN</NavLink></li>}
                     {!userToken && <li><NavLink to="/register" activeClassName="current">REGISTER</NavLink></li>}

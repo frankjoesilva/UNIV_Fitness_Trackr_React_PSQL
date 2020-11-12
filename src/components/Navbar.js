@@ -1,12 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import './Navbar.css';
-// import Login from './Login';
-// import Home from './Home';
-// import Register from './Register';
-// import Routines from './MyRoutines';
-// import Activities from './Activities';
-// import MyRoutines from './MyRoutines';
+
 
 const Navbar = ({
     userToken,

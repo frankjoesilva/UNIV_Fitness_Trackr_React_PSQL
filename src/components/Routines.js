@@ -4,9 +4,6 @@ import { getActivitiesFromRoutines } from '../api/routine_activities'
 import { Card } from 'react-bootstrap'
 import './Routines.css'
 
-import {
-    Redirect
-} from 'react-router-dom'
 
 const publicRoutines = () => {
     const [routines, setRoutines] = useState([])
@@ -28,24 +25,24 @@ const publicRoutines = () => {
 
     return (
         <div className='public-routines'>
-            <h2>Public Routines</h2>
+            <h2 id="routine-title">Public Routines</h2>
             {routines.map((routine) => {
-                return (<Card
+                return (<Card id="routine-card"
                     key={routine.id}
                     style={{ width: '23rem' }}>
 
                     <Card.Body>
-                        <h3>Routines</h3>
-                        <Card.Title>Creator Name:{routine.creatorName}</Card.Title>
-                        <Card.Text>Name:{routine.name}</Card.Text>
+                        <h2 id="routine-card-title">Routines</h2>
+                        <Card.Title id="creator-name">Creator Name: {routine.creatorName}</Card.Title>
+                        <Card.Text>Routine Name: {routine.name}</Card.Text>
                         <Card.Text>Goal:{routine.goal}</Card.Text>
-                        <h3>Activities</h3>
+                        <h4 id="activity-routine-title">Activities For Routines</h4>
                         {routine.activities.map((activity, index) => {
                             return (
                                 <React.Fragment key={index}>
-                                    <Card.Title>Activity Name:{activity.name}</Card.Title>
-                                    <Card.Text>Activity Duration:{activity.duration}</Card.Text>
-                                    <Card.Text>Activity Count:{activity.count}</Card.Text>
+                                    <Card.Title id="activity-name">Activity Name: {activity.name}</Card.Title>
+                                    <Card.Text>Activity Duration: {activity.duration}</Card.Text>
+                                    <Card.Text>Activity Count: {activity.count}</Card.Text>
                                 </React.Fragment>
                             )
                         })}

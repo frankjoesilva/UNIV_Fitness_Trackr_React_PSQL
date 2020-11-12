@@ -1,0 +1,34 @@
+#routine-card {
+    padding:.2rem;
+  margin-top: 2rem;
+  margin-bottom:1rem;
+  margin-left:2rem;
+  margin-right:2rem;
+  border: 2px solid blue;
+  text-align:center;
+  display:flex;
+  flex-wrap: wrap;
+  justify-items: center;
+   
+}
+
+#routine-card-title{
+    color:red;
+}
+.card-text{
+   color:blue 
+}
+
+#routine-title{
+    text-align: center;
+    color:blueviolet
+}
+
+
+#activity-routine-title{
+    color:red;
+}
+
+#activity-name{
+    color:hotpink;
+}

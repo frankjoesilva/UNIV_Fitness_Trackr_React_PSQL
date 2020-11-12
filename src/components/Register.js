@@ -49,7 +49,7 @@ const Register = ({
 
 
             <Form.Group controlId="formBasicEmail">
-                <Form.Label>Username</Form.Label>
+                <Form.Label>Username: </Form.Label>
                 <Form.Control value={username} type="username" placeholder="Username" onChange={(event) => {
                     const username = event.target.value
                     setUsername(username)
@@ -58,7 +58,7 @@ const Register = ({
             </Form.Group>
 
             <Form.Group controlId="formBasicPassword">
-                <Form.Label>Password</Form.Label>
+                <Form.Label>Password: </Form.Label>
                 <Form.Control value={password} type="password" placeholder="Password" onChange={(event) => {
                     const password = event.target.value
                     setPassword(password)

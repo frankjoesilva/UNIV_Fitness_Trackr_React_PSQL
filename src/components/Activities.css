@@ -1,0 +1,17 @@
+#activity-card{
+    padding:.2rem;
+    margin-top: 2rem;
+    margin-bottom:1rem;
+    margin-left:2rem;
+    margin-right:2rem;
+    border: 2px solid blue;
+    text-align:center;
+    display:flex;
+    flex-wrap: wrap;
+    justify-items: center;
+}
+
+#activities-title{
+    text-align: center;
+    color:blue;
+}

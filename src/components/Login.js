@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { getUserLogin, getUsersMe } from '../api/users';
+import { getUserLogin } from '../api/users';
 import { Form, Button, Alert } from 'react-bootstrap'
 import './Login.css';
 
@@ -18,10 +18,10 @@ const Login = ({
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
     const [error, setError] = useState('')
-    const [show, setShow] = useState(true)
+    const [showAlert, setShowAlert] = useState(true)
 
     useEffect(() => {
-        setShow(true)
+        setShowAlert(true)
     }, [userToken])
 
 
@@ -78,7 +78,7 @@ const Login = ({
             <Button onClick={handleUserLogin} variant="primary" type="submit">
                 Login
     </Button>
-        </Form> : (show) ? <Alert variant='success' onClose={() => setShow(false)} dismissible>
+        </Form> : (showAlert) ? <Alert variant='success' onClose={() => setShowAlert(false)} dismissible>
             <Alert.Heading>Success!</Alert.Heading>
             <p>
                 Successful Login Congratulations!

@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const BASE = 'localhost:4000/api'
+const BASE = 'http://localhost:4000/api'
 
 export async function getActivities() {
     try {

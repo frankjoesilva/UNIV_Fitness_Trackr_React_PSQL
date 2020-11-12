@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import { getRoutines } from '../api/routines'
-import { getActivitiesFromRoutines } from '../api/routine_activities'
 import { Card } from 'react-bootstrap'
 import './Routines.css'
 
@@ -25,7 +24,7 @@ const publicRoutines = () => {
 
     return (
         <div className='public-routines'>
-            <h2 id="routine-title">Public Routines</h2>
+            <h2 id="routine-title">Routines</h2>
             {routines.map((routine) => {
                 return (<Card id="routine-card"
                     key={routine.id}

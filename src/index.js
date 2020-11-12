@@ -16,11 +16,13 @@ import {
     Register,
     Home,
     Routines,
+    Activities
 } from './components';
 
 const App = () => {
     const [userToken, setUserToken] = useState('')
     const [allRoutines, setAllRoutines] = useState([])
+    const [allActivities, setAllActivites] = useState([])
 
     useEffect(() => {
         if (localStorage.getItem('token')) {
@@ -45,6 +47,9 @@ const App = () => {
             </Route>
             <Route path='/routines'>
                 <Routines allRoutines={allRoutines} setAllRoutines={setAllRoutines} />
+            </Route>
+            <Route path='/activities'>
+                <Activities allActivities={allActivities} setAllActivites={setAllActivites} />
             </Route>
         </Router>
     );

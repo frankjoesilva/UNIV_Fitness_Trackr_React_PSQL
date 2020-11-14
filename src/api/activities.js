@@ -20,12 +20,12 @@ export async function postRoutinesActivities(routineId) {
     }
 }
 
-export async function postActivities(name, description) {
+export async function postActivities(name, description, token) {
     try {
         const { data } = await axios.post(`${BASE}/activities`, {
             name,
-            description
-        });
+            description,
+        }, { headers: { 'Authorization': `Bearer ${token}` } });
         return data;
     } catch (error) {
         throw error;

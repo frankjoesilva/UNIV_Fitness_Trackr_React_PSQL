@@ -10,6 +10,7 @@ const Activities = ({
     const [activities, setActivities] = useState([])
     const [activityName, setActivityName] = useState('')
     const [description, setDescription] = useState('')
+    const [error, setError] = useState('')
 
 
     useEffect(() => {
@@ -26,13 +27,16 @@ const Activities = ({
         <Form
             onSubmit={async (event) => {
                 event.preventDefault()
-                setActivityName('')
-                setDescription('')
                 try {
-                    const data = await postActivities(name, description)
-                    if (data.name || data.description) {
+                    const data = await postActivities(activityName, description, userToken)
+                    console.log('data', data)
+                    if (data.name === 'error') {
                         setError('Activitiy Already Exists!')
+                        return
                     }
+                    setActivityName('')
+                    setDescription('')
+                    setActivities([...activities, data])
 
                 } catch (error) {
                     console.error(error)

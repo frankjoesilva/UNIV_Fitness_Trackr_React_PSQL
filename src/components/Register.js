@@ -31,6 +31,8 @@ const Register = ({
             className="register"
             onSubmit={async (event) => {
                 event.preventDefault();
+                setUsername('')
+                setPassword('')
                 try {
                     setError('')
                     const data = await getUserRegister(username, password)
@@ -49,6 +51,7 @@ const Register = ({
 
 
             <Form.Group controlId="formBasicEmail">
+                <div id='register-instructions'>Username must be 6 or more characters and password should have a minimum of 8 characters</div>
                 <Form.Label>Username: </Form.Label>
                 <Form.Control value={username} type="username" placeholder="Username" onChange={(event) => {
                     const username = event.target.value
@@ -66,10 +69,10 @@ const Register = ({
             </Form.Group>
             <Form.Group controlId="formBasicCheckbox">
 
-            </Form.Group>
-            <Button onClick={handleUserRegister} variant="primary" type="submit">
-                Register
+                <Button onClick={handleUserRegister} variant="primary" type="submit">
+                    Register
     </Button>
+            </Form.Group>
         </Form> : (show) ? <Alert variant='success' onClose={() => setShow(false)} dismissible>
             <Alert.Heading>Success!</Alert.Heading>
             <p>

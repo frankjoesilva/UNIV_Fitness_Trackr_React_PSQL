@@ -1,7 +1,11 @@
-.register {
+.form-group{
     width:20rem;
-    margin-left:20rem;
-    margin-right:20rem;
-    margin-top:5rem;
+    margin-right:25rem;
+    margin-left:25rem;
+}
 
+#register-instructions {
+    padding:1rem;
+    color:blue;
+    text-align:center;
 }

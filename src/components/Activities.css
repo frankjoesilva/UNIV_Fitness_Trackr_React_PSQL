@@ -15,3 +15,9 @@
     text-align: center;
     color:blue;
 }
+
+.form-group{
+    width:20rem;
+    margin-right:25rem;
+    margin-left:25rem;
+}

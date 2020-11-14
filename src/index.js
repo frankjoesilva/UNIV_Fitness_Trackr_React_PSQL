@@ -49,7 +49,7 @@ const App = () => {
                 <Routines allRoutines={allRoutines} setAllRoutines={setAllRoutines} />
             </Route>
             <Route path='/activities'>
-                <Activities allActivities={allActivities} setAllActivites={setAllActivites} />
+                <Activities userToken={userToken} allActivities={allActivities} setAllActivites={setAllActivites} />
             </Route>
         </Router>
     );

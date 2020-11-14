@@ -10,7 +10,7 @@ import {
 
 const Login = ({
 
-    handleUserLogin,
+
     userToken,
     setUserToken
 
@@ -31,6 +31,8 @@ const Login = ({
             className="login"
             onSubmit={async (event) => {
                 event.preventDefault();
+                setUsername('')
+                setPassword('')
                 try {
                     if (!username || !password) {
                         setError('Incorrect Username or Password')
@@ -74,10 +76,10 @@ const Login = ({
             </Form.Group>
             <Form.Group controlId="formBasicCheckbox">
 
-            </Form.Group>
-            <Button onClick={handleUserLogin} variant="primary" type="submit">
-                Login
+                <Button variant="primary" type="submit">
+                    Login
     </Button>
+            </Form.Group>
         </Form> : (showAlert) ? <Alert variant='success' onClose={() => setShowAlert(false)} dismissible>
             <Alert.Heading>Success!</Alert.Heading>
             <p>

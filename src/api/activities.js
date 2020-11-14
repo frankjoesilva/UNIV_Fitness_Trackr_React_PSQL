@@ -20,9 +20,12 @@ export async function postRoutinesActivities(routineId) {
     }
 }
 
-export async function postActivities() {
+export async function postActivities(name, description) {
     try {
-        const { data } = await axios.post(`${BASE}/activities`);
+        const { data } = await axios.post(`${BASE}/activities`, {
+            name,
+            description
+        });
         return data;
     } catch (error) {
         throw error;

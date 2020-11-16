@@ -3,6 +3,8 @@
     margin-left:25rem
 }
 
+
+
 #input-activity{
     width:22rem;
     margin-left:25rem;
@@ -12,3 +14,8 @@
     text-align:center;
 }
 
+.btn-primary {
+    padding:.5rem;
+    width:20rem;
+    margin-bottom:1rem;
+}

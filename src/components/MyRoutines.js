@@ -12,6 +12,8 @@ const MyRoutines = ({
     const [myRoutines, setMyRoutines] = useState([])
     const [routineName, setRoutineName] = useState('')
     const [routineGoal, setRoutineGoal] = useState('')
+    const [count, setCount] = useState('')
+    const [duration, setDuration] = useState('')
     const [isPublic, setIsPublic] = useState(false)
 
     useEffect(() => {
@@ -49,7 +51,7 @@ const MyRoutines = ({
 
                 <h3 id='newRoutineTitle'>Add New Routines</h3>
                 <Form.Group controlId="routineName">
-                    <Form.Label>Routine Name: </Form.Label>
+
                     <Form.Control value={routineName} type="Name" placeholder="Routine Name" onChange={(event) => {
                         const routine = event.target.value
                         setRoutineName(routine)
@@ -58,11 +60,13 @@ const MyRoutines = ({
                 </Form.Group>
 
                 <Form.Group controlId="routineGoal">
-                    <Form.Label>Goal</Form.Label>
                     <Form.Control value={routineGoal} type="Description" placeholder="Description" onChange={(event) => {
                         const goal = event.target.value
                         setRoutineGoal(goal)
                     }} />
+                    <Button variant="primary" type="submit">
+                        Create
+            </Button>
 
                     {['checkbox'].map((type) => (
                         <div key={`-${type}`} className="mb-3">
@@ -74,10 +78,24 @@ const MyRoutines = ({
                             />
                         </div>
                     ))}
+                    <Form.Group controlId="addCountActivity">
 
-                    <Button variant="primary" type="submit">
-                        Create
+                        <Form.Control value={count} type="Name" placeholder="Count" onChange={(event) => {
+                            const count = event.target.value
+                            setCount(count)
+                        }} />
+
+                    </Form.Group>
+
+                    <Form.Group controlId="addDurationActivity">
+                        <Form.Control value={duration} type="Description" placeholder="Duration" onChange={(event) => {
+                            const duration = event.target.value
+                            setDuration(duration)
+                        }} />
+                        <Button variant="primary" type="submit">
+                            Create
             </Button>
+                    </Form.Group>
                 </Form.Group>
                 <>
                     <InputGroup className="mb-3">
@@ -95,14 +113,6 @@ const MyRoutines = ({
                             <Dropdown.Item href="#">Separated link</Dropdown.Item>
                         </DropdownButton>
                         <FormControl aria-describedby="basic-addon1" />
-                    </InputGroup>
-
-                    <InputGroup id="input-activity">
-                        <FormControl
-                            placeholder="Recipient's username"
-                            aria-label="Recipient's username"
-                            aria-describedby="basic-addon2"
-                        />
                     </InputGroup>
                 </>
             </> : null

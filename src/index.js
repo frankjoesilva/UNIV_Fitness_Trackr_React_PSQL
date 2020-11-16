@@ -6,8 +6,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import {
     BrowserRouter as Router,
     Route,
-    Switch,
-    Redirect
 } from 'react-router-dom';
 
 import {
@@ -31,17 +29,29 @@ const App = () => {
     useEffect(() => {
         if (localStorage.getItem('token')) {
             setUserToken(localStorage.getItem('token'))
+            getUsersMe(localStorage.getItem('token'))
+                .then(users => {
+                    console.log('users', users)
+                    setUser(users)
+                })
+                .catch(error => {
+                    console.error(error)
+                });
         }
     }, [])
 
     useEffect(() => {
-        getUsersMe(userToken)
-            .then(users => {
-                setUser(users)
-            })
-            .catch(error => {
-                console.error(error)
-            });
+        if (userToken) {
+
+            getUsersMe(userToken)
+                .then(users => {
+                    console.log('users', users)
+                    setUser(users)
+                })
+                .catch(error => {
+                    console.error(error)
+                });
+        }
     }, [userToken])
 
     return (

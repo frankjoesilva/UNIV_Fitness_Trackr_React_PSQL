@@ -1,36 +1,40 @@
 import React, { useState, useEffect } from 'react'
-import { getRoutines, postRoutines } from '../api/routines'
+import { getRoutines, getRoutinesByUsername, getCurrentUserRoutines, postRoutines } from '../api/routines'
 import { postActivities } from '../api/activities'
 import { Card, Form, Button, Alert } from 'react-bootstrap'
 import './MyRoutines.css'
 
-const myRoutines = ({
+const MyRoutines = ({
     userToken,
     user
 
 }) => {
-    const [activities, setActivities] = useState([])
     const [myRoutines, setMyRoutines] = useState([])
     const [routineName, setRoutineName] = useState('')
     const [routineGoal, setRoutineGoal] = useState('')
     const [isPublic, setIsPublic] = useState(false)
 
     useEffect(() => {
-        getRoutines()
-            .then(routines => {
-                setMyRoutines(routines)
-            })
-            .catch(error => {
-                console.error(error)
-            });
+        if (userToken) {
+            getCurrentUserRoutines(userToken)
+                .then(routines => {
+                    console.log('routines', routines)
+                    setMyRoutines(routines)
+                })
+                .catch(error => {
+                    console.error(error)
+                });
+        }
+
     }, [userToken]);
 
-    console.log('user', user)
 
     return (
         <Form
             onSubmit={async (event) => {
                 event.preventDefault()
+                setRoutineName('')
+                setRoutineGoal('')
                 try {
                     const updateActivity = await postRoutines(routineName, routineGoal, isPublic, userToken)
                     console.log('updateActivity', updateActivity)
@@ -76,7 +80,7 @@ const myRoutines = ({
                                 <Card.Title id="rout-name"><h3>My Routines: </h3></Card.Title>
                                 <Card.Text>Routine Name: {routine.name}</Card.Text>
                                 <Card.Text>Routine Goal: {routine.goal}</Card.Text>
-                                <Card.Text>User: {routine.creatorName}</Card.Text>
+                                <Card.Text>Creator Name: {routine.creatorName}</Card.Text>
                                 <h3 id='activities-title'>Activities For Routines</h3>
 
 
@@ -100,4 +104,4 @@ const myRoutines = ({
 }
 
 
-export default myRoutines
+export default MyRoutines

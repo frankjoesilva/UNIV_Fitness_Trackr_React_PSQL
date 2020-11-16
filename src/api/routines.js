@@ -11,9 +11,22 @@ export async function getRoutines() {
     }
 }
 
-export async function getRoutinesByUsername(username) {
+export async function getCurrentUserRoutines(token) {
     try {
-        const { data } = await axios.get(`${BASE}/users/${username}/routines`);
+        const { data } = await axios.get(`${BASE}/users/routines`, {
+            headers: { 'Authorization': `Bearer ${token}` }
+        });
+        return data;
+    } catch (error) {
+        console.error(error)
+    }
+}
+
+export async function getRoutinesByUsername(username, token) {
+    try {
+        const { data } = await axios.get(`${BASE}/users/${username}/routines`,
+
+            { headers: { 'Authorization': `Bearer ${token}` } });
         return data;
     } catch (error) {
         console.error(error);

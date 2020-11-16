@@ -27,17 +27,6 @@ export async function getUserLogin(username, password) {
     } catch (error) {
         console.error(error);
     }
-    // try {
-    //     const { data } = await axios.post(`${BASE}/users/login`, {
-    //         username,
-    //         password
-    //     });
-    //     localStorage.setItem('data.token', data.token)
-    //     console.log('data:', data)
-    //     return data;
-    // } catch (error) {
-    //     throw error;
-    // }
 }
 
 export async function getUsersMe(token) {

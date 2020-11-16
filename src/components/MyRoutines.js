@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { getRoutines, getRoutinesByUsername, getCurrentUserRoutines, postRoutines } from '../api/routines'
 import { postActivities } from '../api/activities'
-import { Card, Form, Button, Alert } from 'react-bootstrap'
+import { Card, Form, Button, Alert, Dropdown, DropdownButton, InputGroup, FormControl } from 'react-bootstrap'
 import './MyRoutines.css'
 
 const MyRoutines = ({
@@ -25,7 +25,6 @@ const MyRoutines = ({
                     console.error(error)
                 });
         }
-
     }, [userToken]);
 
 
@@ -48,6 +47,7 @@ const MyRoutines = ({
 
             {userToken ? <>
 
+                <h3 id='newRoutineTitle'>Add New Routines</h3>
                 <Form.Group controlId="routineName">
                     <Form.Label>Routine Name: </Form.Label>
                     <Form.Control value={routineName} type="Name" placeholder="Routine Name" onChange={(event) => {
@@ -63,10 +63,48 @@ const MyRoutines = ({
                         const goal = event.target.value
                         setRoutineGoal(goal)
                     }} />
+
+                    {['checkbox'].map((type) => (
+                        <div key={`-${type}`} className="mb-3">
+                            <Form.Check
+                                value={isPublic}
+                                type='checkbox'
+                                id={`isPublic-${type}`}
+                                label={`Public`}
+                            />
+                        </div>
+                    ))}
+
                     <Button variant="primary" type="submit">
-                        Submit
+                        Create
             </Button>
                 </Form.Group>
+                <>
+                    <InputGroup className="mb-3">
+
+                        <DropdownButton
+                            as={InputGroup.Prepend}
+                            variant="outline-secondary"
+                            title="Dropdown"
+                            id="input-group-dropdown-1"
+                        >
+                            <Dropdown.Item href="#">Action</Dropdown.Item>
+                            <Dropdown.Item href="#">Another action</Dropdown.Item>
+                            <Dropdown.Item href="#">Something else here</Dropdown.Item>
+                            <Dropdown.Divider />
+                            <Dropdown.Item href="#">Separated link</Dropdown.Item>
+                        </DropdownButton>
+                        <FormControl aria-describedby="basic-addon1" />
+                    </InputGroup>
+
+                    <InputGroup id="input-activity">
+                        <FormControl
+                            placeholder="Recipient's username"
+                            aria-label="Recipient's username"
+                            aria-describedby="basic-addon2"
+                        />
+                    </InputGroup>
+                </>
             </> : null
             }
             {myRoutines.map((routine) => {

@@ -20,3 +20,17 @@ export async function getRoutinesByUsername(username) {
     }
 }
 
+export async function postRoutines(name, goal, isPublic, token) {
+    try {
+        const { data } = await axios.post(`${BASE}/routines`, {
+            name,
+            goal,
+            isPublic
+        }, { headers: { 'Authorization': `Bearer ${token}` } });
+        return data;
+    } catch (error) {
+        throw error;
+    }
+}
+
+

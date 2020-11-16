@@ -12,7 +12,6 @@ const publicRoutines = () => {
     useEffect(() => {
         getRoutines()
             .then(routines => {
-                console.log('rotines', routines)
                 setRoutines(routines)
             })
             .catch(error => {

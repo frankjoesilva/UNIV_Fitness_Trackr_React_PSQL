@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { getRoutines, getRoutinesByUsername, getCurrentUserRoutines, postRoutines } from '../api/routines'
+import { getRoutines, getRoutinesByUsername, postRoutines } from '../api/routines'
 import { postActivities } from '../api/activities'
 import { Card, Form, Button, Alert, Dropdown, DropdownButton, InputGroup, FormControl } from 'react-bootstrap'
 import './MyRoutines.css'
@@ -18,7 +18,7 @@ const MyRoutines = ({
 
     useEffect(() => {
         if (userToken) {
-            getCurrentUserRoutines(userToken)
+            getRoutinesByUsername(user.username, userToken)
                 .then(routines => {
                     console.log('routines', routines)
                     setMyRoutines(routines)
@@ -27,7 +27,7 @@ const MyRoutines = ({
                     console.error(error)
                 });
         }
-    }, [userToken]);
+    }, [userToken, user]);
 
 
     return (
@@ -68,7 +68,7 @@ const MyRoutines = ({
                         Create
             </Button>
 
-                    {['checkbox'].map((type) => (
+                    {/* {['checkbox'].map((type) => (
                         <div key={`-${type}`} className="mb-3">
                             <Form.Check
                                 value={isPublic}
@@ -77,8 +77,8 @@ const MyRoutines = ({
                                 label={`Public`}
                             />
                         </div>
-                    ))}
-                    <Form.Group controlId="addCountActivity">
+                    ))} */}
+                    {/* <Form.Group controlId="addCountActivity">
 
                         <Form.Control value={count} type="Name" placeholder="Count" onChange={(event) => {
                             const count = event.target.value
@@ -95,9 +95,9 @@ const MyRoutines = ({
                         <Button variant="primary" type="submit">
                             Create
             </Button>
-                    </Form.Group>
+                    </Form.Group> */}
                 </Form.Group>
-                <>
+                {/* <>
                     <InputGroup className="mb-3">
 
                         <DropdownButton
@@ -113,8 +113,8 @@ const MyRoutines = ({
                             <Dropdown.Item href="#">Separated link</Dropdown.Item>
                         </DropdownButton>
                         <FormControl aria-describedby="basic-addon1" />
-                    </InputGroup>
-                </>
+                    </InputGroup> */}
+                {/* </> */}
             </> : null
             }
             {myRoutines.map((routine) => {

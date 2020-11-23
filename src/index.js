@@ -31,7 +31,6 @@ const App = () => {
             setUserToken(localStorage.getItem('token'))
             getUsersMe(localStorage.getItem('token'))
                 .then(users => {
-                    console.log('users', users)
                     setUser(users)
                 })
                 .catch(error => {
@@ -45,7 +44,6 @@ const App = () => {
 
             getUsersMe(userToken)
                 .then(users => {
-                    console.log('users', users)
                     setUser(users)
                 })
                 .catch(error => {

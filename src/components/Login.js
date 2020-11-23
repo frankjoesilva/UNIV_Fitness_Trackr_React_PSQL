@@ -38,7 +38,6 @@ const Login = ({
                     }
                     const data = await getUserLogin(username, password)
 
-                    console.log('data', data)
                     if (data.token) {
                         localStorage.setItem('token', data.token)
                         setUserToken(data.token)

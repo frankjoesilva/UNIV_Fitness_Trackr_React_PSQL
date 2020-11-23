@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { getActivities, postActivities } from '../api/activities'
-import { Card, Form, Button, Alert } from 'react-bootstrap'
+import { Card, Form, Button } from 'react-bootstrap'
 import './Activities.css'
 
 const Activities = ({
@@ -11,8 +11,6 @@ const Activities = ({
     const [activityName, setActivityName] = useState('')
     const [description, setDescription] = useState('')
     const [error, setError] = useState('')
-    const [showAlert, setShowAlert] = useState(true)
-
 
     useEffect(() => {
         getActivities()
@@ -32,7 +30,6 @@ const Activities = ({
                 setDescription('')
                 try {
                     const data = await postActivities(activityName, description, userToken)
-                    console.log('data', data)
                     if (data.name === 'error') {
                         setError('Activitiy Already Exists!')
                         return
@@ -40,7 +37,6 @@ const Activities = ({
                     setActivities([...activities, data])
 
                 } catch (error) {
-                    console.error(error)
                     setError(error)
                 }
 

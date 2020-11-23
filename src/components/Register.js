@@ -36,7 +36,6 @@ const Register = ({
                 try {
                     setError('')
                     const data = await getUserRegister(username, password)
-                    console.log('data', data)
                     if (data.token) {
                         setUserToken(data.token)
                     }

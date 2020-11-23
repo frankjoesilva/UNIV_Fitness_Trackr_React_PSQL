@@ -19,8 +19,6 @@ const publicRoutines = () => {
             });
     }, []);
 
-    console.log('routines', routines)
-
     return (
         <div className='public-routines'>
             <h2 id="routine-title">Routines</h2>

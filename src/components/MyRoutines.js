@@ -20,7 +20,6 @@ const MyRoutines = ({
         if (userToken) {
             getRoutinesByUsername(user.username, userToken)
                 .then(routines => {
-                    console.log('routines', routines)
                     setMyRoutines(routines)
                 })
                 .catch(error => {
@@ -38,7 +37,6 @@ const MyRoutines = ({
                 setRoutineGoal('')
                 try {
                     const updateActivity = await postRoutines(routineName, routineGoal, isPublic, userToken)
-                    console.log('updateActivity', updateActivity)
                     setMyRoutines([...myRoutines, updateActivity])
 
                 } catch (error) {

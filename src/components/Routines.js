@@ -6,8 +6,6 @@ import './Routines.css'
 
 const publicRoutines = () => {
     const [routines, setRoutines] = useState([])
-    // const [myRoutines, setMyroutines]
-
 
     useEffect(() => {
         getRoutines()

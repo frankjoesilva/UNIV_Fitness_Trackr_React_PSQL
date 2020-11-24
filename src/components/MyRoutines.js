@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
-import { getRoutines, getRoutinesByUsername, postRoutines } from '../api/routines'
-import { postActivities } from '../api/activities'
-import { Card, Form, Button, Alert, Dropdown, DropdownButton, InputGroup, FormControl } from 'react-bootstrap'
+import { getRoutinesByUsername, postRoutines } from '../api/routines'
+
+import { Card, Form, Button } from 'react-bootstrap'
 import './MyRoutines.css'
 
 const MyRoutines = ({
@@ -12,8 +12,6 @@ const MyRoutines = ({
     const [myRoutines, setMyRoutines] = useState([])
     const [routineName, setRoutineName] = useState('')
     const [routineGoal, setRoutineGoal] = useState('')
-    const [count, setCount] = useState('')
-    const [duration, setDuration] = useState('')
     const [isPublic, setIsPublic] = useState(false)
 
     useEffect(() => {
@@ -65,54 +63,7 @@ const MyRoutines = ({
                     <Button variant="primary" type="submit">
                         Create
             </Button>
-
-                    {/* {['checkbox'].map((type) => (
-                        <div key={`-${type}`} className="mb-3">
-                            <Form.Check
-                                value={isPublic}
-                                type='checkbox'
-                                id={`isPublic-${type}`}
-                                label={`Public`}
-                            />
-                        </div>
-                    ))} */}
-                    {/* <Form.Group controlId="addCountActivity">
-
-                        <Form.Control value={count} type="Name" placeholder="Count" onChange={(event) => {
-                            const count = event.target.value
-                            setCount(count)
-                        }} />
-
-                    </Form.Group>
-
-                    <Form.Group controlId="addDurationActivity">
-                        <Form.Control value={duration} type="Description" placeholder="Duration" onChange={(event) => {
-                            const duration = event.target.value
-                            setDuration(duration)
-                        }} />
-                        <Button variant="primary" type="submit">
-                            Create
-            </Button>
-                    </Form.Group> */}
                 </Form.Group>
-                {/* <>
-                    <InputGroup className="mb-3">
-
-                        <DropdownButton
-                            as={InputGroup.Prepend}
-                            variant="outline-secondary"
-                            title="Dropdown"
-                            id="input-group-dropdown-1"
-                        >
-                            <Dropdown.Item href="#">Action</Dropdown.Item>
-                            <Dropdown.Item href="#">Another action</Dropdown.Item>
-                            <Dropdown.Item href="#">Something else here</Dropdown.Item>
-                            <Dropdown.Divider />
-                            <Dropdown.Item href="#">Separated link</Dropdown.Item>
-                        </DropdownButton>
-                        <FormControl aria-describedby="basic-addon1" />
-                    </InputGroup> */}
-                {/* </> */}
             </> : null
             }
             {myRoutines.map((routine) => {

@@ -11,12 +11,12 @@ const Navbar = ({
 
             <div>
                 <ul id="navbar">
-                    <li><NavLink to="/home" activeClassName="current">HOME</NavLink></li>
-                    <li><NavLink to="/routines" activeClassName="current">ROUTINES</NavLink></li>
-                    {userToken && <li><NavLink to="/myRoutines" activeClassName="current">MY ROUTINES</NavLink></li>}
-                    <li><NavLink to="/activities" activeClassName="current">ACTIVITIES</NavLink></li>
-                    {!userToken && <li><NavLink to="/login" activeClassName="current">LOGIN</NavLink></li>}
-                    {!userToken && <li><NavLink to="/register" activeClassName="current">REGISTER</NavLink></li>}
+                    <NavLink to="/home" activeClassName="current">HOME</NavLink>
+                    <NavLink to="/routines" activeClassName="current">ROUTINES</NavLink>
+                    {userToken && <NavLink to="/myRoutines" activeClassName="current">MY ROUTINES</NavLink>}
+                    <NavLink to="/activities" activeClassName="current">ACTIVITIES</NavLink>
+                    {!userToken && <NavLink to="/login" activeClassName="current">LOGIN</NavLink>}
+                    {!userToken && <NavLink to="/register" activeClassName="current">REGISTER</NavLink>}
                 </ul>
             </div>
         </>

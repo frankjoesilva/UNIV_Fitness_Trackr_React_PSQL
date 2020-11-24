@@ -2,8 +2,6 @@ import React, { useState } from 'react';
 import './Header.css';
 
 const Header = ({
-    currentUser,
-    setCurrentUser,
     userToken,
     setUserToken
 }) => {

@@ -17,7 +17,6 @@ import useStyles from '../config/themeSignUp';
 import PasswordForget from '../components/PasswordForget';
 
 function SignIn(props) {
-
     const classes = useStyles();
 
     const initialUser = { id: null, email: '', password: '', error: null, auth: null }
@@ -33,7 +32,7 @@ function SignIn(props) {
         props.firebase.doSignInWithEmailAndPassword(user.email, user.password)
             .then(authUser => {
                 setUser({ initialUser })
-                props.history.push("/dashboard");
+                props.history.push("/Dashboard");
             })
             .catch(error => {
                 setUser({ ...user, error: error.message })
@@ -44,7 +43,6 @@ function SignIn(props) {
 
     return (
         <Grid container component="main" className={classes.root}>
-            <title>Fitness Tracker - Sign In</title>
             <CssBaseline />
             <Grid item xs={false} sm={4} md={7} className={classes.image} />
             <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
@@ -109,6 +107,7 @@ function SignIn(props) {
                             </Grid>
                         </Grid>
                         <Box mt={5}>
+
                         </Box>
                     </form>
                 </div>

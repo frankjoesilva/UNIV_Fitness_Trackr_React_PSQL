@@ -1,4 +1,4 @@
-#routine-card {
+/* #routine-card {
   padding:.2rem;
   margin-top: 2rem;
   margin-bottom:1rem;
@@ -31,4 +31,35 @@
 
 #activity-name{
     color:hotpink;
-}
+} */
+
+.focus {
+    transition: transform 0.3s;
+  }
+  
+  .focus:hover {
+    transform: scale(1.05);
+  }
+  
+  .card-title {
+    font-size: 1.3rem;
+    font-weight: 600;
+    hyphens:auto;
+  
+  }
+  
+  .image-style {
+    width: 3em;
+  }
+  
+  .font-details {
+    font-size: 3em;
+    font-weight: 500;
+    color: #ffffff;
+  }
+  
+  .font-details-b {
+    font-size: 3em;
+    font-weight: 500;
+    color: #ffffff;
+  }

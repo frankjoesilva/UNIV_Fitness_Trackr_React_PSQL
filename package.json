@@ -19,13 +19,24 @@
     "url": "https://github.com/frankjoesilva/UNIV_FitnessTrackr_React_Starter/issues"
   },
   "dependencies": {
-    "axios": "^0.21.0",
+    "@material-ui/core": "^4.11.4",
+    "@material-ui/icons": "^4.11.2",
+    "axios": "^0.21.1",
     "bootstrap": "^4.5.3",
+    "clsx": "^1.1.1",
+    "firebase": "^8.6.7",
+    "firebaseui": "^4.8.0",
+    "moment": "^2.29.1",
     "react": "^17.0.1",
     "react-bootstrap": "^1.4.0",
     "react-dom": "^17.0.1",
+    "react-id-generator": "^3.0.1",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "^4.0.0"
+    "react-scripts": "^4.0.0",
+    "styled-components": "^5.3.0"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
   },
   "browserslist": {
     "production": [
@@ -38,5 +49,6 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "devDependencies": {}
 }

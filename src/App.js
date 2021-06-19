@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import ReactDOM from 'react-dom';
 import { getUsersMe } from './api/users'
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -53,12 +52,13 @@ const App = () => {
     }, [userToken])
 
     return (
+
         <Router>
             <div id="App">
                 <Header userToken={userToken} setUserToken={setUserToken} />
                 <Navbar userToken={userToken} setUserToken={setUserToken} />
             </div>
-            <Route path='/login'>
+            <Route path='/'>
                 <Login user={user} setUser={setUser} userToken={userToken} setUserToken={setUserToken} />
             </Route>
             <Route path='/register'>
@@ -81,3 +81,40 @@ const App = () => {
 }
 
 export default App
+
+// import React from 'react'
+// import './App.css';
+// import {
+//     BrowserRouter as Router,
+//     Switch,
+//     Route,
+// } from "react-router-dom"
+
+// import { ThemeProvider } from '@material-ui/core/styles';
+// import theme from './config/themeConfig';
+
+// import Dashboard from './pages/Dashboard';
+// import SignIn from './pages/SignIn';
+// import SignUp from './pages/SignUp';
+
+// function App() {
+//     return (
+//         <Router>
+//             <ThemeProvider theme={theme}>
+//                 <Switch>
+//                     <Route exact path="/">
+//                         <SignIn />
+//                     </Route>
+//                     <Route path="/sign-up">
+//                         <SignUp />
+//                     </Route>
+//                     <Route path="/dashboard">
+//                         <Dashboard />
+//                     </Route>
+//                 </Switch>
+//             </ThemeProvider>
+//         </Router>
+//     );
+// }
+
+// export default App;

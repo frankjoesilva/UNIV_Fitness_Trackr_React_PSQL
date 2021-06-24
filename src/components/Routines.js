@@ -20,7 +20,7 @@ const PublicRoutines = () => {
     }, []);
     return (
         <div className='public-routines'>
-            <h2 id="routine-title">Routines</h2>
+            <h1 className="text-center font-details-b pb-4">Routines</h1>
             {routines.map((routine) => {
                 return (
 
@@ -29,17 +29,16 @@ const PublicRoutines = () => {
                         key={routine.id}
                         style={{ width: '23rem' }}>
                         <Card.Body>
-                            <Card.Title className="text-center  card-title" >Routine</Card.Title>
                             <Card.Header className="text-center  card-header" id="creator-name">Creator Name: {routine.creatorName}</Card.Header>
-                            <Card.Text>Routine Name: {routine.name}</Card.Text>
-                            <Card.Text>Goal:{routine.goal}</Card.Text>
+                            <Card.Text className="text-center  card-text">Routine Name: {routine.name}</Card.Text>
+                            <Card.Text className="text-center  card-text">Goal:{routine.goal}</Card.Text>
                             <Card.Title className="text-center  card-title" id="activity-routine-title">Activities For Routines</Card.Title>
                             {routine.activities.map((activity, index) => {
                                 return (
                                     <React.Fragment key={index}>
-                                        <Card.Title className="text-center  card-title">Activity Name: {activity.name}</Card.Title>
-                                        <Card.Text className="card-text d-flex justify-content-start flex-column">Activity Duration: {activity.duration}</Card.Text>
-                                        <Card.Text className="card-text d-flex justify-content-start flex-column">Activity Count: {activity.count}</Card.Text>
+                                        <Card.Text className="text-center  card-text">Activity Name: {activity.name}</Card.Text>
+                                        <Card.Text className="text-center  card-text">Activity Duration: {activity.duration}</Card.Text>
+                                        <Card.Text className="text-center  card-text">Activity Count: {activity.count}</Card.Text>
                                     </React.Fragment>
                                 )
                             })}

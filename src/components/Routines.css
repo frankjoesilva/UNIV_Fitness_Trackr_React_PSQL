@@ -32,6 +32,11 @@
 #activity-name{
     color:hotpink;
 } */
+#creator-name{
+  font-size: 1.3rem;
+  font-weight: 600;
+  hyphens:auto;
+}
 
 .focus {
     transition: transform 0.3s;

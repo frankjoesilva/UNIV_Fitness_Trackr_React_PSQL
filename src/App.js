@@ -2,6 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { getUsersMe } from './api/users'
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+// import { ThemeProvider } from '@material-ui/core/styles';
+// import theme from './config/themeConfig';
+
 import {
     BrowserRouter as Router,
     Route,

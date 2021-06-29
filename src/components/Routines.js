@@ -35,7 +35,6 @@ const PublicRoutines = () => {
                         style={{ width: '23rem' }}>
 
                         <Card.Body>
-                            {/* <h2 className="text-center font-details-b pb-4">Routine</h2> */}
                             <Card.Title className="text-center  card-title">Creator Name: {routine.creatorName}</Card.Title>
                             <Card.Text className="text-center">Routine Name: {routine.name}</Card.Text>
                             <Card.Text className="text-center">Goal:{routine.goal}</Card.Text>

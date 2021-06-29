@@ -3,6 +3,7 @@ import { getActivities, postActivities } from '../api/activities'
 import { Card, Form, Button } from 'react-bootstrap'
 import './Activities.css'
 
+
 const Activities = ({
 
     userToken

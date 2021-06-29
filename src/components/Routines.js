@@ -1,9 +1,15 @@
 import React, { useState, useEffect } from 'react'
 import { getRoutines } from '../api/routines'
-import { Card } from 'react-bootstrap'
-import CardGroup from 'react-bootstrap/CardGroup'
-import CardDeck from 'react-bootstrap/CardDeck'
+import { Card, CardDeck } from 'react-bootstrap'
 import './Routines.css'
+
+// import Table from '@material-ui/core/Table';
+// import TableBody from '@material-ui/core/TableBody';
+// import TableCell from '@material-ui/core/TableCell';
+// import TableContainer from '@material-ui/core/TableContainer';
+// import TableHead from '@material-ui/core/TableHead';
+// import TableRow from '@material-ui/core/TableRow';
+// import Paper from '@material-ui/core/Paper';
 
 
 const PublicRoutines = () => {
@@ -18,83 +24,104 @@ const PublicRoutines = () => {
                 console.error(error)
             });
     }, []);
+
     return (
         <div className='public-routines'>
-            <h1 className="text-center font-details-b pb-4">Routines</h1>
+            <h2 className="text-center font-details-b pb-4">Routines</h2>
             {routines.map((routine) => {
-                return (
-
-                    <Card
-                        className="focus mt-2 mb-2"
+                return (<CardDeck>
+                    <Card className="focus mt-2 mb-2"
                         key={routine.id}
                         style={{ width: '23rem' }}>
+
                         <Card.Body>
-                            <Card.Header className="text-center  card-header" id="creator-name">Creator Name: {routine.creatorName}</Card.Header>
-                            <Card.Text className="text-center  card-text">Routine Name: {routine.name}</Card.Text>
-                            <Card.Text className="text-center  card-text">Goal:{routine.goal}</Card.Text>
-                            <Card.Title className="text-center  card-title" id="activity-routine-title">Activities For Routines</Card.Title>
+                            {/* <h2 className="text-center font-details-b pb-4">Routine</h2> */}
+                            <Card.Title className="text-center  card-title">Creator Name: {routine.creatorName}</Card.Title>
+                            <Card.Text className="text-center">Routine Name: {routine.name}</Card.Text>
+                            <Card.Text className="text-center">Goal:{routine.goal}</Card.Text>
+                            <Card.Title className="text-center  card-title" id="activities-for-routines" >Activities For Routines</Card.Title>
                             {routine.activities.map((activity, index) => {
                                 return (
                                     <React.Fragment key={index}>
-                                        <Card.Text className="text-center  card-text">Activity Name: {activity.name}</Card.Text>
-                                        <Card.Text className="text-center  card-text">Activity Duration: {activity.duration}</Card.Text>
-                                        <Card.Text className="text-center  card-text">Activity Count: {activity.count}</Card.Text>
+                                        <Card.Title className="text-center  card-title">Activity Name: {activity.name}</Card.Title>
+                                        <Card.Text className="text-center">Activity Duration: {activity.duration}</Card.Text>
+                                        <Card.Text className="text-center">Activity Count: {activity.count}</Card.Text>
                                     </React.Fragment>
                                 )
                             })}
                         </Card.Body>
-
-                    </Card>)
+                    </Card>
+                </CardDeck>)
             })}
         </div>
     );
 }
 
-
 export default PublicRoutines
 
-// const publicRoutines = () => {
+// const PublicRoutines = () => {
 //     const [routines, setRoutines] = useState([])
 
 //     useEffect(() => {
-//                 getRoutines()
-//                     .then(routines => {
-//                         setRoutines(routines)
-//                     })
-//                     .catch(error => {
-//                         console.error(error)
-//                     });
+//         getRoutines()
+//             .then(routines => {
+//                 setRoutines(routines)
+//             })
+//             .catch(error => {
+//                 console.error(error)
+//             });
 //     }, []);
-
 //     return (
-//             <div className='public-routines'>
-//                 <h2 id="routine-title">Routines</h2>
-//                 {routines.map((routine) => {
-//                     return (<Card id="routine-card"
-//                         key={routine.id}
-//                         style={{ width: '23rem' }}>
+//         <>
 
-//                         <Card.Body>
-//                             <h2 id="routine-card-title">Routines</h2>
-//                             <Card.Title id="creator-name">Creator Name: {routine.creatorName}</Card.Title>
-//                             <Card.Text>Routine Name: {routine.name}</Card.Text>
-//                             <Card.Text>Goal:{routine.goal}</Card.Text>
-//                             <h4 id="activity-routine-title">Activities For Routines</h4>
-//                             {routine.activities.map((activity, index) => {
-//                                 return (
-//                                     <React.Fragment key={index}>
-//                                         <Card.Title id="activity-name">Activity Name: {activity.name}</Card.Title>
-//                                         <Card.Text>Activity Duration: {activity.duration}</Card.Text>
-//                                         <Card.Text>Activity Count: {activity.count}</Card.Text>
-//                                     </React.Fragment>
-//                                 )
-//                             })}
-//                         </Card.Body>
-//                     </Card>)
-//                 })}
-//             </div>
-//     );
-// }
+//             {
+//                 routines === 'not set' || routines === null
+//                     ? <p>No routines added yet.</p>
+//                     :
+//                     <TableContainer component={Paper} >
+//                         <Table>
+//                             <TableHead>
+//                                 <TableRow>
+//                                     <TableCell>Name</TableCell>
+//                                     <TableCell>Goal</TableCell>
+//                                     <TableCell>Duration</TableCell>
+//                                     <TableCell>Actions</TableCell>
+//                                 </TableRow>
+//                             </TableHead>
+//                             <TableBody>
+//                                 {
+//                                     Object.values(routines).map((routine, i) => {
+//                                         let { name, goal, duration } = routine
+//                                         switch (routine.goal) {
+//                                             case 1:
+//                                                 goal = "Lifting weights";
+//                                                 break;
+//                                             case 2:
+//                                                 goal = "Running";
+//                                                 break;
+//                                             case 3:
+//                                                 goal = "Cycling";
+//                                                 break;
+//                                             default:
+//                                                 goal = "Not set";
+//                                         };
+//                                         return (
+//                                             <TableRow key={i}>
+//                                                 <TableCell>{name}</TableCell>
+//                                                 <TableCell>{goal}</TableCell>
+//                                                 <TableCell>{duration}</TableCell>
+//                                                 <TableCell>
 
+//                                                 </TableCell>
+//                                             </TableRow>
+//                                         );
+//                                     })
+//                                 }
+//                             </TableBody>
+//                         </Table>
+//                     </TableContainer>
+//             }
+//         </>
+//     )
+// };
 
-// export default publicRoutines

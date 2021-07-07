@@ -5,7 +5,7 @@ const Header = ({
     userToken,
     setUserToken
 }) => {
-    const handleSubmit = async (event) => {
+    const handleUserLogin = async (event) => {
         event.preventDefault();
 
     }

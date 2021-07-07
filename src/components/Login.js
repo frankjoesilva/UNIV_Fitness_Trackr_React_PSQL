@@ -75,13 +75,13 @@ const Login = ({
 
                 <Button variant="primary" type="submit">
                     Login
-    </Button>
+                </Button>
             </Form.Group>
         </Form> : (showAlert) ? <Alert variant='success' onClose={() => setShowAlert(false)} dismissible>
             <Alert.Heading>Success!</Alert.Heading>
             <p>
                 Successful Login Congratulations!
-        </p>
+            </p>
         </Alert> : <Redirect to='/home' />
     );
 }

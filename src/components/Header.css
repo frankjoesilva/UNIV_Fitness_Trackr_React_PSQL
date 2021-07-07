@@ -9,14 +9,14 @@ header {
   font-family: 'Balsamic Sans', sans-serif;
   font-size: 16px;
 
-  background: black;
+  background:rgb(201, 21, 201);
   padding: 1em;
 }
 
 header h1 {
   font-size: 2.4em;
   font-style: italic;
-  color: white;
+  color: limegreen ;
   text-shadow: 1px 1px 3px black;
 }
 
@@ -45,12 +45,12 @@ header .user-select button {
 
 #logout-btn{
   padding: 8px 12px;
-  border: 1px solid #333333;
+  border: 1px solid limegreen;
   border-radius: 4px;
   outline: none;
-  background: #ffffff;
+  background: black;
   box-shadow: 0 3px 6px -5px;
-  color: #333333;
+  color: limegreen;
   font-weight: bold;
   font-size: 1em;
 }

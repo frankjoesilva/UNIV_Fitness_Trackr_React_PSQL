@@ -88,9 +88,9 @@ const MyRoutines = ({
                                 style={{ width: '23rem' }}>
                                 <Card.Body>
                                     <Card.Title className="text-center  card-title">My Routines:</Card.Title>
+                                    <Card.Text className="text-center">Creator Name: {routine.creatorName}</Card.Text>
                                     <Card.Text className="text-center">Routine Name: {routine.name}</Card.Text>
                                     <Card.Text className="text-center">Routine Goal: {routine.goal}</Card.Text>
-                                    <Card.Text className="text-center">Creator Name: {routine.creatorName}</Card.Text>
                                     <h3 id='activities-title'>Activities For Routines</h3>
 
 

@@ -1,14 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './Header.css';
 
 const Header = ({
     userToken,
     setUserToken
 }) => {
-    const handleUserLogin = async (event) => {
-        event.preventDefault();
 
-    }
 
     const handleUserLogout = (event) => {
         event.preventDefault()

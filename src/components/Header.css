@@ -53,5 +53,8 @@ header .user-select button {
   color: limegreen;
   font-weight: bold;
   font-size: 1em;
+  position: absolute;
+  right: 10px;
+  top: 1.25rem;
 }
 

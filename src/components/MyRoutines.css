@@ -8,10 +8,10 @@
 }
 
 
-#input-activity{
+/* #input-activity{
     width:22rem;
     margin-left:25rem;
-}
+} */
 
 #newRoutineTitle{
     text-align:center;
@@ -21,7 +21,25 @@
 
 .btn-primary {
     padding:.5rem;
+    font-size: 1.5;
     width:20rem;
+   
     margin-bottom:1rem;
+    margin-top: .5rem;
+    background-color: limegreen;
+    border-radius: 7px;
 }
+
+#add-routines{
+    border:3px solid limegreen;
+    padding-top: 2rem;
+    background-color:rgb(201, 21, 201);
+    border-radius: 7px;
+    width:50rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
 

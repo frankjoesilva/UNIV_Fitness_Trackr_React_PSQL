@@ -33,3 +33,4 @@ export async function postActivities(name, description, token) {
         throw error;
     }
 }
+

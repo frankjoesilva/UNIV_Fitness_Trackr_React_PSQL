@@ -1,6 +1,4 @@
-html {
-    cursor: pointer;
-  }
+
   #navbar {
     
     display: flex;
@@ -15,12 +13,14 @@ html {
     border-bottom: 2.5px solid limegreen;
     padding:1rem;
     background-color: black;
+    color:limegreen;
     
   }
 
-  a{
+  ul li {
     color:limegreen;
   }
+  
   
   ul li:hover {
     transition: color 600ms ease 0s;

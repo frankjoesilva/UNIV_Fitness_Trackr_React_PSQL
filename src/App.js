@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { getUsersMe } from './api/users'
-import 'bootstrap/dist/css/bootstrap.min.css';
 import TitleMessage from "./components/Title-message";
 
 

@@ -14,7 +14,7 @@ const MyRoutines = ({
     const [myRoutines, setMyRoutines] = useState([])
     const [routineName, setRoutineName] = useState('')
     const [routineGoal, setRoutineGoal] = useState('')
-    const [isPublic, setIsPublic] = useState(false)
+    const [isPublic] = useState(false)
 
     useEffect(() => {
         if (userToken) {
@@ -48,7 +48,7 @@ const MyRoutines = ({
             {userToken ? <>
 
                 <h3 id='newRoutineTitle'>Add New Routines</h3>
-                <Container>
+                <Container id="add-routines">
                     <Form.Group controlId="routineName">
 
                         <Form.Control value={routineName} type="Name" placeholder="Routine Name" onChange={(event) => {
@@ -101,6 +101,9 @@ const MyRoutines = ({
                                 </Card.Body>
                             </Card>
                         </CardDeck>)
+                }
+                else {
+                    return null
                 }
 
             })}

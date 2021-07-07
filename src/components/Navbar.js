@@ -11,6 +11,7 @@ const Navbar = ({
 
             <div>
                 <ul id="navbar">
+
                     <NavLink to="/home" activeClassName="current">HOME</NavLink>
                     <NavLink to="/routines" activeClassName="current">ROUTINES</NavLink>
                     {userToken && <NavLink to="/myRoutines" activeClassName="current">MY ROUTINES</NavLink>}

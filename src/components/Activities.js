@@ -47,9 +47,8 @@ const Activities = ({
             <h2 id="activities-title">Activities</h2>
             {userToken ? <>
 
-                <Container>
+                <Container id="add-activities">
                     <Form.Group controlId="activityName">
-                        <Form.Label>Activity Name: </Form.Label>
                         <Form.Control value={activityName} type="Name" placeholder="Activity Name" onChange={(event) => {
                             const actName = event.target.value
                             setActivityName(actName)
@@ -59,7 +58,6 @@ const Activities = ({
                     </Form.Group>
 
                     <Form.Group controlId="activityDescription">
-                        <Form.Label>Description</Form.Label>
                         <Form.Control value={description} type="Description" placeholder="Description" onChange={(event) => {
                             const description = event.target.value
                             setDescription(description)

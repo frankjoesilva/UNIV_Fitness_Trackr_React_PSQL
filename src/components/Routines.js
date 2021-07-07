@@ -3,14 +3,6 @@ import { getRoutines } from '../api/routines'
 import { Card, CardDeck } from 'react-bootstrap'
 import './Routines.css'
 
-// import Table from '@material-ui/core/Table';
-// import TableBody from '@material-ui/core/TableBody';
-// import TableCell from '@material-ui/core/TableCell';
-// import TableContainer from '@material-ui/core/TableContainer';
-// import TableHead from '@material-ui/core/TableHead';
-// import TableRow from '@material-ui/core/TableRow';
-// import Paper from '@material-ui/core/Paper';
-
 
 const PublicRoutines = () => {
     const [routines, setRoutines] = useState([])
@@ -27,7 +19,7 @@ const PublicRoutines = () => {
 
     return (
         <div className='public-routines'>
-            <h2 className="text-center font-details-b pb-4">Routines</h2>
+            <h2 className="text-center font-details-b pb-4" id='routine-title'>Routines</h2>
             {routines.map((routine) => {
                 return (<CardDeck>
                     <Card className="focus mt-2 mb-2"
@@ -57,70 +49,4 @@ const PublicRoutines = () => {
 }
 
 export default PublicRoutines
-
-// const PublicRoutines = () => {
-//     const [routines, setRoutines] = useState([])
-
-//     useEffect(() => {
-//         getRoutines()
-//             .then(routines => {
-//                 setRoutines(routines)
-//             })
-//             .catch(error => {
-//                 console.error(error)
-//             });
-//     }, []);
-//     return (
-//         <>
-
-//             {
-//                 routines === 'not set' || routines === null
-//                     ? <p>No routines added yet.</p>
-//                     :
-//                     <TableContainer component={Paper} >
-//                         <Table>
-//                             <TableHead>
-//                                 <TableRow>
-//                                     <TableCell>Name</TableCell>
-//                                     <TableCell>Goal</TableCell>
-//                                     <TableCell>Duration</TableCell>
-//                                     <TableCell>Actions</TableCell>
-//                                 </TableRow>
-//                             </TableHead>
-//                             <TableBody>
-//                                 {
-//                                     Object.values(routines).map((routine, i) => {
-//                                         let { name, goal, duration } = routine
-//                                         switch (routine.goal) {
-//                                             case 1:
-//                                                 goal = "Lifting weights";
-//                                                 break;
-//                                             case 2:
-//                                                 goal = "Running";
-//                                                 break;
-//                                             case 3:
-//                                                 goal = "Cycling";
-//                                                 break;
-//                                             default:
-//                                                 goal = "Not set";
-//                                         };
-//                                         return (
-//                                             <TableRow key={i}>
-//                                                 <TableCell>{name}</TableCell>
-//                                                 <TableCell>{goal}</TableCell>
-//                                                 <TableCell>{duration}</TableCell>
-//                                                 <TableCell>
-
-//                                                 </TableCell>
-//                                             </TableRow>
-//                                         );
-//                                     })
-//                                 }
-//                             </TableBody>
-//                         </Table>
-//                     </TableContainer>
-//             }
-//         </>
-//     )
-// };
 

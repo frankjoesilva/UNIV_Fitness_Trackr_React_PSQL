@@ -11,7 +11,8 @@ html {
     font-family: 'Balsamic Sans', sans-serif;
     font-size: 16px;
     font-weight: bold;
-    border-bottom: 3px solid black;
+    border-top: 3px solid limegreen;
+    border-bottom: 2.5px solid limegreen;
     padding:1rem;
     background-color: black;
     
@@ -24,4 +25,5 @@ html {
   ul li:hover {
     transition: color 600ms ease 0s;
     text-decoration: underline;
+    
   }

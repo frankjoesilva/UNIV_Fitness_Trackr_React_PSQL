@@ -30,7 +30,7 @@ const Home = () => {
                     <img
                         className="d-block w-100 custom img"
                         src={Slide3}
-                        alt="Second slide"
+                        alt="Third slide"
                     />
                 </Carousel.Item>
             </Carousel>

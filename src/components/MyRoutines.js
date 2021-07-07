@@ -1,16 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import { getRoutinesByUsername, postRoutines } from '../api/routines'
 
-import { Card, Form, Button, CardDeck, Container, Col, Row } from 'react-bootstrap'
+import { Card, Form, Button, CardDeck, Container } from 'react-bootstrap'
 import './MyRoutines.css'
 
-import Table from '@material-ui/core/Table';
-import TableBody from '@material-ui/core/TableBody';
-import TableCell from '@material-ui/core/TableCell';
-import TableContainer from '@material-ui/core/TableContainer';
-import TableHead from '@material-ui/core/TableHead';
-import TableRow from '@material-ui/core/TableRow';
-import Paper from '@material-ui/core/Paper';
 
 
 const MyRoutines = ({
@@ -83,7 +76,8 @@ const MyRoutines = ({
 
                     return (
                         <CardDeck>
-                            <Card className="focus mt-2 mb-2"
+                            <Card id="myRoutines-card"
+                                className="focus mt-2 mb-2"
                                 key={routine.id}
                                 style={{ width: '23rem' }}>
                                 <Card.Body>
@@ -94,7 +88,7 @@ const MyRoutines = ({
                                     <h3 id='activities-title'>Activities For Routines</h3>
 
 
-                                    {routine.activities && routine.activities.map((activity, index) => {
+                                    {routine.activities.map((activity, index) => {
                                         return (
                                             <React.Fragment key={index}>
                                                 <Card.Title className="text-center  card-title">Activity Name: {activity.name}</Card.Title>

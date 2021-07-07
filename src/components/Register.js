@@ -48,10 +48,10 @@ const Register = ({
             }} >
             {error ? <div>{error}</div> : null}
 
-            <Container>
+            <Container id='register-form'>
                 <Form.Group controlId="formBasicEmail">
                     <div id='register-instructions'>Username must be 6 or more characters and password should have a minimum of 8 characters</div>
-                    <Form.Label>Username: </Form.Label>
+                    <Form.Label style={{ color: "limegreen" }}>Username: </Form.Label>
                     <Form.Control value={username} type="username" placeholder="Username" onChange={(event) => {
                         const username = event.target.value
                         setUsername(username)
@@ -60,7 +60,7 @@ const Register = ({
                 </Form.Group>
 
                 <Form.Group controlId="formBasicPassword">
-                    <Form.Label>Password: </Form.Label>
+                    <Form.Label style={{ color: "limegreen" }}>Password: </Form.Label>
                     <Form.Control value={password} type="password" placeholder="Password" onChange={(event) => {
                         const password = event.target.value
                         setPassword(password)

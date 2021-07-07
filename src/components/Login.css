@@ -1,6 +1,12 @@
 
-.form-group{
-    width:20rem;
-    margin-right:25rem;
-    margin-left:25rem;
+#login-form {
+    padding-top:3rem;
+}
+
+.btn-primary{
+    color:limegreen;
+    font-size: larger;
+    font-weight: 550;
+    background-color: rgb(201, 21, 201);
+    border-color: rgb(201, 21, 201);
 }

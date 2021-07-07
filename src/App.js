@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { getUsersMe } from './api/users'
 import 'bootstrap/dist/css/bootstrap.min.css';
+import TitleMessage from "./components/Title-message";
 
-// import { ThemeProvider } from '@material-ui/core/styles';
-// import theme from './config/themeConfig';
+
 
 import {
     BrowserRouter as Router,
@@ -18,7 +18,7 @@ import {
     Home,
     Routines,
     Activities,
-    MyRoutines
+    MyRoutines,
 } from './components';
 
 const App = () => {
@@ -60,6 +60,7 @@ const App = () => {
             <div id="App">
                 <Header userToken={userToken} setUserToken={setUserToken} />
                 <Navbar userToken={userToken} setUserToken={setUserToken} />
+
             </div>
             <Route path='/login'>
                 <Login user={user} setUser={setUser} userToken={userToken} setUserToken={setUserToken} />
@@ -69,6 +70,7 @@ const App = () => {
             </Route>
             <Route path='/home'>
                 <Home userToken={userToken} setUserToken={setUserToken} />
+                <TitleMessage />
             </Route>
             <Route path='/routines'>
                 <Routines allRoutines={allRoutines} setAllRoutines={setAllRoutines} />

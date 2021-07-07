@@ -1,8 +1,11 @@
-.mb-3{
-    width:22rem;
-    margin-left:25rem
+#myRoutines-card{
+    padding:.2rem;
+    margin-left: 20rem;
+    margin-right:20rem;
+    margin-bottom: 1rem;
+    border: 3px solid rgb(201, 21, 201);
+    text-align:center;
 }
-
 
 
 #input-activity{
@@ -12,6 +15,8 @@
 
 #newRoutineTitle{
     text-align:center;
+    padding: 1rem;
+    color:limegreen;
 }
 
 .btn-primary {

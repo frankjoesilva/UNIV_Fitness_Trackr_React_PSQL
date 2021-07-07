@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { getActivities, postActivities } from '../api/activities'
-import { Card, Form, Button } from 'react-bootstrap'
+import { Card, Form, Button, Container, CardDeck } from 'react-bootstrap'
 import './Activities.css'
 
 
@@ -47,45 +47,49 @@ const Activities = ({
             <h2 id="activities-title">Activities</h2>
             {userToken ? <>
 
-                <Form.Group controlId="activityName">
-                    <Form.Label>Activity Name: </Form.Label>
-                    <Form.Control value={activityName} type="Name" placeholder="Activity Name" onChange={(event) => {
-                        const actName = event.target.value
-                        setActivityName(actName)
-                    }} />
-                    {error ? <div>{error}</div> : null}
+                <Container>
+                    <Form.Group controlId="activityName">
+                        <Form.Label>Activity Name: </Form.Label>
+                        <Form.Control value={activityName} type="Name" placeholder="Activity Name" onChange={(event) => {
+                            const actName = event.target.value
+                            setActivityName(actName)
+                        }} />
+                        {error ? <div>{error}</div> : null}
 
-                </Form.Group>
+                    </Form.Group>
 
-                <Form.Group controlId="activityDescription">
-                    <Form.Label>Description</Form.Label>
-                    <Form.Control value={description} type="Description" placeholder="Description" onChange={(event) => {
-                        const description = event.target.value
-                        setDescription(description)
-                    }} />
-                    <Button variant="primary" type="submit">
-                        Submit
-        </Button>
-                    <Button variant="primary" type="submit">
-                        edit
-        </Button>
-                    <Button variant="primary" type="submit">
-                        delete
-        </Button>
-                </Form.Group>
+                    <Form.Group controlId="activityDescription">
+                        <Form.Label>Description</Form.Label>
+                        <Form.Control value={description} type="Description" placeholder="Description" onChange={(event) => {
+                            const description = event.target.value
+                            setDescription(description)
+                        }} />
+                        <Button variant="primary" type="submit">
+                            Submit
+                        </Button>
+                        <Button variant="primary" type="submit">
+                            edit
+                        </Button>
+                        <Button variant="primary" type="submit">
+                            delete
+                        </Button>
+                    </Form.Group>
+                </Container>
 
             </> : null
             }
             {activities.map((activity) => {
-                return (<Card id="activity-card"
-                    key={activity.id}
-                    style={{ width: '23rem' }}>
-                    <Card.Body>
-                        <Card.Title id="activity-name"><h3>Activity: </h3></Card.Title>
-                        <Card.Text>Activity Name: {activity.name}</Card.Text>
-                        <Card.Text>Description: {activity.description}</Card.Text>
-                    </Card.Body>
-                </Card>)
+                return (<CardDeck id="activity-cardDeck">
+                    <Card id="activity-card"
+                        key={activity.id}
+                        style={{ width: '23rem' }}>
+                        <Card.Body>
+                            <Card.Title id="activity-name"><h3>Activity: </h3></Card.Title>
+                            <Card.Text>Activity Name: {activity.name}</Card.Text>
+                            <Card.Text>Description: {activity.description}</Card.Text>
+                        </Card.Body>
+                    </Card>
+                </CardDeck>)
             })}
 
         </Form>

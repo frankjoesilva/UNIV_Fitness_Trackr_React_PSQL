@@ -65,12 +65,6 @@ const Activities = ({
                         <Button variant="primary" type="submit">
                             Submit
                         </Button>
-                        <Button variant="primary" type="submit">
-                            edit
-                        </Button>
-                        <Button variant="primary" type="submit">
-                            delete
-                        </Button>
                     </Form.Group>
                 </Container>
 

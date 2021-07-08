@@ -88,7 +88,7 @@ const MyRoutines = ({
                                     <h3 id='activities-title'>Activities For Routines</h3>
 
 
-                                    {routine.activities.map((activity, index) => {
+                                    {routine.activities && routine.activities.map((activity, index) => {
                                         return (
                                             <React.Fragment key={index}>
                                                 <Card.Title className="text-center  card-title">Activity Name: {activity.name}</Card.Title>

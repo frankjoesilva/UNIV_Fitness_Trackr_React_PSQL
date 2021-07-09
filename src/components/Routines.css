@@ -12,7 +12,9 @@
    
 }
 
-
+#username{
+  border: 3px solid rgb(201, 21, 201);
+}
 
 .card-text{
    color:blue 

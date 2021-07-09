@@ -5,13 +5,32 @@
 }
 
 #register-instructions {
-    padding:1rem;
+    
+    font-weight: 550;
     color:limegreen;
     text-align:center;
+    padding-bottom: 2rem;
+}
+
+#username{
+    font-weight: 500;
+}
+
+#password{
+    font-weight: 500;
 }
 
 #register-form{
-    padding-top: 1.5rem;
+    padding-top: 2rem;
+    border:3px solid limegreen;
+    padding-top: 2rem;
+    background-color:rgb(201, 21, 201);
+    border-radius: 7px;
+    width:30rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
 }
 
 body {

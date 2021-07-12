@@ -33,7 +33,7 @@ const PublicRoutines = () => {
                             <Card.Title className="text-center  card-title" id="activities-for-routines" >Activities For Routines</Card.Title>
                             {routine.activities.map((activity, index) => {
                                 return (
-                                    <React.Fragment key={index.id}>
+                                    <React.Fragment key={index}>
                                         <Card.Title className="text-center  card-title">Activity Name: {activity.name}</Card.Title>
                                         <Card.Text className="text-center">Activity Duration: {activity.duration}</Card.Text>
                                         <Card.Text className="text-center">Activity Count: {activity.count}</Card.Text>

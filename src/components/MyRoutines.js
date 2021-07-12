@@ -14,7 +14,7 @@ const MyRoutines = ({
     const [myRoutines, setMyRoutines] = useState([])
     const [routineName, setRoutineName] = useState('')
     const [routineGoal, setRoutineGoal] = useState('')
-    const [isPublic] = useState(false)
+    const [isPublic, setIsPublic] = useState(false)
 
     useEffect(() => {
         if (userToken) {
@@ -36,7 +36,7 @@ const MyRoutines = ({
                 setRoutineName('')
                 setRoutineGoal('')
                 try {
-                    const updateActivity = await postRoutines(routineName, routineGoal, isPublic, userToken)
+                    const updateActivity = await postRoutines(routineName, routineGoal, isPublic, userToken, user.id)
                     setMyRoutines([...myRoutines, updateActivity])
 
                 } catch (error) {
@@ -63,10 +63,15 @@ const MyRoutines = ({
                             const goal = event.target.value
                             setRoutineGoal(goal)
                         }} />
-                        <Button variant="primary" type="submit">
-                            Create
-                        </Button>
                     </Form.Group>
+                    <Form.Check value={isPublic} type="checkbox" label="Public" onChange={() => {
+
+                        setIsPublic(!isPublic)
+                    }} />
+
+                    <Button variant="primary" type="submit">
+                        Create
+                    </Button>
                 </Container>
             </> : null
             }
@@ -75,10 +80,9 @@ const MyRoutines = ({
 
 
                     return (
-                        <CardDeck>
+                        <CardDeck key={routine.id}>
                             <Card id="myRoutines-card"
                                 className="focus mt-2 mb-2"
-                                key={routine.id}
                                 style={{ width: '23rem' }}>
                                 <Card.Body>
                                     <Card.Title className="text-center  card-title">My Routines:</Card.Title>

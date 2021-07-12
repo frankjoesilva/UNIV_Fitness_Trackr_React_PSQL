@@ -10,6 +10,7 @@ const PublicRoutines = () => {
     useEffect(() => {
         getRoutines()
             .then(routines => {
+                console.log(routines, "rr")
                 setRoutines(routines)
             })
             .catch(error => {
@@ -21,9 +22,9 @@ const PublicRoutines = () => {
         <div className='public-routines'>
             <h2 className="text-center font-details-b pb-4" id='routine-title'>Routines</h2>
             {routines.map((routine) => {
-                return (<CardDeck>
+                return (<CardDeck key={routine.id}>
                     <Card id="routine-card" className="focus mt-2 mb-2"
-                        key={routine.id}
+
                         style={{ width: '23rem' }}>
 
                         <Card.Body>

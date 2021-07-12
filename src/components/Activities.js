@@ -71,9 +71,11 @@ const Activities = ({
             </> : null
             }
             {activities.map((activity) => {
-                return (<CardDeck id="activity-cardDeck">
+                return (<CardDeck
+                    key={activity.id}
+                    id="activity-cardDeck">
                     <Card id="activity-card"
-                        key={activity.id}
+
                         style={{ width: '23rem' }}>
                         <Card.Body>
                             <Card.Title id="activity-name"><h3>Activity: </h3></Card.Title>

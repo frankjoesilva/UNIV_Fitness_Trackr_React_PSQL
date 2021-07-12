@@ -35,7 +35,8 @@ export async function getRoutinesByUsername(username, token) {
     }
 }
 
-export async function postRoutines(name, goal, isPublic, token) {
+export async function postRoutines(name, goal, isPublic, token, creatorId) {
+    console.log(creatorId, "p")
     try {
         const { data } = await axios.post(`${BASE}/routines`, {
             name,

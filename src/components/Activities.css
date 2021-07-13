@@ -1,7 +1,10 @@
 #activity-card{
     padding:.2rem;
-    margin-left: 20rem;
-    margin-right:20rem;
+    padding-bottom:1rem;
+    max-width: 40rem;
+    min-width: 25rem;
+    margin-right: auto;
+    margin-left: auto;
     margin-bottom: 1rem;
     border: 3px solid rgb(201, 21, 201);
     text-align:center;

@@ -80,31 +80,33 @@ const MyRoutines = ({
 
 
                     return (
-                        <CardDeck key={routine.id}>
-                            <Card id="myRoutines-card"
-                                className="focus mt-2 mb-2"
-                                style={{ width: '23rem' }}>
-                                <Card.Body>
-                                    <Card.Title className="text-center  card-title">My Routines:</Card.Title>
-                                    <Card.Text className="text-center">Creator Name: {routine.creatorName}</Card.Text>
-                                    <Card.Text className="text-center">Routine Name: {routine.name}</Card.Text>
-                                    <Card.Text className="text-center">Routine Goal: {routine.goal}</Card.Text>
-                                    <h3 id='activities-title'>Activities For Routines</h3>
+                        <CardDeck
+                            key={routine.id}>
+                            <Container>
+                                <Card id="myRoutines-card"
+                                    className="focus mt-2 mb-2"
+                                >
+                                    <Card.Body>
+                                        <Card.Header className="text-center  card-title">My Routines </Card.Header>
+                                        <Card.Text className="text-center">Creator Name: {routine.creatorName}</Card.Text>
+                                        <Card.Text className="text-center">Routine Name: {routine.name}</Card.Text>
+                                        <Card.Text className="text-center">Routine Goal: {routine.goal}</Card.Text>
+                                        <h3 id='activities-title'>Activities For Routines</h3>
+                                        {routine.activities && routine.activities.map((activity, index) => {
+                                            return (
+                                                <React.Fragment key={index}>
+                                                    <Card.Title className="text-center  card-title">Activity Name: {activity.name}</Card.Title>
+                                                    <Card.Text className="text-center">Activity Duration: {activity.duration}</Card.Text>
+                                                    <Card.Text className="text-center">Activity Count: {activity.count}</Card.Text>
+                                                </React.Fragment>
+                                            )
+                                        })}
+                                    </Card.Body>
+                                </Card>
+                            </Container>
 
-
-                                    {routine.activities && routine.activities.map((activity, index) => {
-                                        return (
-                                            <React.Fragment key={index}>
-                                                <Card.Title className="text-center  card-title">Activity Name: {activity.name}</Card.Title>
-                                                <Card.Text className="text-center">Activity Duration: {activity.duration}</Card.Text>
-                                                <Card.Text className="text-center">Activity Count: {activity.count}</Card.Text>
-                                            </React.Fragment>
-                                        )
-                                    })}
-
-                                </Card.Body>
-                            </Card>
-                        </CardDeck>)
+                        </CardDeck>
+                    )
                 }
                 else {
                     return null

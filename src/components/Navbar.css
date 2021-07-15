@@ -9,21 +9,30 @@
     font-family: 'Balsamic Sans', sans-serif;
     font-size: 16px;
     font-weight: bold;
-    border-top: 3px solid limegreen;
-    border-bottom: 2.5px solid limegreen;
+    border: 3px solid limegreen;
     padding:1rem;
     background-color: black;
     color:limegreen;
+    margin-bottom:1.5rem;
+   
     
   }
 
-  ul li {
+  a{
+    margin-right:3rem;
+    margin-left:3rem;
     color:limegreen;
+
+  }
+
+  
+/* 
+  .nav-theme {
+    background-color: #101018f8;
+    font-size: 20px;
   }
   
-  
-  ul li:hover {
-    transition: color 600ms ease 0s;
-    text-decoration: underline;
-    
-  }
+  .animate-navbar {
+    box-shadow: 1px 1px 1px #222;
+    animation: moveDown 0.5s ease-in-out;
+  } */

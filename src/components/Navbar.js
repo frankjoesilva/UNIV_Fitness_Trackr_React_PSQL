@@ -1,27 +1,39 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import './Navbar.css';
+import Navbar from 'react-bootstrap/Navbar'
+import Nav from 'react-bootstrap/Nav';
 
 
-const Navbar = ({
+const MyNavbar = ({
     userToken,
 }) => {
     return (
         <>
+            <Navbar
+                id='navbar'
+                variant="dark"
+                expand="md"
+                className="animate-navbar nav-theme justify-content-between"
 
-            <div>
-                <ul id="navbar">
+            >
 
-                    <NavLink to="/home" activeClassName="current">HOME</NavLink>
-                    <NavLink to="/routines" activeClassName="current">ROUTINES</NavLink>
-                    {userToken && <NavLink to="/myRoutines" activeClassName="current">MY ROUTINES</NavLink>}
-                    <NavLink to="/activities" activeClassName="current">ACTIVITIES</NavLink>
-                    {!userToken && <NavLink to="/login" activeClassName="current">LOGIN</NavLink>}
-                    {!userToken && <NavLink to="/register" activeClassName="current">REGISTER</NavLink>}
-                </ul>
-            </div>
+                <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+                <Navbar.Collapse id="responsive-navbar-nav">
+                    <Nav className="m-auto">
+
+                        <NavLink to="/home" activeClassName="current">HOME</NavLink>
+                        <NavLink to="/routines" activeClassName="current">ROUTINES</NavLink>
+                        {userToken && <NavLink to="/myRoutines" activeClassName="current">MY ROUTINES</NavLink>}
+                        <NavLink to="/activities" activeClassName="current">ACTIVITIES</NavLink>
+                        {!userToken && <NavLink to="/login" activeClassName="current">LOGIN</NavLink>}
+                        {!userToken && <NavLink to="/register" activeClassName="current">REGISTER</NavLink>}
+                    </Nav>
+                </Navbar.Collapse>
+            </Navbar>
+
         </>
     );
 }
 
-export default Navbar;
+export default MyNavbar;

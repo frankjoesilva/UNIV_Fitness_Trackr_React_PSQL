@@ -7,6 +7,7 @@ import TitleMessage from "./components/Title-message";
 import {
     BrowserRouter as Router,
     Route,
+    Switch
 } from 'react-router-dom';
 
 import {
@@ -59,27 +60,32 @@ const App = () => {
             <div id="App">
                 <Header userToken={userToken} setUserToken={setUserToken} />
                 <Navbar userToken={userToken} setUserToken={setUserToken} />
-
             </div>
-            <Route path='/login'>
-                <Login user={user} setUser={setUser} userToken={userToken} setUserToken={setUserToken} />
-            </Route>
-            <Route path='/register'>
-                <Register userToken={userToken} setUserToken={setUserToken} />
-            </Route>
-            <Route path='/home'>
-                <Home userToken={userToken} setUserToken={setUserToken} />
-                <TitleMessage />
-            </Route>
-            <Route path='/routines'>
-                <Routines allRoutines={allRoutines} setAllRoutines={setAllRoutines} />
-            </Route>
-            <Route path='/activities'>
-                <Activities userToken={userToken} allActivities={allActivities} setAllActivites={setAllActivites} />
-            </Route>
-            <Route path='/myRoutines'>
-                <MyRoutines user={user} userToken={userToken} myRoutines={myRoutines} setMyRoutines={setMyRoutines} />
-            </Route>
+            <Switch>
+                <Route exact path='/'>
+                    <Home userToken={userToken} setUserToken={setUserToken} />
+                    <TitleMessage />
+                </Route>
+                <Route path='/login'>
+                    <Login user={user} setUser={setUser} userToken={userToken} setUserToken={setUserToken} />
+                </Route>
+                <Route path='/register'>
+                    <Register userToken={userToken} setUserToken={setUserToken} />
+                </Route>
+                <Route path='/home'>
+                    <Home userToken={userToken} setUserToken={setUserToken} />
+                    <TitleMessage />
+                </Route>
+                <Route path='/routines'>
+                    <Routines allRoutines={allRoutines} setAllRoutines={setAllRoutines} />
+                </Route>
+                <Route path='/activities'>
+                    <Activities userToken={userToken} allActivities={allActivities} setAllActivites={setAllActivites} />
+                </Route>
+                <Route path='/myRoutines'>
+                    <MyRoutines user={user} userToken={userToken} myRoutines={myRoutines} setMyRoutines={setMyRoutines} />
+                </Route>
+            </Switch>
         </Router>
     );
 }

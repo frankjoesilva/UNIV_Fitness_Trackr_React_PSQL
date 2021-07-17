@@ -9,7 +9,9 @@
     font-family: 'Balsamic Sans', sans-serif;
     font-size: 16px;
     font-weight: bold;
-    border: 3px solid limegreen;
+    border-top: 3px solid limegreen;
+    border-bottom: 2px solid limegreen;
+
     padding:1rem;
     background-color: black;
     color:limegreen;
@@ -19,20 +21,8 @@
   }
 
   a{
-    margin-right:3rem;
-    margin-left:3rem;
-    color:limegreen;
+  padding: 0px 25px;
+  word-wrap: normal;
+  display: inline-block;
 
   }
-
-  
-/* 
-  .nav-theme {
-    background-color: #101018f8;
-    font-size: 20px;
-  }
-  
-  .animate-navbar {
-    box-shadow: 1px 1px 1px #222;
-    animation: moveDown 0.5s ease-in-out;
-  } */

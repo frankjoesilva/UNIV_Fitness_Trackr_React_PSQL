@@ -3,9 +3,9 @@ import React from 'react';
 import Carousel from 'react-bootstrap/Carousel'
 
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Slide1 from '../assets/img/carousel/Slide1.jpeg'
-import Slide2 from '../assets/img/carousel/Slide2.jpeg'
-import Slide3 from '../assets/img/carousel/Slide3.jpeg'
+import Slide1 from '../assets/carousel/img/Slide1.jpeg'
+import Slide2 from '../assets/carousel/img/Slide2.jpeg'
+import Slide3 from '../assets/carousel/img/Slide3.jpeg'
 
 
 const Home = () => {

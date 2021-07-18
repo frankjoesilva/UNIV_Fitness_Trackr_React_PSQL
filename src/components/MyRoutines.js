@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import { getRoutinesByUsername, postRoutines } from '../api/routines'
+import { getActivities } from '../api/activities'
 
-import { Card, Form, Button, CardDeck, Container } from 'react-bootstrap'
+
+import { Card, Form, Button, CardDeck, Container, Dropdown } from 'react-bootstrap'
 import './MyRoutines.css'
 
 
@@ -11,6 +13,8 @@ const MyRoutines = ({
     user
 
 }) => {
+    const [activityName, setActivityName] = useState([])
+    const [description, setDescription] = useState([])
     const [myRoutines, setMyRoutines] = useState([])
     const [routineName, setRoutineName] = useState('')
     const [routineGoal, setRoutineGoal] = useState('')
@@ -35,9 +39,15 @@ const MyRoutines = ({
                 event.preventDefault()
                 setRoutineName('')
                 setRoutineGoal('')
+                setActivityName('')
+                setDescription('')
                 try {
                     const updateActivity = await postRoutines(routineName, routineGoal, isPublic, userToken, user.id)
                     setMyRoutines([...myRoutines, updateActivity])
+                    const updateDropdown = await getActivities(activityName, description, userToken)
+                    setActivityName([...activityName, updateDropdown])
+                    setDescription([...description, updateDropdown])
+
 
                 } catch (error) {
                     console.error(error)
@@ -64,7 +74,45 @@ const MyRoutines = ({
                             setRoutineGoal(goal)
                         }} />
                     </Form.Group>
-                    <Form.Check value={isPublic} type="checkbox" label="Public" onChange={() => {
+
+
+                    <Form.Group>
+
+                        <Dropdown>
+                            <Dropdown.Toggle
+                                id="dropdown-button-dark-example1"
+                                variant="secondary">
+                                Activities
+                            </Dropdown.Toggle>
+
+                            <Dropdown.Menu variant="dark">
+                                <Dropdown.Item>
+                                    Activities
+                                </Dropdown.Item>
+                                <Dropdown.Divider />
+
+                            </Dropdown.Menu>
+                        </Dropdown>
+                    </Form.Group>
+
+
+                    <Form.Group>
+                        <Dropdown>
+                            <Dropdown.Toggle id="dropdown-button-dark-example1" variant="secondary">
+                                Description
+                            </Dropdown.Toggle>
+
+                            <Dropdown.Menu variant="dark">
+                                <Dropdown.Item>
+                                    Description
+                                </Dropdown.Item>
+
+                            </Dropdown.Menu>
+                        </Dropdown>
+                    </Form.Group>
+
+
+                    <Form.Check value={isPublic} id='checkbox' className='m-auto' style={{ color: 'limegreen' }} type="checkbox" label="Public" onChange={() => {
 
                         setIsPublic(!isPublic)
                     }} />
@@ -75,45 +123,47 @@ const MyRoutines = ({
                 </Container>
             </> : null
             }
-            {myRoutines.map((routine) => {
-                if (user.id === routine.creatorId) {
+            {
+                myRoutines.map((routine) => {
+                    if (user.id === routine.creatorId) {
 
 
-                    return (
-                        <CardDeck
-                            key={routine.id}>
-                            <Container>
-                                <Card id="myRoutines-card"
-                                    className="focus mt-2 mb-2"
-                                >
-                                    <Card.Body>
-                                        <Card.Header className="text-center  card-title">My Routines </Card.Header>
-                                        <Card.Text className="text-center">Creator Name: {routine.creatorName}</Card.Text>
-                                        <Card.Text className="text-center">Routine Name: {routine.name}</Card.Text>
-                                        <Card.Text className="text-center">Routine Goal: {routine.goal}</Card.Text>
-                                        <h3 id='activities-title'>Activities For Routines</h3>
-                                        {routine.activities && routine.activities.map((activity, index) => {
-                                            return (
-                                                <React.Fragment key={index}>
-                                                    <Card.Title className="text-center  card-title">Activity Name: {activity.name}</Card.Title>
-                                                    <Card.Text className="text-center">Activity Duration: {activity.duration}</Card.Text>
-                                                    <Card.Text className="text-center">Activity Count: {activity.count}</Card.Text>
-                                                </React.Fragment>
-                                            )
-                                        })}
-                                    </Card.Body>
-                                </Card>
-                            </Container>
+                        return (
+                            <CardDeck
+                                key={routine.id}>
+                                <Container>
+                                    <Card id="myRoutines-card"
+                                        className="focus mt-2 mb-2"
+                                    >
+                                        <Card.Body>
+                                            <Card.Header className="text-center  card-title">My Routines </Card.Header>
+                                            <Card.Text className="text-center">Creator Name: {routine.creatorName}</Card.Text>
+                                            <Card.Text className="text-center">Routine Name: {routine.name}</Card.Text>
+                                            <Card.Text className="text-center">Routine Goal: {routine.goal}</Card.Text>
+                                            <h3 id='activities-title'>Activities For Routines</h3>
+                                            {routine.activities && routine.activities.map((activity, index) => {
+                                                return (
+                                                    <React.Fragment key={index}>
+                                                        <Card.Title className="text-center  card-title">Activity Name: {activity.name}</Card.Title>
+                                                        <Card.Text className="text-center">Activity Duration: {activity.duration}</Card.Text>
+                                                        <Card.Text className="text-center">Activity Count: {activity.count}</Card.Text>
+                                                    </React.Fragment>
+                                                )
+                                            })}
+                                        </Card.Body>
+                                    </Card>
+                                </Container>
 
-                        </CardDeck>
-                    )
-                }
-                else {
-                    return null
-                }
+                            </CardDeck>
+                        )
+                    }
+                    else {
+                        return null
+                    }
 
-            })}
-        </Form>
+                })
+            }
+        </Form >
     );
 }
 

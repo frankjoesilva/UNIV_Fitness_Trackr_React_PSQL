@@ -1,8 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import './Navbar.css';
-import Navbar from 'react-bootstrap/Navbar'
-import Nav from 'react-bootstrap/Nav';
+import { Navbar, Nav, } from 'react-bootstrap';
 
 
 const MyNavbar = ({
@@ -15,12 +14,13 @@ const MyNavbar = ({
                 variant="dark"
                 expand="md"
                 className="animate-navbar nav-theme justify-content-between"
-
             >
+
+
 
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse className="ml-auto" id="responsive-navbar-nav">
-                    <Nav id="navlink" className="m-auto">
+                    <Nav id="navlink" className="mr-auto">
 
                         <NavLink to="/home" activeClassName="current">HOME</NavLink>
                         <NavLink to="/routines" activeClassName="current">ROUTINES</NavLink>
@@ -30,6 +30,7 @@ const MyNavbar = ({
                         {!userToken && <NavLink to="/register" activeClassName="current">REGISTER</NavLink>}
                     </Nav>
                 </Navbar.Collapse>
+
             </Navbar>
 
         </>

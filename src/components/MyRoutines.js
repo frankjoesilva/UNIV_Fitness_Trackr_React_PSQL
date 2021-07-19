@@ -13,8 +13,9 @@ const MyRoutines = ({
     user
 
 }) => {
-    const [activityName, setActivityName] = useState([])
+    const [activities, setActivities] = useState([])
     const [description, setDescription] = useState([])
+    const [activityName, setActivityName] = useState([])
     const [myRoutines, setMyRoutines] = useState([])
     const [routineName, setRoutineName] = useState('')
     const [routineGoal, setRoutineGoal] = useState('')
@@ -32,6 +33,15 @@ const MyRoutines = ({
         }
     }, [userToken, user]);
 
+    useEffect(() => {
+        getActivities()
+            .then(activities => {
+                setActivities(activities)
+            })
+            .catch(error => {
+                console.error(error)
+            });
+    }, [userToken]);
 
     return (
         <Form
@@ -45,8 +55,9 @@ const MyRoutines = ({
                     const updateActivity = await postRoutines(routineName, routineGoal, isPublic, userToken, user.id)
                     setMyRoutines([...myRoutines, updateActivity])
                     const updateDropdown = await getActivities(activityName, description, userToken)
-                    setActivityName([...activityName, updateDropdown])
-                    setDescription([...description, updateDropdown])
+                    setActivities([...activities, updateDropdown])
+                    // setActivityName([...activityName, updateDropdown])
+                    // setDescription([...description, updateDropdown])
 
 
                 } catch (error) {
@@ -84,10 +95,11 @@ const MyRoutines = ({
                                 variant="secondary">
                                 Activities
                             </Dropdown.Toggle>
-
                             <Dropdown.Menu variant="dark">
                                 <Dropdown.Item>
                                     Activities
+                                    {/* {activities.map((activity) => {
+                return */}
                                 </Dropdown.Item>
                                 <Dropdown.Divider />
 
@@ -95,13 +107,13 @@ const MyRoutines = ({
                         </Dropdown>
                     </Form.Group>
 
-
                     <Form.Group>
                         <Dropdown>
                             <Dropdown.Toggle id="dropdown-button-dark-example1" variant="secondary">
                                 Description
+                                {/* {activities.map((activity) => {
+                return */}
                             </Dropdown.Toggle>
-
                             <Dropdown.Menu variant="dark">
                                 <Dropdown.Item>
                                     Description

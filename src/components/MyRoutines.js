@@ -49,8 +49,8 @@ const MyRoutines = ({
                 event.preventDefault()
                 setRoutineName('')
                 setRoutineGoal('')
-                setActivityName('')
-                setDescription('')
+                setActivityName([])
+                setDescription([])
                 try {
                     const updateActivity = await postRoutines(routineName, routineGoal, isPublic, userToken, user.id)
                     setMyRoutines([...myRoutines, updateActivity])
@@ -86,43 +86,37 @@ const MyRoutines = ({
                         }} />
                     </Form.Group>
 
-
-                    <Form.Group>
-
-                        <Dropdown>
-                            <Dropdown.Toggle
-                                id="dropdown-button-dark-example1"
-                                variant="secondary">
-                                Activities
-                            </Dropdown.Toggle>
-                            <Dropdown.Menu variant="dark">
-                                <Dropdown.Item>
-                                    Activities
-                                    {/* {activities.map((activity) => {
-                return */}
+                    <Dropdown>
+                        <Dropdown.Toggle
+                            id="dropdown-button-dark-example1"
+                            variant="secondary">
+                            Activity Name
+                        </Dropdown.Toggle>
+                        <Dropdown.Menu variant="dark">
+                            {activities.map((activity) => {
+                                return <Dropdown.Item id="name-drop" value={activityName} key={activity.id}>
+                                    {activity.name}
                                 </Dropdown.Item>
-                                <Dropdown.Divider />
+                            })}
+                            <Dropdown.Divider />
+                        </Dropdown.Menu>
+                    </Dropdown>
 
-                            </Dropdown.Menu>
-                        </Dropdown>
-                    </Form.Group>
-
-                    <Form.Group>
-                        <Dropdown>
-                            <Dropdown.Toggle id="dropdown-button-dark-example1" variant="secondary">
-                                Description
-                                {/* {activities.map((activity) => {
-                return */}
-                            </Dropdown.Toggle>
-                            <Dropdown.Menu variant="dark">
-                                <Dropdown.Item>
-                                    Description
+                    <Dropdown>
+                        <Dropdown.Toggle
+                            id="dropdown-button-dark-example1"
+                            variant="secondary">
+                            Activity Description
+                        </Dropdown.Toggle>
+                        <Dropdown.Menu variant="dark">
+                            {activities.map((activity) => {
+                                return <Dropdown.Item id="description-drop" value={description} key={activity.id}>
+                                    {activity.description}
                                 </Dropdown.Item>
-
-                            </Dropdown.Menu>
-                        </Dropdown>
-                    </Form.Group>
-
+                            })}
+                            <Dropdown.Divider />
+                        </Dropdown.Menu>
+                    </Dropdown>
 
                     <Form.Check value={isPublic} id='checkbox' className='m-auto' style={{ color: 'limegreen' }} type="checkbox" label="Public" onChange={() => {
 

@@ -94,7 +94,7 @@ const MyRoutines = ({
                         </Dropdown.Toggle>
                         <Dropdown.Menu variant="dark">
                             {activities.map((activity) => {
-                                return <Dropdown.Item id="name-drop" value={activityName} key={activity.id}>
+                                return <Dropdown.Item value={activityName} key={activity.id}>
                                     {activity.name}
                                 </Dropdown.Item>
                             })}
@@ -110,7 +110,7 @@ const MyRoutines = ({
                         </Dropdown.Toggle>
                         <Dropdown.Menu variant="dark">
                             {activities.map((activity) => {
-                                return <Dropdown.Item id="description-drop" value={description} key={activity.id}>
+                                return <Dropdown.Item value={description} key={activity.id}>
                                     {activity.description}
                                 </Dropdown.Item>
                             })}

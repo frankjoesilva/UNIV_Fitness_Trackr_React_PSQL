@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { getRoutinesByUsername, postRoutines } from '../api/routines'
+import { getRoutinesByUsername, postRoutines, } from '../api/routines'
 import { getActivities } from '../api/activities'
 
 
@@ -43,6 +43,8 @@ const MyRoutines = ({
             });
     }, [userToken]);
 
+
+
     return (
         <Form
             onSubmit={async (event) => {
@@ -54,11 +56,8 @@ const MyRoutines = ({
                 try {
                     const updateActivity = await postRoutines(routineName, routineGoal, isPublic, userToken, user.id)
                     setMyRoutines([...myRoutines, updateActivity])
-                    const updateDropdown = await getActivities(activityName, description, userToken)
-                    setActivities([...activities, updateDropdown])
-                    // setActivityName([...activityName, updateDropdown])
-                    // setDescription([...description, updateDropdown])
-
+                    const data = await getActivities(activityName, description, userToken)
+                    setActivities([...activities, data])
 
                 } catch (error) {
                     console.error(error)
@@ -94,7 +93,9 @@ const MyRoutines = ({
                         </Dropdown.Toggle>
                         <Dropdown.Menu variant="dark">
                             {activities.map((activity) => {
-                                return <Dropdown.Item value={activityName} key={activity.id}>
+                                return <Dropdown.Item
+                                    key={activity.id}
+                                    value={activityName}>
                                     {activity.name}
                                 </Dropdown.Item>
                             })}
@@ -110,7 +111,7 @@ const MyRoutines = ({
                         </Dropdown.Toggle>
                         <Dropdown.Menu variant="dark">
                             {activities.map((activity) => {
-                                return <Dropdown.Item value={description} key={activity.id}>
+                                return <Dropdown.Item key={activity.id} value={description}>
                                     {activity.description}
                                 </Dropdown.Item>
                             })}
@@ -156,6 +157,9 @@ const MyRoutines = ({
                                                     </React.Fragment>
                                                 )
                                             })}
+                                            <Button style={{ width: '10rem', background: 'red' }} variant="primary" onClick={async () => { }}>
+                                                DELETE
+                                            </Button>
                                         </Card.Body>
                                     </Card>
                                 </Container>

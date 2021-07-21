@@ -35,6 +35,24 @@ export async function getRoutinesByUsername(username, token) {
     }
 }
 
+export async function deleteRoutinesByUsername({ username, name, description }, token) {
+    try {
+        const { data } = await axios.delete(`${BASE}/users/${username}/routines`, {
+            name,
+            description
+        },
+            {
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                }
+            });
+        return data;
+    } catch (error) {
+        console.error(error);
+    }
+}
+
 export async function postRoutines(name, goal, isPublic, token, creatorId) {
     console.log(creatorId, "p")
     try {

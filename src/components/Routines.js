@@ -43,6 +43,7 @@ const PublicRoutines = () => {
                                         </React.Fragment>
                                     )
                                 })}
+
                             </Card.Body>
                         </Card>
                     </Container>

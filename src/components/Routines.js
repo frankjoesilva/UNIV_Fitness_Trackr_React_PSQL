@@ -20,13 +20,12 @@ const PublicRoutines = () => {
 
     return (
         <div className='public-routines'>
-            <h2 className="text-center font-details-b pb-4" id='routine-title'>Routines</h2>
+            {/* <h2 className="text-center font-details-b pb-4" id='routine-title'>Routines</h2> */}
             {routines.map((routine) => {
                 return (<CardDeck key={routine.id}>
                     <Container>
                         <Card id="routine-card"
                             className="focus mt-2 mb-2"
-
                         >
 
                             <Card.Body>

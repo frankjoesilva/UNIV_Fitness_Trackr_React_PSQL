@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { getRoutinesByUsername, postRoutines, } from '../api/routines'
-import { getActivities } from '../api/activities'
-
-
+import { getActivities, postActivities } from '../api/activities'
+// import { postCountAndDuration } from '../api/routine_activities'
 import { Card, Form, Button, CardDeck, Container, Dropdown } from 'react-bootstrap'
 import './MyRoutines.css'
 
@@ -17,9 +16,12 @@ const MyRoutines = ({
     const [description, setDescription] = useState([])
     const [activityName, setActivityName] = useState([])
     const [myRoutines, setMyRoutines] = useState([])
+    // const [myDuration, setMyDuration] = useState('')
+    // const [myCount, setMyCount] = useState('')
     const [routineName, setRoutineName] = useState('')
     const [routineGoal, setRoutineGoal] = useState('')
     const [isPublic, setIsPublic] = useState(false)
+
 
     useEffect(() => {
         if (userToken) {
@@ -51,6 +53,8 @@ const MyRoutines = ({
                 event.preventDefault()
                 setRoutineName('')
                 setRoutineGoal('')
+                // setMyDuration('')
+                // setMyCount('')
                 setActivityName([])
                 setDescription([])
                 try {
@@ -58,7 +62,11 @@ const MyRoutines = ({
                     setMyRoutines([...myRoutines, updateActivity])
                     const data = await getActivities(activityName, description, userToken)
                     setActivities([...activities, data])
-
+                    const postData = await postActivities(activityName, description, userToken)
+                    setActivities([...activities, postData])
+                    // const updateCountAndDur = await postCountAndDuration(myCount, myDuration, userToken)
+                    // setMyCount([...myCount, updateCountAndDur])
+                    // setMyDuration([...myDuration, updateCountAndDur])
                 } catch (error) {
                     console.error(error)
                 }
@@ -67,7 +75,7 @@ const MyRoutines = ({
 
             {userToken ? <>
 
-                <h3 id='newRoutineTitle'>Add New Routines</h3>
+
                 <Container id="add-routines">
                     <Form.Group controlId="routineName">
 
@@ -93,11 +101,16 @@ const MyRoutines = ({
                         </Dropdown.Toggle>
                         <Dropdown.Menu variant="dark">
                             {activities.map((activity) => {
-                                return <Dropdown.Item
+                                return (<Dropdown.Item
                                     key={activity.id}
-                                    value={activityName}>
+                                    type='Name'
+                                    value={activityName}
+                                    onChange={(event) => {
+                                        const actName = event.target.value
+                                        setActivityName(actName)
+                                    }}>
                                     {activity.name}
-                                </Dropdown.Item>
+                                </Dropdown.Item>)
                             })}
                             <Dropdown.Divider />
                         </Dropdown.Menu>
@@ -111,13 +124,27 @@ const MyRoutines = ({
                         </Dropdown.Toggle>
                         <Dropdown.Menu variant="dark">
                             {activities.map((activity) => {
-                                return <Dropdown.Item key={activity.id} value={description}>
+                                return (<Dropdown.Item key={activity.id} value={description}
+                                    onChange={(event) => {
+                                        const actDescription = event.target.value
+                                        setDescription(actDescription)
+                                    }}>
                                     {activity.description}
-                                </Dropdown.Item>
+                                </Dropdown.Item>)
                             })}
                             <Dropdown.Divider />
                         </Dropdown.Menu>
                     </Dropdown>
+
+                    {/* <Form.Group controlId="myDuration">
+
+                        <Form.Control value={myDuration} type="string" placeholder="Duration" onChange={(event) => {
+                            const duration = event.target.value
+                            setMyDuration(duration)
+                        }} />
+
+                    </Form.Group> */}
+
 
                     <Form.Check value={isPublic} id='checkbox' className='m-auto' style={{ color: 'limegreen' }} type="checkbox" label="Public" onChange={() => {
 
@@ -130,49 +157,51 @@ const MyRoutines = ({
                 </Container>
             </> : null
             }
-            {
-                myRoutines.map((routine) => {
-                    if (user.id === routine.creatorId) {
+            <div className='my-routine-card'>
+                {
+                    myRoutines.map((routine) => {
+                        if (user.id === routine.creatorId) {
 
 
-                        return (
-                            <CardDeck
-                                key={routine.id}>
-                                <Container>
-                                    <Card id="myRoutines-card"
-                                        className="focus mt-2 mb-2"
-                                    >
-                                        <Card.Body>
-                                            <Card.Header className="text-center  card-title">My Routines </Card.Header>
-                                            <Card.Text className="text-center">Creator Name: {routine.creatorName}</Card.Text>
-                                            <Card.Text className="text-center">Routine Name: {routine.name}</Card.Text>
-                                            <Card.Text className="text-center">Routine Goal: {routine.goal}</Card.Text>
-                                            <h3 id='activities-title'>Activities For Routines</h3>
-                                            {routine.activities && routine.activities.map((activity, index) => {
-                                                return (
-                                                    <React.Fragment key={index}>
-                                                        <Card.Title className="text-center  card-title">Activity Name: {activity.name}</Card.Title>
-                                                        <Card.Text className="text-center">Activity Duration: {activity.duration}</Card.Text>
-                                                        <Card.Text className="text-center">Activity Count: {activity.count}</Card.Text>
-                                                    </React.Fragment>
-                                                )
-                                            })}
-                                            <Button style={{ width: '10rem', background: 'red' }} variant="primary" onClick={async () => { }}>
-                                                DELETE
-                                            </Button>
-                                        </Card.Body>
-                                    </Card>
-                                </Container>
+                            return (
+                                <CardDeck
+                                    key={routine.id}>
+                                    <Container>
+                                        <Card id="myRoutines-card"
+                                            className="focus mt-2 mb-2"
+                                        >
+                                            <Card.Body>
+                                                <Card.Header className="text-center  card-title">My Routines </Card.Header>
+                                                <Card.Text className="text-center">Routine Name: {routine.name}</Card.Text>
+                                                <Card.Text className="text-center">Routine Goal: {routine.goal}</Card.Text>
+                                                <h3 id='activities-title'>Activities For Routines</h3>
+                                                {routine.activities && routine.activities.map((activity, index) => {
+                                                    return (
+                                                        <React.Fragment key={index}>
+                                                            <Card.Title className="text-center  card-title">Activity Name: {activity.name}</Card.Title>
+                                                            <Card.Text className="text-center  card-title">Activity Description{activity.description}</Card.Text>
+                                                            <Card.Text className="text-center">Activity Duration: {activity.duration}</Card.Text>
+                                                            <Card.Text className="text-center">Activity Count: {activity.count}</Card.Text>
+                                                        </React.Fragment>
+                                                    )
+                                                })}
+                                                <Button style={{ width: '10rem', background: 'red' }} variant="primary" onClick={async () => { }}>
+                                                    DELETE
+                                                </Button>
+                                            </Card.Body>
+                                        </Card>
+                                    </Container>
 
-                            </CardDeck>
-                        )
-                    }
-                    else {
-                        return null
-                    }
+                                </CardDeck>
+                            )
+                        }
+                        else {
+                            return null
+                        }
 
-                })
-            }
+                    })
+                }
+            </div>
         </Form >
     );
 }

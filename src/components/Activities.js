@@ -44,7 +44,6 @@ const Activities = ({
             }}
             className='activities'>
 
-            <h2 id="activities-title">Activities</h2>
             {userToken ? <>
 
                 <Container id="add-activities">
@@ -70,24 +69,25 @@ const Activities = ({
 
             </> : null
             }
-            {activities.map((activity) => {
-                return (<CardDeck
-                    key={activity.id}
-                    id="activity-cardDeck">
-                    <Container>
-                        <Card id="activity-card"
+            <div className='public-activities'>
+                {activities.map((activity) => {
+                    return (<CardDeck
+                        key={activity.id}
+                        id="activity-cardDeck">
+                        <Container>
+                            <Card id="activity-card"
 
-                            style={{ width: '23rem' }}>
-                            <Card.Body>
-                                <Card.Title id="activity-name"><h3>Activity: </h3></Card.Title>
-                                <Card.Text>Activity Name: {activity.name}</Card.Text>
-                                <Card.Text>Description: {activity.description}</Card.Text>
-                            </Card.Body>
-                        </Card>
-                    </Container>
-                </CardDeck>)
-            })}
-
+                                style={{ width: '23rem' }}>
+                                <Card.Body>
+                                    <Card.Title id="activity-name"><h3>Activity: </h3></Card.Title>
+                                    <Card.Text>Activity Name: {activity.name}</Card.Text>
+                                    <Card.Text>Description: {activity.description}</Card.Text>
+                                </Card.Body>
+                            </Card>
+                        </Container>
+                    </CardDeck>)
+                })}
+            </div>
         </Form>
 
     );

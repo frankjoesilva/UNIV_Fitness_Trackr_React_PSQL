@@ -1,12 +1,12 @@
 #myRoutines-card{
-    /* padding:.2rem;
+    padding:.2rem;
     max-width: 30rem;
     min-width: 20rem;
     padding:3rem; 
     margin-right: auto;
     margin-left: auto;
     border: 3px solid rgb(201, 21, 201);
-    text-align:center; */
+    text-align:center;
         display: flex;
         min-width: 270px;
         max-width: 270px;
@@ -47,22 +47,7 @@ margin:.5rem;
     border-radius: 7px;
 }
 
-.my-routines{
-    /* margin-top: 1rem;
-  max-height: 90%;
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: flex-start;
-  flex-wrap: nowrap;
-  font-family: 'Marmelad', sans-serif;
-  color: #333;
-  padding: 2rem;
-  margin-left: 4rem;
-  margin-right: 5rem;
-  overflow-x: scroll;
-  margin-bottom: 5rem; */
-}
+
 
 #add-routines{
     border:3px solid limegreen;
@@ -87,7 +72,7 @@ margin:.5rem;
     font-family: 'Marmelad', sans-serif;
     color: #333;
     padding: 2rem;
-    margin-left: 4rem;
+    margin-left: 2rem;
     margin-right: 5rem;
     overflow-x: scroll;
     margin-bottom: 5rem;

@@ -7,7 +7,22 @@
     margin-left: auto;
     margin-bottom: 1rem;
     border: 3px solid rgb(201, 21, 201);
-    text-align:center;
+    text-align:center; 
+    display: flex;
+  min-width: 270px;
+  max-width: 270px;
+  min-height:20rem;
+  background-color: #FFF;
+  flex-direction: column;
+  align-self: flex-end;
+  font-size: 1rem;
+  border: 1px solid #999;
+  box-shadow: 5px 5px 10px 1px #999;
+  border-radius: 7px;
+  padding: 1rem;
+  margin: 1rem;
+  margin-left: 1rem;
+  margin-bottom: 5rem;
     
 }
 
@@ -23,12 +38,7 @@
     margin-bottom: 1rem;
 }
 
- #activity-cardDeck{
-    
-    flex-wrap: wrap;
-    flex-direction: row;
-} 
-
+ 
 #activities-title{
     text-align: center;
     color:limegreen;
@@ -46,4 +56,21 @@
     width:20rem;
     background-color: limegreen;
     border-radius: 7px;
+}
+
+.public-activities{
+    margin-top: 1rem;
+  max-height: 90%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-wrap: nowrap;
+  font-family: 'Marmelad', sans-serif;
+  color: #333;
+  padding: 2rem;
+  margin-left: 2rem;
+  margin-right: 5rem;
+  overflow-x: scroll;
+  margin-bottom: 5rem;
 }

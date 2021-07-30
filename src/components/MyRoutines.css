@@ -26,6 +26,8 @@
 
 #dropdown-button-dark-example1{
    min-width:20rem;
+   max-width: 20rem;
+   overflow: hidden;
 margin:.5rem;
 }
 

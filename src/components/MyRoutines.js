@@ -103,7 +103,7 @@ const MyRoutines = ({
                             value={activityName}
 
                         >
-                            Activity Name
+                            {activityName}
                         </Dropdown.Toggle>
                         <Dropdown.Menu variant="dark">
                             {activities.map((activity) => {
@@ -127,8 +127,10 @@ const MyRoutines = ({
                     <Dropdown>
                         <Dropdown.Toggle
                             id="dropdown-button-dark-example1"
-                            variant="secondary">
-                            Activity Description
+                            variant="secondary"
+                            value={description}
+                        >
+                            {description}
                         </Dropdown.Toggle>
                         <Dropdown.Menu variant="dark">
                             {activities.map((activity) => {

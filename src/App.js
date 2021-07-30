@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { getUsersMe } from './api/users'
 import TitleMessage from "./components/Title-message";
-import Background1 from '../src/assets/backgroundImg'
 
 
 import {
@@ -57,7 +56,7 @@ const App = () => {
     return (
 
         <Router>
-            <div id="App">
+            <div>
                 <Header userToken={userToken} setUserToken={setUserToken} />
                 <Navbar userToken={userToken} setUserToken={setUserToken} />
             </div>
@@ -80,11 +79,8 @@ const App = () => {
                     <Routines allRoutines={allRoutines} setAllRoutines={setAllRoutines} />
                 </Route>
                 <Route path='/activities'>
-                    <div className='backgroundImg'
-                        bgImage={Background1}
-                    >
-                        <Activities userToken={userToken} allActivities={allActivities} setAllActivites={setAllActivites} />
-                    </div>
+                    <Activities userToken={userToken} allActivities={allActivities} setAllActivites={setAllActivites} />
+
                 </Route>
                 <Route path='/myRoutines'>
                     <MyRoutines user={user} userToken={userToken} myRoutines={myRoutines} setMyRoutines={setMyRoutines} />

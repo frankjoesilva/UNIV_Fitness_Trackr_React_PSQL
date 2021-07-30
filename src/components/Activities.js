@@ -4,6 +4,7 @@ import { Card, Form, Button, Container, CardDeck } from 'react-bootstrap'
 import './Activities.css'
 
 
+
 const Activities = ({
 
     userToken

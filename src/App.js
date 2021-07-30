@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { getUsersMe } from './api/users'
 import TitleMessage from "./components/Title-message";
-
+import Background1 from '../src/assets/backgroundImg'
 
 
 import {
@@ -80,7 +80,11 @@ const App = () => {
                     <Routines allRoutines={allRoutines} setAllRoutines={setAllRoutines} />
                 </Route>
                 <Route path='/activities'>
-                    <Activities userToken={userToken} allActivities={allActivities} setAllActivites={setAllActivites} />
+                    <div className='backgroundImg'
+                        bgImage={Background1}
+                    >
+                        <Activities userToken={userToken} allActivities={allActivities} setAllActivites={setAllActivites} />
+                    </div>
                 </Route>
                 <Route path='/myRoutines'>
                     <MyRoutines user={user} userToken={userToken} myRoutines={myRoutines} setMyRoutines={setMyRoutines} />

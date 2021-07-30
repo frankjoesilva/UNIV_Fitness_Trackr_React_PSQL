@@ -27,17 +27,20 @@ const MyRoutines = ({
         if (userToken) {
             getRoutinesByUsername(user.username, userToken)
                 .then(routines => {
+                    console.log(routines)
                     setMyRoutines(routines)
                 })
                 .catch(error => {
                     console.error(error)
                 });
         }
+
     }, [userToken, user]);
 
     useEffect(() => {
         getActivities()
             .then(activities => {
+                // console.log(activities, "xxx")
                 setActivities(activities)
             })
             .catch(error => {
@@ -96,19 +99,24 @@ const MyRoutines = ({
                     <Dropdown>
                         <Dropdown.Toggle
                             id="dropdown-button-dark-example1"
-                            variant="secondary">
+                            variant="secondary"
+                            value={activityName}
+
+                        >
                             Activity Name
                         </Dropdown.Toggle>
                         <Dropdown.Menu variant="dark">
                             {activities.map((activity) => {
+
                                 return (<Dropdown.Item
                                     key={activity.id}
                                     type='Name'
-                                    value={activityName}
-                                    onChange={(event) => {
-                                        const actName = event.target.value
+                                    onClick={(event) => {
+                                        const actName = event.target.outerText
+                                        console.log(actName)
                                         setActivityName(actName)
-                                    }}>
+                                    }}
+                                >
                                     {activity.name}
                                 </Dropdown.Item>)
                             })}
@@ -125,8 +133,8 @@ const MyRoutines = ({
                         <Dropdown.Menu variant="dark">
                             {activities.map((activity) => {
                                 return (<Dropdown.Item key={activity.id} value={description}
-                                    onChange={(event) => {
-                                        const actDescription = event.target.value
+                                    onClick={(event) => {
+                                        const actDescription = event.target.outerText
                                         setDescription(actDescription)
                                     }}>
                                     {activity.description}
@@ -161,7 +169,7 @@ const MyRoutines = ({
                 {
                     myRoutines.map((routine) => {
                         if (user.id === routine.creatorId) {
-
+                            // console.log(routine)
 
                             return (
                                 <CardDeck

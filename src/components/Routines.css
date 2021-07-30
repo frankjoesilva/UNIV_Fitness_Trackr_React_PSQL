@@ -1,6 +1,6 @@
 #routine-card {
   display: flex;
-  min-width: 270px;
+  min-width: 20px;
   max-width: 270px;
   min-height:25rem;
   background-color: #FFF;

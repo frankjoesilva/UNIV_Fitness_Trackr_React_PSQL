@@ -17,8 +17,8 @@ const Header = ({
     return (
         <header>
             <div>
-                <a class='navbar-brand' href="home">
-                    <img src={logo} alt='header-logo' width="280" height="310" className='logo' />
+                <a class='navbar-logo' href="home">
+                    <img src={logo} alt='header-logo' width="280" height="315" className='logo' />
                 </a>
             </div>
             {userToken ? <button id='logout-btn' onClick={handleUserLogout}>Logout</button> : null}

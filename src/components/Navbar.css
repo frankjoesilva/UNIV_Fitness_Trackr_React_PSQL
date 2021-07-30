@@ -14,15 +14,14 @@
     font-family: 'Balsamic Sans', sans-serif;
     font-size: 16px;
     font-weight: bold;
-    border-top: 3px solid limegreen;
-    border-bottom: 3px solid blueviolet;
+    border-top: 3px solid magenta;
+    border-bottom: 3px solid magenta;
     padding:1rem;
     background-color: black;
   }
 
-  a {
-    text-decoration: inherit;
-    color: limegreen;
+  a{
+   
     padding: 0px 25px;
     word-wrap: normal;
     display: inline-block;

@@ -21,14 +21,15 @@ const MyNavbar = ({
 
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse className="ml-auto" id="responsive-navbar-nav">
-                    <Nav id="navlink" className="mr-auto" >
+                    <Nav id="navlink" className="mr-auto"
+                    >
 
-                        <NavLink to="/home" activeClassName="current">HOME</NavLink>
-                        <NavLink to="/routines" activeClassName="current">ROUTINES</NavLink>
-                        {userToken && <NavLink to="/myRoutines" activeClassName="current">MY ROUTINES</NavLink>}
-                        <NavLink to="/activities" activeClassName="current">ACTIVITIES</NavLink>
-                        {!userToken && <NavLink to="/login" activeClassName="current">LOGIN</NavLink>}
-                        {!userToken && <NavLink to="/register" activeClassName="current">REGISTER</NavLink>}
+                        <NavLink to="/home" activeClassName="current" style={{ color: 'magenta' }}>HOME</NavLink>
+                        <NavLink to="/routines" activeClassName="current" style={{ color: 'magenta' }}>ROUTINES</NavLink>
+                        {userToken && <NavLink to="/myRoutines" activeClassName="current" style={{ color: 'magenta' }}>MY ROUTINES</NavLink>}
+                        <NavLink to="/activities" activeClassName="current" style={{ color: 'magenta' }}>ACTIVITIES</NavLink>
+                        {!userToken && <NavLink to="/login" activeClassName="current" style={{ color: 'magenta' }}>LOGIN</NavLink>}
+                        {!userToken && <NavLink to="/register" activeClassName="current" style={{ color: 'magenta' }}>REGISTER</NavLink>}
                     </Nav>
                 </Navbar.Collapse>
 

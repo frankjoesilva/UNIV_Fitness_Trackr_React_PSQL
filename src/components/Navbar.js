@@ -24,12 +24,12 @@ const MyNavbar = ({
                     <Nav id="navlink" className="mr-auto"
                     >
 
-                        <NavLink to="/home" activeClassName="current" style={{ color: 'magenta' }}>HOME</NavLink>
-                        <NavLink to="/routines" activeClassName="current" style={{ color: 'magenta' }}>ROUTINES</NavLink>
-                        {userToken && <NavLink to="/myRoutines" activeClassName="current" style={{ color: 'magenta' }}>MY ROUTINES</NavLink>}
-                        <NavLink to="/activities" activeClassName="current" style={{ color: 'magenta' }}>ACTIVITIES</NavLink>
-                        {!userToken && <NavLink to="/login" activeClassName="current" style={{ color: 'magenta' }}>LOGIN</NavLink>}
-                        {!userToken && <NavLink to="/register" activeClassName="current" style={{ color: 'magenta' }}>REGISTER</NavLink>}
+                        <NavLink to="/home" className='navLink' style={{ color: 'magenta' }}>HOME</NavLink>
+                        <NavLink to="/routines" className='navLink' style={{ color: 'magenta' }}>ROUTINES</NavLink>
+                        {userToken && <NavLink to="/myRoutines" className='navLink' style={{ color: 'magenta' }}>MY ROUTINES</NavLink>}
+                        <NavLink to="/activities" className='navLink' style={{ color: 'magenta' }}>ACTIVITIES</NavLink>
+                        {!userToken && <NavLink to="/login" className='navLink' style={{ color: 'magenta' }}>LOGIN</NavLink>}
+                        {!userToken && <NavLink to="/register" className='navLink' style={{ color: 'magenta' }}>REGISTER</NavLink>}
                     </Nav>
                 </Navbar.Collapse>
 

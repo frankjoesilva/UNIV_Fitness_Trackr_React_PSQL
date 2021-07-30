@@ -101,7 +101,6 @@ const MyRoutines = ({
                             id="dropdown-button-dark-example1"
                             variant="secondary"
                             value={activityName}
-
                         >
                             {activityName}
                         </Dropdown.Toggle>
@@ -184,7 +183,9 @@ const MyRoutines = ({
                                                 <Card.Header className="text-center  card-title">My Routines </Card.Header>
                                                 <Card.Text className="text-center">Routine Name: {routine.name}</Card.Text>
                                                 <Card.Text className="text-center">Routine Goal: {routine.goal}</Card.Text>
-                                                <h3 id='activities-title'>Activities For Routines</h3>
+                                                <Card.Header className="text-center  card-title">Activities For Routines </Card.Header>
+
+                                                {/* <h3 id='activities-title'>Activities For Routines</h3> */}
                                                 {routine.activities && routine.activities.map((activity, index) => {
                                                     return (
                                                         <React.Fragment key={index}>
@@ -195,9 +196,14 @@ const MyRoutines = ({
                                                         </React.Fragment>
                                                     )
                                                 })}
-                                                <Button style={{ width: '10rem', background: 'red' }} variant="primary" onClick={async () => { }}>
-                                                    DELETE
-                                                </Button>
+                                                <div>
+                                                    <Button id='delete-btn' style={{ width: '6rem', background: 'red' }} variant="primary" onClick={async () => { }}>
+                                                        DELETE
+                                                    </Button>
+                                                    <Button id='edit-btn' style={{ width: '6rem', background: 'red' }} variant="primary" onClick={async () => { }}>
+                                                        EDIT
+                                                    </Button>
+                                                </div>
                                             </Card.Body>
                                         </Card>
                                     </Container>

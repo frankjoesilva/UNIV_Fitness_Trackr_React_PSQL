@@ -1,55 +1,75 @@
 #myRoutines-card{
-    padding:.2rem;
     max-width: 30rem;
     min-width: 20rem;
-    padding:3rem; 
     margin-right: auto;
     margin-left: auto;
     border: 3px solid rgb(201, 21, 201);
     text-align:center;
-        display: flex;
-        min-width: 270px;
-        max-width: 270px;
-        min-height:32rem;
-        background-color: #FFF;
-        flex-direction: column;
-        align-self: flex-end;
-        font-size: 1rem;
-        border: 1px solid #999;
-        box-shadow: 5px 5px 10px 1px #999;
-        border-radius: 7px;
-        padding: 1rem;
-        margin: 1rem;
-        margin-left: 1rem;
-        margin-bottom: 5rem;
+    display: flex;
+    min-height:32rem;
+    background-color: black;
+    flex-direction: column;
+    align-self: flex-end;
+    font-size: 1rem;
+    border: 1px solid blueviolet;
+    box-shadow: 3px 3px 3px 1px blueviolet;
+    border-radius: 7px;
+    padding: 1rem;
+    margin: .5rem;
+    margin-left: .5rem;
+    margin-bottom: 5rem;
+}
+
+.card-header:first-child {
+    background: limegreen;
+    border-radius: 7px;
+    color: magenta;
+    font-weight:bold;
+    margin-bottom: 1rem;
+}
+
+.card-header{
+    background: limegreen;
+    border-radius: 7px;
+    color: magenta;
+    font-weight:bold;
+    margin-bottom: 1rem;
 }
 
 #dropdown-button-dark-example1{
    min-width:20rem;
    max-width: 20rem;
    overflow: hidden;
-margin:.5rem;
+   margin:.5rem;
 }
 
 
-#newRoutineTitle{
+/* #newRoutineTitle{
     text-align:center;
     padding: 1rem;
     color:limegreen;
-}
+} */
 
 .btn-primary {
     padding:.5rem;
     font-size: 1.5;
     width:20rem;
-   
     margin-bottom:1rem;
     margin-top: .5rem;
     background-color: limegreen;
     border-radius: 7px;
 }
 
+#delete-btn{
+    box-shadow: 2px 2px 2px 1px black;
+    border:2px solid black;
+    margin-right: 1rem;
+}
 
+#edit-btn{
+    box-shadow: 2px 2px 2px 1px black;
+    border:2px solid black;
+}
 
 #add-routines{
     border:3px solid blueviolet;
@@ -57,13 +77,13 @@ margin:.5rem;
     padding-top: 2rem;
     background-color:rgb(201, 21, 201);
     border-radius: 10px;
-    width:25rem;
+    width:22rem;
+    min-width: 22rem;
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-bottom: 1rem;
     margin-top:2rem;
-    
 }
 
 .my-routine-card {
@@ -76,10 +96,14 @@ margin:.5rem;
     flex-wrap: nowrap;
     font-family: 'Marmelad', sans-serif;
     color: #333;
-    padding: 2rem;
+    padding: 1rem;
     margin-left: 2rem;
     margin-right: 5rem;
     overflow-x: scroll;
     margin-bottom: 5rem;
 }
 
+.card-text{
+    color:limegreen;
+    font-weight: bold;
+}

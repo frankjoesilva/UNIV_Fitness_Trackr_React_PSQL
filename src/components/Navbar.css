@@ -1,9 +1,4 @@
 
-    /* a {
-    padding: 0px 25px;
-    word-wrap: normal;
-    display: inline-block;
-    } */
 
   #navbar {
     display: flex;
@@ -21,7 +16,6 @@
   }
 
   a{
-   
     padding: 0px 25px;
     word-wrap: normal;
     display: inline-block;

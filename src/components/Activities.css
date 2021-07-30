@@ -2,18 +2,19 @@
 
     margin-right: auto;
     margin-left: auto;
-    margin: 1rem;
+    margin: .5rem;
     min-height:20rem;
     margin-bottom: 1rem;
+    margin-top: 2rem;
     border: 3px solid rgb(201, 21, 201);
     text-align:center; 
     display: flex;
-    background-color: #FFF;
+    background-color: black;
     flex-direction: column;
     align-self: flex-end;
     font-size: 1rem;
-    border: 1px solid #999;
-    box-shadow: 5px 5px 10px 1px #999;
+    border: 1px solid blueviolet;
+    box-shadow: 3px 3px 3px 1px blueviolet;
     border-radius: 7px;
   min-width: 270px;
   max-width: 270px;
@@ -67,9 +68,9 @@
   flex-wrap: nowrap;
   font-family: 'Marmelad', sans-serif;
   color: #333;
-  padding: 2rem;
+  margin: .5rem;
   margin-left: 2rem;
-  margin-right: 5rem;
+  margin-right: 2rem;
   overflow-x: scroll;
   margin-bottom: 10rem;
 }

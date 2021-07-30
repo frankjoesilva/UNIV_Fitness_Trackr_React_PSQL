@@ -32,11 +32,11 @@ const PublicRoutines = () => {
                                 <Card.Header id="Username" className="text-center  card-header">{routine.creatorName}</Card.Header>
                                 <Card.Text className="text-center">Routine Name: {routine.name}</Card.Text>
                                 <Card.Text className="text-center">Goal:{routine.goal}</Card.Text>
-                                <Card.Title className="text-center  card-title" id="activities-for-routines" >Activities For Routines</Card.Title>
+                                <Card.Header className="text-center  card-title">Activities For Routines </Card.Header>
                                 {routine.activities.map((activity, index) => {
                                     return (
                                         <React.Fragment key={index}>
-                                            <Card.Title className="text-center  card-title">Activity Name: {activity.name}</Card.Title>
+                                            <Card.Header className="text-center  card-title">Activity Name: {activity.name}</Card.Header>
                                             <Card.Text className="text-center">Activity Duration: {activity.duration}</Card.Text>
                                             <Card.Text className="text-center">Activity Count: {activity.count}</Card.Text>
                                         </React.Fragment>

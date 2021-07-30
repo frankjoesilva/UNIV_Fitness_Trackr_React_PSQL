@@ -86,7 +86,7 @@ const Activities = ({
 
                                 style={{ width: '23rem' }}>
                                 <Card.Body>
-                                    <Card.Title id="activity-name"><h3>Activity: </h3></Card.Title>
+                                    <Card.Header className="text-center  card-title">Activity </Card.Header>
                                     <Card.Text>Activity Name: {activity.name}</Card.Text>
                                     <Card.Text>Description: {activity.description}</Card.Text>
                                 </Card.Body>

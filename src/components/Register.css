@@ -35,6 +35,10 @@
 
 body {
     background-color: black;
-    background-image:url(../assets/backgroundImg/background1.jpeg) ;
-    
+    background-image:url(../assets/backgroundImg/background1.jpg) ;
+    background-repeat: no-repeat;
+    -webkit-background-size: 100%;
+    -moz-background-size: 100%;
+    -o-background-size: 100%;
+    background-size:cover;
 }

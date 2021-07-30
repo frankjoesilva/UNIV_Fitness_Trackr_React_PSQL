@@ -1,6 +1,5 @@
 
   #navbar {
-    
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -11,12 +10,9 @@
     font-weight: bold;
     border-top: 3px solid limegreen;
     border-bottom: 2px solid limegreen;
-
     padding:1rem;
     background-color: black;
-    color:limegreen;
-   
-    
+    color:limegreen; 
   }
 
   a{

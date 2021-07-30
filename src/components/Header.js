@@ -1,5 +1,6 @@
 import React from 'react';
 import './Header.css';
+import logo from '../assets/icons/logo.png'
 
 const Header = ({
     userToken,
@@ -15,8 +16,10 @@ const Header = ({
 
     return (
         <header>
-            <h1>Fitness Trackr</h1>
-            {userToken ? <button id='logout-btn' onClick={handleUserLogout}>Logout</button> : null}
+            <div>
+                <img className='logo' src={logo} alt='header-logo' />
+                {userToken ? <button id='logout-btn' onClick={handleUserLogout}>Logout</button> : null}
+            </div>
         </header>
     );
 }

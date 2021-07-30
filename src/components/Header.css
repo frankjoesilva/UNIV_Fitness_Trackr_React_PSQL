@@ -5,12 +5,11 @@ header {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-
+  height:6rem;
   font-family: 'Balsamic Sans', sans-serif;
   font-size: 16px;
 
-  background:rgb(201, 21, 201);
-  padding: 1em;
+  background:blueviolet;
 }
 
 header h1 {
@@ -45,11 +44,11 @@ header .user-select button {
 
 #logout-btn{
   padding: 8px 12px;
-  border: 1px solid limegreen;
+  border: 2px solid limegreen;
   border-radius: 4px;
   outline: none;
   background: black;
-  box-shadow: 0 3px 6px -5px;
+  box-shadow: 3px 3px 3px 1px limegreen;
   color: limegreen;
   font-weight: bold;
   font-size: 1em;
@@ -58,3 +57,9 @@ header .user-select button {
   top: 1.25rem;
 }
 
+
+.logo{
+height:26rem;
+  width:18rem;
+  padding-bottom: 15rem;
+}

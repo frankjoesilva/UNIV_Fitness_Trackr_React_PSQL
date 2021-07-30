@@ -27,11 +27,12 @@
     padding-top: 2rem;
     background-color:rgb(201, 21, 201);
     border-radius: 7px;
-    width:30rem;
+    width:25rem;
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-top: 2rem;
+    box-shadow: 3px 3px 3px 1px limegreen;
 }
 
  
@@ -52,6 +53,8 @@
     width:20rem;
     background-color: limegreen;
     border-radius: 7px;
+    box-shadow: 3px 3px 3px 1px blueviolet;
+    border:3px solid limegreen;
 }
 
 .public-activities{

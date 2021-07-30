@@ -1,4 +1,10 @@
 
+    /* a {
+    padding: 0px 25px;
+    word-wrap: normal;
+    display: inline-block;
+    } */
+
   #navbar {
     display: flex;
     flex-direction: row;
@@ -12,14 +18,15 @@
     border-bottom: 3px solid blueviolet;
     padding:1rem;
     background-color: black;
-    color:limegreen; 
   }
 
-  a{
-  padding: 0px 25px;
-  word-wrap: normal;
-  display: inline-block;
-    
-  }
+  a {
+    text-decoration: inherit;
+    color: limegreen;
+    padding: 0px 25px;
+    word-wrap: normal;
+    display: inline-block;
+}
+
 
 

@@ -17,9 +17,9 @@ const Header = ({
     return (
         <header>
             <div>
-                <img className='logo' src={logo} alt='header-logo' />
-                {userToken ? <button id='logout-btn' onClick={handleUserLogout}>Logout</button> : null}
+                <img src={logo} alt='header-logo' width="280" height="300" className='logo' />
             </div>
+            {userToken ? <button id='logout-btn' onClick={handleUserLogout}>Logout</button> : null}
         </header>
     );
 }

@@ -3,43 +3,12 @@
 header {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  /* justify-content: space-around; */
   align-items: center;
-  height:6rem;
+  height:5rem;
   font-family: 'Balsamic Sans', sans-serif;
   font-size: 16px;
-
   background:blueviolet;
-}
-
-header h1 {
-  font-size: 2.4em;
-  font-style: italic;
-  color: limegreen ;
-  text-shadow: 1px 1px 3px black;
-}
-
-header .user-select {
-  display: flex;
-  flex-direction: row;
-}
-
-header .user-select select {
-  width: 16em;
-  margin-right: .5em;
-}
-
-header .user-select select,
-header .user-select button {
-  padding: 8px 12px;
-  border: 1px solid #333333;
-  border-radius: 4px;
-  outline: none;
-  background: #ffffff;
-  box-shadow: 0 3px 6px -5px;
-  color: #333333;
-  font-weight: bold;
-  font-size: 1em;
 }
 
 #logout-btn{
@@ -53,13 +22,13 @@ header .user-select button {
   font-weight: bold;
   font-size: 1em;
   position: absolute;
-  right: 10px;
-  top: 1.25rem;
+  right: 15px;
+  top:15px;
 }
 
 
 .logo{
-height:26rem;
-  width:18rem;
-  padding-bottom: 15rem;
+  padding-bottom: 8.5rem;
 }
+
+

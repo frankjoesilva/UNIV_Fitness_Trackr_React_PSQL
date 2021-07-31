@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { getRoutines } from '../api/routines'
-import { Card, CardDeck, Container } from 'react-bootstrap'
+import { Accordion, Card, CardDeck, Container, } from 'react-bootstrap'
 import './Routines.css'
 
 
@@ -24,27 +24,41 @@ const PublicRoutines = () => {
             {routines.map((routine) => {
                 return (<CardDeck key={routine.id}>
                     <Container>
-                        <Card id="routine-card"
-                            className="focus mt-2 mb-2"
-                        >
+                        <Accordion>
 
-                            <Card.Body>
-                                <Card.Header id="Username" className="text-center  card-header">{routine.creatorName}</Card.Header>
-                                <Card.Text className="text-center">Routine Name: {routine.name}</Card.Text>
-                                <Card.Text className="text-center">Goal:{routine.goal}</Card.Text>
-                                <Card.Header className="text-center  card-title">Activities For Routines </Card.Header>
-                                {routine.activities.map((activity, index) => {
-                                    return (
-                                        <React.Fragment key={index}>
-                                            <Card.Header className="text-center  card-title">Activity Name: {activity.name}</Card.Header>
-                                            <Card.Text className="text-center">Activity Duration: {activity.duration}</Card.Text>
-                                            <Card.Text className="text-center">Activity Count: {activity.count}</Card.Text>
-                                        </React.Fragment>
-                                    )
-                                })}
+                            <Card id="routine-card"
+                                className="focus mt-2 mb-2"
+                            >
 
-                            </Card.Body>
-                        </Card>
+                                <Card.Body>
+                                    <Card.Header id="Username" className="text-center  card-header">{routine.creatorName}</Card.Header>
+                                    <Card.Text className="text-center">Routine Name: {routine.name}</Card.Text>
+                                    <Card.Text className="text-center">Goal:{routine.goal}</Card.Text>
+                                    {/* <Card.Header className="text-center  card-header" id="activities-for-routines" >Activities For Routines</Card.Header> */}
+                                    <Accordion.Toggle
+                                        as={Card.Header}
+                                        eventKey="0"
+                                        className="p-2 text-center accordian-main"
+                                    >
+                                        ACTIVITY DETAILS
+                                    </Accordion.Toggle>
+                                    {routine.activities.map((activity, index) => {
+                                        return (
+
+                                            <Accordion.Collapse eventKey="0" className="text-left" key={index}>
+                                                <React.Fragment>
+                                                    <Card.Text className="text-center  card-title">Activity Name: {activity.name}</Card.Text>
+                                                    <Card.Text className="text-center">Activity Duration: {activity.duration}</Card.Text>
+                                                    <Card.Text className="text-center">Activity Count: {activity.count}</Card.Text>
+                                                </React.Fragment>
+                                            </Accordion.Collapse>
+
+                                        )
+                                    })}
+
+                                </Card.Body>
+                            </Card>
+                        </Accordion>
                     </Container>
                 </CardDeck>)
             })}

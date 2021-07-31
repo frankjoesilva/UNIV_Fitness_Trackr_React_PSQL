@@ -28,7 +28,12 @@ header {
 
 
 .logo{
-  padding-bottom: 10rem;
+  padding-bottom: 2.5rem;
+/* transform-origin: top; */
+width:20rem;
+height:12rem;
+min-width: 18rem;
+min-height: 9rem;
 }
 
 

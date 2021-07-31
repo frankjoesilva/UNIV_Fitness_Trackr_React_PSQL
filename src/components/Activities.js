@@ -34,13 +34,13 @@ const Activities = ({
                     const data = await postActivities(activityName, description, userToken)
                     if (data.name === 'error') {
                         setError('Activitiy Already Exists!')
-                        return
+                        return null
                     }
                     else if (data.name === '' || data.description === '') {
                         setError('Missing Fields')
+                        return null
                     }
                     else {
-
                         setActivities([...activities, data])
                     }
 

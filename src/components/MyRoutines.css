@@ -18,6 +18,9 @@
     margin: .5rem;
     margin-left: .5rem;
     margin-bottom: 5rem;
+    background-image: url(../assets/backgroundImg/cardBackground1.jpeg);
+    opacity:0.95;
+  
 }
 
 .card-header:first-child {

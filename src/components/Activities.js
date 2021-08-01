@@ -34,11 +34,10 @@ const Activities = ({
                     const data = await postActivities(activityName, description, userToken)
                     if (data.name === 'error') {
                         setError('Activitiy Already Exists!')
-                        return null
                     }
-                    else if (data.name === '' || data.description === '') {
+                    else if (data.name === '') {
                         setError('Missing Fields')
-                        return null
+
                     }
                     else {
                         setActivities([...activities, data])
@@ -85,7 +84,7 @@ const Activities = ({
                             <Card id="activity-card"
 
                                 style={{ width: '23rem' }}>
-                                <Card.Body>
+                                <Card.Body id="card-container">
                                     <Card.Header className="text-center  card-title">Activity </Card.Header>
                                     <Card.Text>Activity Name: {activity.name}</Card.Text>
                                     <Card.Text>Description: {activity.description}</Card.Text>

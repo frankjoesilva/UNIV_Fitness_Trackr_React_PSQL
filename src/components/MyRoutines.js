@@ -21,6 +21,8 @@ const MyRoutines = ({
     const [routineName, setRoutineName] = useState('')
     const [routineGoal, setRoutineGoal] = useState('')
     const [isPublic, setIsPublic] = useState(false)
+    const [error, setError] = useState('')
+
 
 
     useEffect(() => {
@@ -62,16 +64,21 @@ const MyRoutines = ({
                 setDescription([])
                 try {
                     const updateActivity = await postRoutines(routineName, routineGoal, isPublic, userToken, user.id)
-                    setMyRoutines([...myRoutines, updateActivity])
+                    if (updateActivity.name === '') {
+                        setError('Missing Fields')
+                    } else {
+                        setMyRoutines([...myRoutines, updateActivity])
+                    }
                     const data = await getActivities(activityName, description, userToken)
                     setActivities([...activities, data])
                     const postData = await postActivities(activityName, description, userToken)
                     setActivities([...activities, postData])
+
                     // const updateCountAndDur = await postCountAndDuration(myCount, myDuration, userToken)
                     // setMyCount([...myCount, updateCountAndDur])
                     // setMyDuration([...myDuration, updateCountAndDur])
                 } catch (error) {
-                    console.error(error)
+                    setError(error)
                 }
             }}
             className='my-routines'>
@@ -86,6 +93,7 @@ const MyRoutines = ({
                             const routine = event.target.value
                             setRoutineName(routine)
                         }} />
+                        {error ? <div>{error}</div> : null}
 
                     </Form.Group>
 
@@ -181,26 +189,26 @@ const MyRoutines = ({
                                         >
                                             <Card.Body id='card-container'>
                                                 <Card.Header className="text-center  card-title">My Routines </Card.Header>
-                                                <Card.Text className="text-center">Routine Name: {routine.name}</Card.Text>
-                                                <Card.Text className="text-center">Routine Goal: {routine.goal}</Card.Text>
+                                                <Card.Text className="ml-auto">Routine Name: {routine.name}</Card.Text>
+                                                <Card.Text className="ml-auto">Routine Goal: {routine.goal}</Card.Text>
                                                 <Card.Header className="text-center  card-title">Activities For Routines </Card.Header>
 
                                                 {/* <h3 id='activities-title'>Activities For Routines</h3> */}
                                                 {routine.activities && routine.activities.map((activity, index) => {
                                                     return (
                                                         <React.Fragment key={index}>
-                                                            <Card.Title className="text-center  card-title">Activity Name: {activity.name}</Card.Title>
-                                                            <Card.Text className="text-center  card-title">Activity Description{activity.description}</Card.Text>
-                                                            <Card.Text className="text-center">Activity Duration: {activity.duration}</Card.Text>
-                                                            <Card.Text className="text-center">Activity Count: {activity.count}</Card.Text>
+                                                            <Card.Title className="ml-auto">Activity Name: {activity.name}</Card.Title>
+                                                            <Card.Text className="ml-auto">Activity Description{activity.description}</Card.Text>
+                                                            <Card.Text className="ml-auto">Activity Duration: {activity.duration}</Card.Text>
+                                                            <Card.Text className="ml-auto">Activity Count: {activity.count}</Card.Text>
                                                         </React.Fragment>
                                                     )
                                                 })}
-                                                <div>
-                                                    <Button id='delete-btn' style={{ width: '6rem', background: 'red' }} variant="primary" onClick={async () => { }}>
+                                                <div id='edit-delete-btn'>
+                                                    <Button id='delete-btn' style={{ width: '5.5rem', background: 'red' }} variant="primary" onClick={async () => { }}>
                                                         DELETE
                                                     </Button>
-                                                    <Button id='edit-btn' style={{ width: '6rem', background: 'red' }} variant="primary" onClick={async () => { }}>
+                                                    <Button id='edit-btn' style={{ width: '5.5rem', background: 'red' }} variant="primary" onClick={async () => { }}>
                                                         EDIT
                                                     </Button>
                                                 </div>

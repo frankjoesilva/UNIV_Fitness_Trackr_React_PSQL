@@ -49,7 +49,7 @@ const PublicRoutines = () => {
 
                                             <Accordion.Collapse eventKey="0" className="text-left" key={index}>
                                                 <React.Fragment>
-                                                    <Card.Text className="ml-auto  card-title">Activity Name: {activity.name}</Card.Text>
+                                                    <Card.Text className="ml-auto">Activity Name: {activity.name}</Card.Text>
                                                     <Card.Text className="ml-auto">Activity Duration: {activity.duration}</Card.Text>
                                                     <Card.Text className="ml-auto">Activity Count: {activity.count}</Card.Text>
                                                 </React.Fragment>

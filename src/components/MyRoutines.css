@@ -24,16 +24,21 @@
 }
 
 .card-header:first-child {
-    background: limegreen;
+    background: black;
     border-radius: 7px;
     color: magenta;
+    box-shadow: 3px 3px 3px 1px magenta;
     font-weight:bold;
+    margin-top: 1rem;
     margin-bottom: 1rem;
 }
 
 .card-header{
-    background: limegreen;
+    background: black;
+    border: 1px solid magenta;
     border-radius: 7px;
+    box-shadow: 3px 3px 3px 1px magenta;
+
     color: magenta;
     font-weight:bold;
     margin-bottom: 1rem;
@@ -107,6 +112,6 @@
 }
 
 .card-text{
-    color:limegreen;
+    color:magenta;
     font-weight: bold;
 }

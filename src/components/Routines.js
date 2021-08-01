@@ -4,6 +4,7 @@ import { Accordion, Card, CardDeck, Container, } from 'react-bootstrap'
 import './Routines.css'
 
 
+
 const PublicRoutines = () => {
     const [routines, setRoutines] = useState([])
 
@@ -30,12 +31,13 @@ const PublicRoutines = () => {
                                 className="focus mt-2 mb-2"
                             >
 
-                                <Card.Body>
+                                <Card.Body id='card-container'>
                                     <Card.Header id="Username" className="text-center  card-header">{routine.creatorName}</Card.Header>
-                                    <Card.Text className="text-center">Routine Name: {routine.name}</Card.Text>
-                                    <Card.Text className="text-center">Goal:{routine.goal}</Card.Text>
+                                    <Card.Text className="text-left">Routine Name: {routine.name}</Card.Text>
+                                    <Card.Text className="text-left">Goal:{routine.goal}</Card.Text>
                                     {/* <Card.Header className="text-center  card-header" id="activities-for-routines" >Activities For Routines</Card.Header> */}
                                     <Accordion.Toggle
+                                        id='toggle'
                                         as={Card.Header}
                                         eventKey="0"
                                         className="p-2 text-center accordian-main"
@@ -47,9 +49,9 @@ const PublicRoutines = () => {
 
                                             <Accordion.Collapse eventKey="0" className="text-left" key={index}>
                                                 <React.Fragment>
-                                                    <Card.Text className="text-center  card-title">Activity Name: {activity.name}</Card.Text>
-                                                    <Card.Text className="text-center">Activity Duration: {activity.duration}</Card.Text>
-                                                    <Card.Text className="text-center">Activity Count: {activity.count}</Card.Text>
+                                                    <Card.Text className="ml-auto  card-title">Activity Name: {activity.name}</Card.Text>
+                                                    <Card.Text className="ml-auto">Activity Duration: {activity.duration}</Card.Text>
+                                                    <Card.Text className="ml-auto">Activity Count: {activity.count}</Card.Text>
                                                 </React.Fragment>
                                             </Accordion.Collapse>
 

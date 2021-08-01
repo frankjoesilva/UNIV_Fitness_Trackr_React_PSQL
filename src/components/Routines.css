@@ -2,7 +2,7 @@
   display: flex;
   min-width: 20rem;
   max-width: 20rem;
-  min-height:35rem;
+  min-height:25rem;
   background-color: black;
   flex-direction: column;
   align-self: flex-end;
@@ -10,22 +10,19 @@
   border: 1px solid blueviolet;
   box-shadow: 3px 3px 3px 1px blueviolet;
   border-radius: 7px;
-  padding: 1rem;
+  padding: 2rem;
   margin: .5rem;
   margin-left: .5rem;
   margin-bottom: 5rem;
   text-align:center;
   background-image: url(../assets/backgroundImg/cardBackground1.jpeg);
-  opacity:0.95;
+  opacity:85%;
 }
 
 #username{
   border: 3px solid rgb(201, 21, 201);
 }
 
-/* .card-text{
-   color:blue 
-} */
 
 #routine-title{
     text-align: center;
@@ -34,16 +31,8 @@
 }
 
 
-#activity-routine-title{
-    color:red;
-}
-
-#activity-name{
-    color:hotpink;
-}
-
 .public-routines{
-  margin-top: 5rem;
+  margin-top: 1rem;
   max-height: 90%;
   display: flex;
   flex-direction: row;
@@ -62,6 +51,28 @@
 .card-body{
   padding-top: 0;
 }
+
+#card-container{
+  border: 2px solid magenta;
+  box-shadow: 3px 3px 3px 2px magenta;
+  background:lightgray;
+  border-radius: 7px;
+  opacity: 80%;
+  
+  
+}
+
+.text-left{
+  margin-left:.25rem;
+  margin-bottom: 1rem;
+  justify-content: space-around;
+}
+
+#toggle{
+  cursor: pointer;
+}
+
+
 body {
   background-color: black;
 }

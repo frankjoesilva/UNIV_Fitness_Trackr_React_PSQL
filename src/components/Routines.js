@@ -28,7 +28,7 @@ const PublicRoutines = () => {
                         <Accordion>
 
                             <Card id="routine-card"
-                                className="focus mt-2 mb-2"
+                                className=" center focus mt-2 mb-2"
                             >
 
                                 <Card.Body id='card-container'>

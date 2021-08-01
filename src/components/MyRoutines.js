@@ -179,7 +179,7 @@ const MyRoutines = ({
                                         <Card id="myRoutines-card"
                                             className="focus mt-2 mb-2"
                                         >
-                                            <Card.Body>
+                                            <Card.Body id='card-container'>
                                                 <Card.Header className="text-center  card-title">My Routines </Card.Header>
                                                 <Card.Text className="text-center">Routine Name: {routine.name}</Card.Text>
                                                 <Card.Text className="text-center">Routine Goal: {routine.goal}</Card.Text>

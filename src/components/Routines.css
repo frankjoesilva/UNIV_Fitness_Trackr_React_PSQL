@@ -17,6 +17,7 @@
   text-align:center;
   background-image: url(../assets/backgroundImg/cardBackground1.jpeg);
   opacity:85%;
+  
 }
 
 #username{
@@ -31,10 +32,12 @@
 }
 
 
+
 .public-routines{
   margin-top: 1rem;
   max-height: 90%;
   display: flex;
+  justify-content: center;
   flex-direction: row;
   justify-content: flex-start;
   align-items: flex-start;
@@ -46,6 +49,13 @@
   margin-right: 2rem;
   overflow-x: scroll;
   margin-bottom: 5rem;
+
+}
+
+div.public-routines{
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
 }
 
 .card-body{
@@ -59,7 +69,6 @@
   border-radius: 7px;
   opacity: 80%;
   
-  
 }
 
 .text-left{
@@ -71,7 +80,6 @@
 #toggle{
   cursor: pointer;
 }
-
 
 body {
   background-color: black;

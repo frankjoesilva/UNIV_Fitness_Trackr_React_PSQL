@@ -129,8 +129,8 @@ const MyRoutines = ({
                                     }}
                                 >
                                     <div>
-                                        <p id='act-name-drp-dwn'>{activity.name}</p>
-                                        <p id='act-descrition-drp-dwn'>{activity.description}</p>
+                                        <p id='act-drp-dwn'>{activity.name}</p>
+                                        <p id='act-drp-dwn'>{activity.description}</p>
                                     </div>
                                 </Dropdown.Item>)
                             })}

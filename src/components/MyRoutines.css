@@ -16,7 +16,7 @@
     border-radius: 7px;
     padding: 1rem;
     margin: .5rem;
-    margin-left: .5rem;
+    /* margin-left: .5rem; */
     margin-bottom: 5rem;
     background-image: url(../assets/backgroundImg/cardBackground1.jpeg);
     opacity:0.95;
@@ -38,7 +38,6 @@
     border: 1px solid magenta;
     border-radius: 7px;
     box-shadow: 3px 3px 3px 1px magenta;
-
     color: magenta;
     font-weight:bold;
     margin-bottom: 1rem;
@@ -112,7 +111,7 @@
     color: #333;
     margin-left: 2rem;
     margin-right: 2rem;
-    overflow-x: scroll;
+    overflow: scroll;
     margin-bottom: 5rem;
 }
 
@@ -127,4 +126,10 @@ div.my-routine-card{
 .card-text{
     color:magenta;
     font-weight: bold;
+}
+
+#routine-act{
+    color: limegreen;
+    font-weight: bold;
+
 }

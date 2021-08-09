@@ -103,6 +103,7 @@ const MyRoutines = ({
                             setRoutineGoal(goal)
                         }} />
                     </Form.Group>
+                    <p id="routine-act">Activities for Routine</p>
 
                     <Dropdown>
                         <Dropdown.Toggle
@@ -111,6 +112,7 @@ const MyRoutines = ({
                             value={activities}
                         >
                             {activityName}
+
                             {description}
                         </Dropdown.Toggle>
                         <Dropdown.Menu variant="dark">
@@ -124,7 +126,6 @@ const MyRoutines = ({
                                         console.log(actAndDescription)
                                         setActivityName(actAndDescription)
                                         setDescription(actAndDescription)
-
                                     }}
                                 >
                                     <div>
@@ -190,6 +191,7 @@ const MyRoutines = ({
                                 <CardDeck
                                     key={routine.id}>
                                     <Container>
+
                                         <Card id="myRoutines-card"
                                             className="focus mt-2 mb-2"
                                         >
@@ -221,7 +223,6 @@ const MyRoutines = ({
                                             </Card.Body>
                                         </Card>
                                     </Container>
-
                                 </CardDeck>
                             )
                         }

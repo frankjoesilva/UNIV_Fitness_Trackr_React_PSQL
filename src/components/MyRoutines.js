@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { getRoutinesByUsername, postRoutines, } from '../api/routines'
-import { getActivities, postActivities } from '../api/activities'
+import { getActivities } from '../api/activities'
 // import { postCountAndDuration } from '../api/routine_activities'
 import { Card, Form, Button, CardDeck, Container, Dropdown } from 'react-bootstrap'
 import './MyRoutines.css'
@@ -42,7 +42,7 @@ const MyRoutines = ({
     useEffect(() => {
         getActivities()
             .then(activities => {
-                // console.log(activities, "xxx")
+                // console.log(activities, "xx")
                 setActivities(activities)
             })
             .catch(error => {
@@ -63,16 +63,16 @@ const MyRoutines = ({
                 setActivityName([])
                 setDescription([])
                 try {
-                    const updateActivity = await postRoutines(routineName, routineGoal, isPublic, userToken, user.id)
-                    if (updateActivity.name === '') {
+                    const updateRoutine = await postRoutines(routineName, routineGoal, isPublic, userToken, user.id)
+                    if (updateRoutine.name === '') {
                         setError('Missing Fields')
                     } else {
-                        setMyRoutines([...myRoutines, updateActivity])
+                        setMyRoutines([...myRoutines, updateRoutine])
                     }
-                    const data = await getActivities(activityName, description, userToken)
-                    setActivities([...activities, data])
-                    const postData = await postActivities(activityName, description, userToken)
-                    setActivities([...activities, postData])
+                    // const data = await getActivities(activityName, description, userToken)
+                    // setActivities([...activities, data])
+                    // const postData = await postActivities(activityName, description, userToken)
+                    // setActivities([...activities, postData])
 
                     // const updateCountAndDur = await postCountAndDuration(myCount, myDuration, userToken)
                     // setMyCount([...myCount, updateCountAndDur])
@@ -108,9 +108,10 @@ const MyRoutines = ({
                         <Dropdown.Toggle
                             id="dropdown-button-dark-example1"
                             variant="secondary"
-                            value={activityName}
+                            value={activities}
                         >
                             {activityName}
+                            {description}
                         </Dropdown.Toggle>
                         <Dropdown.Menu variant="dark">
                             {activities.map((activity) => {
@@ -119,19 +120,24 @@ const MyRoutines = ({
                                     key={activity.id}
                                     type='Name'
                                     onClick={(event) => {
-                                        const actName = event.target.outerText
-                                        console.log(actName)
-                                        setActivityName(actName)
+                                        const actAndDescription = event.target.outerText
+                                        console.log(actAndDescription)
+                                        setActivityName(actAndDescription)
+                                        setDescription(actAndDescription)
+
                                     }}
                                 >
-                                    {activity.name}
+                                    <div>
+                                        <p id='act-name-drp-dwn'>{activity.name}</p>
+                                        <p id='act-descrition-drp-dwn'>{activity.description}</p>
+                                    </div>
                                 </Dropdown.Item>)
                             })}
                             <Dropdown.Divider />
                         </Dropdown.Menu>
                     </Dropdown>
 
-                    <Dropdown>
+                    {/* <Dropdown>
                         <Dropdown.Toggle
                             id="dropdown-button-dark-example1"
                             variant="secondary"
@@ -151,7 +157,7 @@ const MyRoutines = ({
                             })}
                             <Dropdown.Divider />
                         </Dropdown.Menu>
-                    </Dropdown>
+                    </Dropdown> */}
 
                     {/* <Form.Group controlId="myDuration">
 

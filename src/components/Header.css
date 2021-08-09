@@ -13,12 +13,12 @@ header {
 
 #logout-btn{
   padding: 8px 12px;
-  border: 2px solid limegreen;
+  border: 2px solid magenta;
   border-radius: 4px;
   outline: none;
   background: black;
-  box-shadow: 3px 3px 3px 1px limegreen;
-  color: limegreen;
+  box-shadow: 3px 3px 3px 1px magenta;
+  color: magenta;
   font-weight: bold;
   font-size: 1em;
   position: absolute;

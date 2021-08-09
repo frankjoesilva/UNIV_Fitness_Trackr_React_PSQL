@@ -12,10 +12,11 @@ export async function getActivitiesFromRoutines(activityId) {
     }
 }
 
-export async function postCountAndDuration(count, duration, token, routineId) {
+export async function addActivityToRoutine(count, duration, token, routineId, activityId) {
     try {
         const { data } = await axios.post(`${BASE}/routines/${routineId}/activities`, {
             count,
+            activityId,
             duration,
         }, { headers: { 'Authorization': `Bearer ${token}` } });
         return data;

@@ -31,11 +31,12 @@ const Activities = ({
                 setActivityName('')
                 setDescription('')
                 try {
+
                     const data = await postActivities(activityName, description, userToken)
                     if (data.name === 'error') {
                         setError('Activitiy Already Exists!')
                     }
-                    else if (data.name === '') {
+                    else if (data.name === '' || data.description === '') {
                         setError('Missing Fields')
 
                     }
@@ -54,18 +55,23 @@ const Activities = ({
 
                 <Container id="add-activities">
                     <Form.Group controlId="activityName">
-                        <Form.Control value={activityName} type="Name" placeholder="Activity Name" onChange={(event) => {
+                        <Form.Control value={activityName} type="text" placeholder="Activity Name" onChange={(event) => {
                             const actName = event.target.value
                             setActivityName(actName)
                         }} />
+
                         {error ? <div>{error}</div> : null}
 
                     </Form.Group>
 
                     <Form.Group controlId="activityDescription">
-                        <Form.Control value={description} type="Description" placeholder="Description" onChange={(event) => {
+                        <Form.Control value={description} type="text" placeholder="Description" onChange={(event) => {
                             const description = event.target.value
-                            setDescription(description)
+                            if (description === '') {
+                                return null
+                            } else {
+                                setDescription(description)
+                            }
                         }} />
                         <Button variant="primary" type="submit">
                             Submit

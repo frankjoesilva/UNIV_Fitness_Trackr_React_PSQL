@@ -89,8 +89,11 @@ const MyRoutines = ({
                 <Container id="add-routines">
                     <Form.Group controlId="routineName">
 
-                        <Form.Control value={routineName} type="Name" placeholder="Routine Name" onChange={(event) => {
+                        <Form.Control value={routineName} type="text" placeholder="Routine Name" onChange={(event) => {
                             const routine = event.target.value
+                            // if(routineName === ''){
+                            //     return 
+                            // }
                             setRoutineName(routine)
                         }} />
                         {error ? <div>{error}</div> : null}
@@ -98,7 +101,7 @@ const MyRoutines = ({
                     </Form.Group>
 
                     <Form.Group controlId="routineGoal">
-                        <Form.Control value={routineGoal} type="Description" placeholder="Description" onChange={(event) => {
+                        <Form.Control value={routineGoal} type="text" placeholder="Description" onChange={(event) => {
                             const goal = event.target.value
                             setRoutineGoal(goal)
                         }} />

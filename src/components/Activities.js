@@ -36,7 +36,7 @@ const Activities = ({
                     if (data.name === 'error') {
                         setError('Activitiy Already Exists!')
                     }
-                    else if (data.name === '' || data.description === '') {
+                    else if (data.message) {
                         setError('Missing Fields')
 
                     }
@@ -44,8 +44,9 @@ const Activities = ({
                         setActivities([...activities, data])
                     }
 
+
                 } catch (error) {
-                    setError(error)
+                    setError(error.message)
                 }
 
             }}

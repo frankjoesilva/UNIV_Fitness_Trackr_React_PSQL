@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { getRoutinesByUsername, postRoutines, } from '../api/routines'
 import { getActivities } from '../api/activities'
 // import { postCountAndDuration } from '../api/routine_activities'
-import { Card, Form, Button, CardDeck, Container, Dropdown } from 'react-bootstrap'
+import { Card, Form, Button, CardDeck, Container, Dropdown, Accordion } from 'react-bootstrap'
 import './MyRoutines.css'
 
 
@@ -64,8 +64,9 @@ const MyRoutines = ({
                 setDescription([])
                 try {
                     const updateRoutine = await postRoutines(routineName, routineGoal, isPublic, userToken, user.id)
-                    if (updateRoutine.name === '') {
+                    if (updateRoutine.name === '' || updateRoutine.goal === '') {
                         setError('Missing Fields')
+                        return
                     } else {
                         setMyRoutines([...myRoutines, updateRoutine])
                     }
@@ -202,17 +203,36 @@ const MyRoutines = ({
                                                 <Card.Header className="text-center  card-title">My Routines </Card.Header>
                                                 <Card.Text className="ml-auto">Routine Name: {routine.name}</Card.Text>
                                                 <Card.Text className="ml-auto">Routine Goal: {routine.goal}</Card.Text>
-                                                <Card.Header className="text-center  card-title">Activities For Routines </Card.Header>
+                                                {/* <Card.Header className="text-center  card-title">Activities For Routines </Card.Header> */}
 
                                                 {/* <h3 id='activities-title'>Activities For Routines</h3> */}
-                                                {routine.activities && routine.activities.map((activity, index) => {
+                                                {/* {routine.activities && routine.activities.map((activity, index) => {
                                                     return (
                                                         <React.Fragment key={index}>
                                                             <Card.Title className="ml-auto">Activity Name: {activity.name}</Card.Title>
                                                             <Card.Text className="ml-auto">Activity Description{activity.description}</Card.Text>
                                                             <Card.Text className="ml-auto">Activity Duration: {activity.duration}</Card.Text>
                                                             <Card.Text className="ml-auto">Activity Count: {activity.count}</Card.Text>
-                                                        </React.Fragment>
+                                                        </React.Fragment> */}
+                                                <Accordion.Toggle
+                                                    id='toggle'
+                                                    as={Card.Header}
+                                                    eventKey="0"
+                                                    className="p-2 text-center accordian-main"
+                                                >
+                                                    ACTIVITY DETAILS
+                                                </Accordion.Toggle>
+                                                {routine.activities && routine.activities.map((activity, index) => {
+                                                    return (
+
+                                                        <Accordion.Collapse eventKey="0" className="text-left" key={index}>
+                                                            <React.Fragment>
+                                                                <Card.Text className="ml-auto">Activity Name: {activity.name}</Card.Text>
+                                                                <Card.Text className="ml-auto">Activity Description: {activity.description}</Card.Text>
+                                                                <Card.Text className="ml-auto">Activity Duration: {activity.duration}</Card.Text>
+                                                                <Card.Text className="ml-auto">Activity Count: {activity.count}</Card.Text>
+                                                            </React.Fragment>
+                                                        </Accordion.Collapse>
                                                     )
                                                 })}
                                                 <div id='edit-delete-btn'>
@@ -244,56 +264,3 @@ const MyRoutines = ({
 export default MyRoutines
 
 
-// return (
-//     <>
-
-//         {
-//             myRoutines === 'not set' || myRoutines === null
-//                 ? <p>No routines added yet.</p>
-//                 :
-//                 <TableContainer component={Paper} >
-//                     <Table>
-//                         <TableHead>
-//                             <TableRow>
-//                                 <TableCell>Name</TableCell>
-//                                 <TableCell>Goal</TableCell>
-//                                 <TableCell>Duration</TableCell>
-//                                 <TableCell>Actions</TableCell>
-//                             </TableRow>
-//                         </TableHead>
-//                         <TableBody>
-//                             {
-//                                 Object.values(myRoutines).map((myRoutine, i) => {
-//                                     let { name, goal, duration } = myRoutine
-//                                     switch (myRoutine.goal) {
-//                                         case 1:
-//                                             goal = "Lifting weights";
-//                                             break;
-//                                         case 2:
-//                                             goal = "Running";
-//                                             break;
-//                                         case 3:
-//                                             goal = "Cycling";
-//                                             break;
-//                                         default:
-//                                             goal = "Not set";
-//                                     };
-//                                     return (
-//                                         <TableRow key={i}>
-//                                             <TableCell>{name}</TableCell>
-//                                             <TableCell>{goal}</TableCell>
-//                                             <TableCell>{duration}</TableCell>
-//                                             <TableCell>
-
-//                                             </TableCell>
-//                                         </TableRow>
-//                                     );
-//                                 })
-//                             }
-//                         </TableBody>
-//                     </Table>
-//                 </TableContainer>
-//         }
-//     </>
-// )
-// };

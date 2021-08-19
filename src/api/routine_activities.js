@@ -12,11 +12,10 @@ export async function getActivitiesFromRoutines(activityId) {
     }
 }
 
-export async function addActivityCountAndDuration(count, duration, token, routineId, activityId) {
+export async function postActivityCountAndDuration(count, duration, token, routineId, activityId) {
     try {
-        const { data } = await axios.post(`${BASE}/routines/${routineId}/activities`, {
+        const { data } = await axios.post(`${BASE}/routines`, {
             count,
-            activityId,
             duration,
         }, { headers: { 'Authorization': `Bearer ${token}` } });
         return data;
@@ -25,15 +24,15 @@ export async function addActivityCountAndDuration(count, duration, token, routin
     }
 }
 
-export async function addActivityNameAndDescriptionRoutine(name, description, token, routineId, activityId) {
-    try {
-        const { data } = await axios.post(`${BASE}/routines/${routineId}/activities`, {
-            name,
-            activityId,
-            description
-        }, { headers: { 'Authorization': `Bearer ${token}` } });
-        return data;
-    } catch (error) {
-        throw error;
-    }
-}
+// export async function addActivityNameAndDescriptionRoutine(name, description, token, routineId, activityId) {
+//     try {
+//         const { data } = await axios.post(`${BASE}/routines/${routineId}/activities`, {
+//             name,
+//             activityId,
+//             description
+//         }, { headers: { 'Authorization': `Bearer ${token}` } });
+//         return data;
+//     } catch (error) {
+//         throw error;
+//     }
+// }

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { getRoutinesByUsername, postRoutines, } from '../api/routines'
 import { getActivities } from '../api/activities'
+import { postActivityCountAndDuration } from '../api/routine_activities'
 // import { postCountAndDuration } from '../api/routine_activities'
 import { Card, Form, Button, CardDeck, Container, Dropdown, Accordion } from 'react-bootstrap'
 import './MyRoutines.css'
@@ -9,15 +10,19 @@ import './MyRoutines.css'
 
 const MyRoutines = ({
     userToken,
-    user
+    user,
+    // activityId,
+    // routineId,
+    // routines,
+    // activities
 
 }) => {
     const [activities, setActivities] = useState([])
     const [description, setDescription] = useState([])
     const [activityName, setActivityName] = useState([])
     const [myRoutines, setMyRoutines] = useState([])
-    // const [myDuration, setMyDuration] = useState('')
-    // const [myCount, setMyCount] = useState('')
+    const [activityDuration, setActivityDuration] = useState('')
+    const [activityCount, setActivityCount] = useState('')
     const [routineName, setRoutineName] = useState('')
     const [routineGoal, setRoutineGoal] = useState('')
     const [isPublic, setIsPublic] = useState(false)
@@ -58,16 +63,18 @@ const MyRoutines = ({
                 event.preventDefault()
                 setRoutineName('')
                 setRoutineGoal('')
-                // setMyDuration('')
-                // setMyCount('')
+                setActivityDuration('')
+                setActivityCount('')
                 setActivityName([])
                 setDescription([])
                 try {
-                    const updateRoutine = await postRoutines(routineName, routineGoal, isPublic, userToken, user.id)
+                    const countAndDuration = await postActivityCountAndDuration(activityCount, activityDuration, userToken)
+                    const addRoutine = await postRoutines(routineName, routineGoal, isPublic, userToken, user.id)
                     if (routineName === '' || routineGoal === '') {
                         setError('Missing Fields')
                     } else {
-                        setMyRoutines([...myRoutines, updateRoutine])
+                        setMyRoutines([...myRoutines, addRoutine, countAndDuration])
+
                     }
                 } catch (error) {
                     setError(error)
@@ -130,36 +137,14 @@ const MyRoutines = ({
                         </Dropdown.Menu>
                     </Dropdown>
 
-                    {/* <Dropdown>
-                        <Dropdown.Toggle
-                            id="dropdown-button-dark-example1"
-                            variant="secondary"
-                            value={description}
-                        >
-                            {description}
-                        </Dropdown.Toggle>
-                        <Dropdown.Menu variant="dark">
-                            {activities.map((activity) => {
-                                return (<Dropdown.Item key={activity.id} value={description}
-                                    onClick={(event) => {
-                                        const actDescription = event.target.outerText
-                                        setDescription(actDescription)
-                                    }}>
-                                    {activity.description}
-                                </Dropdown.Item>)
-                            })}
-                            <Dropdown.Divider />
-                        </Dropdown.Menu>
-                    </Dropdown> */}
+                    <Form.Group controlId="activityCount">
 
-                    {/* <Form.Group controlId="myDuration">
-
-                        <Form.Control value={myDuration} type="string" placeholder="Duration" onChange={(event) => {
-                            const duration = event.target.value
-                            setMyDuration(duration)
+                        <Form.Control value={activityCount} type="string" placeholder="Count" onChange={(event) => {
+                            const count = event.target.value
+                            setActivityCount(count)
                         }} />
 
-                    </Form.Group> */}
+                    </Form.Group>
 
 
                     <Form.Check value={isPublic} id='checkbox' className='m-auto' style={{ color: 'limegreen' }} type="checkbox" label="Public" onChange={() => {

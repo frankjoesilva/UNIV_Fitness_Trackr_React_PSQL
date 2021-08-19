@@ -64,20 +64,11 @@ const MyRoutines = ({
                 setDescription([])
                 try {
                     const updateRoutine = await postRoutines(routineName, routineGoal, isPublic, userToken, user.id)
-                    if (updateRoutine.name === '' || updateRoutine.goal === '') {
+                    if (routineName === '' || routineGoal === '') {
                         setError('Missing Fields')
-                        return
                     } else {
                         setMyRoutines([...myRoutines, updateRoutine])
                     }
-                    // const data = await getActivities(activityName, description, userToken)
-                    // setActivities([...activities, data])
-                    // const postData = await postActivities(activityName, description, userToken)
-                    // setActivities([...activities, postData])
-
-                    // const updateCountAndDur = await postCountAndDuration(myCount, myDuration, userToken)
-                    // setMyCount([...myCount, updateCountAndDur])
-                    // setMyDuration([...myDuration, updateCountAndDur])
                 } catch (error) {
                     setError(error)
                 }
@@ -92,9 +83,6 @@ const MyRoutines = ({
 
                         <Form.Control value={routineName} type="text" placeholder="Routine Name" onChange={(event) => {
                             const routine = event.target.value
-                            // if(routineName === ''){
-                            //     return 
-                            // }
                             setRoutineName(routine)
                         }} />
                         {error ? <div>{error}</div> : null}

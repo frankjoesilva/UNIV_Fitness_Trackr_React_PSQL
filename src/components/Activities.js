@@ -63,11 +63,8 @@ const Activities = ({
                     <Form.Group controlId="activityDescription">
                         <Form.Control value={description} type="text" placeholder="Description" onChange={(event) => {
                             const description = event.target.value
-                            if (description === '') {
-                                return null
-                            } else {
-                                setDescription(description)
-                            }
+                            setDescription(description)
+
                         }} />
                         <Button variant="primary" type="submit">
                             Submit

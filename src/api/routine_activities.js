@@ -12,7 +12,7 @@ export async function getActivitiesFromRoutines(activityId) {
     }
 }
 
-export async function postActivityCountAndDuration(count, duration, token, routineId, activityId) {
+export async function postActivityCountAndDuration(count, duration, token,) {
     try {
         const { data } = await axios.post(`${BASE}/routines`, {
             count,

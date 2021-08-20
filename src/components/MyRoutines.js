@@ -68,12 +68,12 @@ const MyRoutines = ({
                 setActivityName([])
                 setDescription([])
                 try {
-                    const countAndDuration = await postActivityCountAndDuration(activityCount, activityDuration, userToken)
+                    const addCountAndDuration = await postActivityCountAndDuration(activityCount, activityDuration, userToken, user.id)
                     const addRoutine = await postRoutines(routineName, routineGoal, isPublic, userToken, user.id)
                     if (routineName === '' || routineGoal === '') {
                         setError('Missing Fields')
                     } else {
-                        setMyRoutines([...myRoutines, addRoutine, countAndDuration])
+                        setMyRoutines([...myRoutines, addRoutine, addCountAndDuration])
 
                     }
                 } catch (error) {

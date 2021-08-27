@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { getRoutinesByUsername, postRoutines, } from '../api/routines'
-import { getActivities } from '../api/activities'
-import { postActivityCountAndDuration } from '../api/routine_activities'
-// import { postCountAndDuration } from '../api/routine_activities'
+// import { getActivities } from '../api/activities'
+import { getActivitiesFromRoutines, postActivityCountAndDuration } from '../api/routine_activities'
 import { Card, Form, Button, CardDeck, Container, Dropdown, Accordion } from 'react-bootstrap'
 import './MyRoutines.css'
 
@@ -11,13 +10,13 @@ import './MyRoutines.css'
 const MyRoutines = ({
     userToken,
     user,
-    // activityId,
+    activityId,
     // routineId,
     // routines,
     // activities
 
 }) => {
-    const [activities, setActivities] = useState([])
+    const [activities, setMyActivities] = useState([])
     const [description, setDescription] = useState([])
     const [activityName, setActivityName] = useState([])
     const [myRoutines, setMyRoutines] = useState([])
@@ -31,10 +30,10 @@ const MyRoutines = ({
 
 
     useEffect(() => {
-        if (userToken) {
+        if (user.username) {
             getRoutinesByUsername(user.username, userToken)
                 .then(myRoutines => {
-                    console.log(myRoutines)
+                    console.log(myRoutines, "routinesbyUser")
                     setMyRoutines(myRoutines)
                 })
                 .catch(error => {
@@ -42,18 +41,30 @@ const MyRoutines = ({
                 });
         }
 
-    }, [userToken, user.username]);
+    }, [user.username, userToken]);
+
+    // useEffect(() => {
+    //     getActivities()
+    //         .then(activities => {
+    //             console.log(activities, "xx")
+    //             setMyActivities(activities)
+    //         })
+    //         .catch(error => {
+    //             console.error(error)
+    //         });
+    // }, [user, userToken]);
+
 
     useEffect(() => {
-        getActivities()
+        getActivitiesFromRoutines(activityId, user.name, user.description, user.count, user.duration, userToken)
             .then(activities => {
                 console.log(activities, "xx")
-                setActivities(activities)
+                setMyActivities(activities)
             })
             .catch(error => {
                 console.error(error)
             });
-    }, [userToken, user]);
+    }, [activityId, user.name, user.description, user.count, user.duration, userToken]);
 
 
 
@@ -74,8 +85,8 @@ const MyRoutines = ({
                         setError('Missing Fields')
                     } else {
                         setMyRoutines([...myRoutines, addRoutine])
-                            &&
-                            setActivities([...activities, addCountAndDuration])
+
+                        setMyActivities([...activities, addCountAndDuration])
 
                     }
                 } catch (error) {

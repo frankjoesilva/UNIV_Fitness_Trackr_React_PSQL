@@ -13,11 +13,15 @@ export async function getRoutines() {
     }
 }
 
-export async function getCurrentUserRoutines(token) {
+export async function getCurrentUserRoutines({ username, name, description }, token) {
     try {
-        const { data } = await axios.get(`${BASE}/users/routines`, {
-            headers: { 'Authorization': `Bearer ${token}` }
-        });
+        const { data } = await axios.get(`${BASE}/users/${username}/routines`, {
+            name,
+            description,
+        },
+            {
+                headers: { 'Authorization': `Bearer ${token}` }
+            });
         return data;
     } catch (error) {
         console.error(error)

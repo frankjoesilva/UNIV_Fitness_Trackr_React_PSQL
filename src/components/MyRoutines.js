@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { getRoutinesByUsername, postRoutines, } from '../api/routines'
 import { getActivities } from '../api/activities'
-import { getActivitiesFromRoutines, postActivityCountAndDuration } from '../api/routine_activities'
+import { postActivityCountAndDuration } from '../api/routine_activities'
 import { Card, Form, Button, CardDeck, Container, Dropdown, Accordion } from 'react-bootstrap'
 import './MyRoutines.css'
 
@@ -55,16 +55,16 @@ const MyRoutines = ({
     }, [user, userToken]);
 
 
-    useEffect(() => {
-        getActivitiesFromRoutines(activityId, user.name, user.description, user.count, user.duration, userToken)
-            .then(activities => {
-                console.log(activities, "yee")
-                setMyActivities(activities)
-            })
-            .catch(error => {
-                console.error(error)
-            });
-    }, [activityId, user.name, user.description, user.count, user.duration, userToken]);
+    // useEffect(() => {
+    //     getActivitiesFromRoutines(activityId, user.name, user.description, user.count, user.duration, userToken)
+    //         .then(activities => {
+    //             console.log(activities, "yee")
+    //             setMyActivities(activities)
+    //         })
+    //         .catch(error => {
+    //             console.error(error)
+    //         });
+    // }, [activityId, user.name, user.description, user.count, user.duration, userToken]);
 
 
 

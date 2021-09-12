@@ -16,10 +16,11 @@ const MyRoutines = ({
     // activities
 
 }) => {
+    const [selectedActivityId, setSelectedActivityId] = useState(0)
+    const [myRoutines, setMyRoutines] = useState([])
     const [activities, setMyActivities] = useState([])
     const [description, setDescription] = useState([])
     const [activityName, setActivityName] = useState([])
-    const [myRoutines, setMyRoutines] = useState([])
     const [activityDuration, setActivityDuration] = useState('')
     const [activityCount, setActivityCount] = useState('')
     const [routineName, setRoutineName] = useState('')
@@ -79,14 +80,21 @@ const MyRoutines = ({
                 setActivityName([])
                 setDescription([])
                 try {
-                    const addCountAndDuration = await postActivityCountAndDuration(activityCount, activityDuration, userToken, user.id)
                     const addRoutine = await postRoutines(routineName, routineGoal, isPublic, userToken, user.id)
+                    const addCountAndDuration = await postActivityCountAndDuration(activityCount, activityDuration, userToken, selectedActivityId, addRoutine.id)
                     if (routineName === '' || routineGoal === '' || activityCount === '' || activityDuration === '') {
                         setError('Missing Fields')
                     } else {
+                        console.log(addCountAndDuration, 'countandduration')
+                        activities.forEach(({ id, name, description }) => {
+                            if (id === selectedActivityId) {
+                                addCountAndDuration.name = name
+                                addCountAndDuration.description = description
+                            }
+                        })
+                        addRoutine.activities = [addCountAndDuration]
                         setMyRoutines([...myRoutines, addRoutine])
 
-                        setMyActivities([...activities, addCountAndDuration])
 
                     }
                 } catch (error) {
@@ -137,6 +145,7 @@ const MyRoutines = ({
                                     onClick={(event) => {
                                         const actAndDescription = event.target.outerText
                                         console.log(actAndDescription)
+                                        setSelectedActivityId(activity.id)
                                         setActivityName(actAndDescription)
                                         setDescription(actAndDescription)
                                     }}

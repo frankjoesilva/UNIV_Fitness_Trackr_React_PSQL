@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { getUserLogin } from '../api/users';
-import { Form, Button, Alert, Container } from 'react-bootstrap'
+import { Form, Button, Container } from 'react-bootstrap'
 import './Login.css';
 
 import {
@@ -16,10 +16,10 @@ const Login = ({
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
     const [error, setError] = useState('')
-    const [showAlert, setShowAlert] = useState(true)
+    // const [showAlert, setShowAlert] = useState(true)
 
     useEffect(() => {
-        setShowAlert(true)
+
     }, [userToken])
 
 
@@ -79,12 +79,15 @@ const Login = ({
                     </Button>
                 </Form.Group>
             </Container>
-        </Form> : (showAlert) ? <Alert variant='success' onClose={() => setShowAlert(false)} dismissible>
-            <Alert.Heading>Success!</Alert.Heading>
-            <p>
-                Successful Login Congratulations!
-            </p>
-        </Alert> : <Redirect to='/home' />
+        </Form> :
+
+            // (showAlert) ? <Alert variant='success' onClose={() => setShowAlert(false)} dismissible>
+            //     <Alert.Heading>Success!</Alert.Heading>
+            //     <p>
+            //         Successful Login Congratulations!
+            //     </p>
+            // </Alert> :
+            <Redirect to='/home' />
     );
 }
 

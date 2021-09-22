@@ -5,7 +5,6 @@ import Carousel from 'react-bootstrap/Carousel'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Slide1 from '../assets/carousel/img/Slide1.jpeg'
 import Slide2 from '../assets/carousel/img/Slide2.jpeg'
-import Slide3 from '../assets/carousel/img/Slide3.jpeg'
 
 
 const Home = () => {
@@ -19,17 +18,11 @@ const Home = () => {
                         alt="First slide"
                     />
                 </Carousel.Item>
+
                 <Carousel.Item>
                     <img
                         className="d-block w-100 custom img"
                         src={Slide2}
-                        alt="Second slide"
-                    />
-                </Carousel.Item>
-                <Carousel.Item>
-                    <img
-                        className="d-block w-100 custom img"
-                        src={Slide3}
                         alt="Third slide"
                     />
                 </Carousel.Item>

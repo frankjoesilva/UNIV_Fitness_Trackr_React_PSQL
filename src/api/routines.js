@@ -29,6 +29,7 @@ export async function getCurrentUserRoutines({ username, name, description }, to
 }
 
 export async function getRoutinesByUsername(username, token) {
+    console.log("object")
     try {
         const { data } = await axios.get(`${BASE}/users/${username}/routines`,
 
@@ -39,19 +40,21 @@ export async function getRoutinesByUsername(username, token) {
     }
 }
 
-export async function deleteRoutinesByUsername({ username, name, description }, token) {
+export async function deleteRoutinePost(routineId, token) {
+
+
     try {
-        const { data } = await axios.delete(`${BASE}/users/${username}/routines`, {
-            name,
-            description
-        },
-            {
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${token}`
-                }
-            });
-        return data;
+        const res = await axios.delete(`${BASE}/routines/${routineId}`, {
+
+
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
+            }
+        });
+
+        console.log(res, "<===data")
+        return res;
     } catch (error) {
         console.error(error);
     }

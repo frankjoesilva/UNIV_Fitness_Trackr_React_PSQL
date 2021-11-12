@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { getRoutinesByUsername, postRoutines, } from '../api/routines'
+import { getRoutinesByUsername, postRoutines, deleteRoutinePost } from '../api/routines'
 import { getActivities } from '../api/activities'
 import { postActivityCountAndDuration } from '../api/routine_activities'
 import { Card, Form, Button, CardDeck, Container, Dropdown, Accordion } from 'react-bootstrap'
@@ -10,10 +10,8 @@ import './MyRoutines.css'
 const MyRoutines = ({
     userToken,
     user,
-    activityId,
-    // routineId,
-    // routines,
-    // activities
+    routineId,
+    username,
 
 }) => {
     const [selectedActivityId, setSelectedActivityId] = useState(0)
@@ -34,7 +32,6 @@ const MyRoutines = ({
         if (user.username) {
             getRoutinesByUsername(user.username, userToken)
                 .then(myRoutines => {
-                    console.log(myRoutines, "routinesbyUser")
                     setMyRoutines(myRoutines)
                 })
                 .catch(error => {
@@ -56,19 +53,20 @@ const MyRoutines = ({
     }, [user, userToken]);
 
 
-    // useEffect(() => {
-    //     getActivitiesFromRoutines(activityId, user.name, user.description, user.count, user.duration, userToken)
-    //         .then(activities => {
-    //             console.log(activities, "yee")
-    //             setMyActivities(activities)
-    //         })
-    //         .catch(error => {
-    //             console.error(error)
-    //         });
-    // }, [activityId, user.name, user.description, user.count, user.duration, userToken]);
+    const handleDeleteRoutine = (id, token) => {
+        deleteRoutinePost(id, token)
+            .then(response => {
+                if (response.statusText === "OK") {
+                    const filteredRoutines = myRoutines.filter(routine => routine.id !== id)
+                    setMyRoutines(filteredRoutines)
+                } else {
+                    console.log("unable to delete routine")
+                }
+            })
+    }
 
 
-
+    console.log(myRoutines, '<====== rotines')
     return (
         <Form
             onSubmit={async (event) => {
@@ -231,11 +229,8 @@ const MyRoutines = ({
                                                         )
                                                     })}
                                                     <div id='edit-delete-btn'>
-                                                        <Button id='delete-btn' style={{ width: '5.5rem', background: 'red' }} variant="primary" onClick={async () => { }}>
+                                                        <Button id='delete-btn' style={{ background: 'red' }} variant="primary" onClick={() => handleDeleteRoutine(routine.id, userToken)}>
                                                             DELETE
-                                                        </Button>
-                                                        <Button id='edit-btn' style={{ width: '5.5rem', background: 'red' }} variant="primary" onClick={async () => { }}>
-                                                            EDIT
                                                         </Button>
                                                     </div>
                                                 </Card.Body>

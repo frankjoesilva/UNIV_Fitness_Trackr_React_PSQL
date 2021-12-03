@@ -29,7 +29,6 @@ export async function getCurrentUserRoutines({ username, name, description }, to
 }
 
 export async function getRoutinesByUsername(username, token) {
-    console.log("object")
     try {
         const { data } = await axios.get(`${BASE}/users/${username}/routines`,
 
@@ -53,7 +52,6 @@ export async function deleteRoutinePost(routineId, token) {
             }
         });
 
-        console.log(res, "<===data")
         return res;
     } catch (error) {
         console.error(error);
@@ -61,7 +59,6 @@ export async function deleteRoutinePost(routineId, token) {
 }
 
 export async function postRoutines(name, goal, isPublic, token, creatorId) {
-    // console.log(creatorId, "p")
     try {
         const { data } = await axios.post(`${BASE}/routines`, {
             name,

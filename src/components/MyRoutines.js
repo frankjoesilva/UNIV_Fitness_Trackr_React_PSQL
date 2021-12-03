@@ -60,7 +60,6 @@ const MyRoutines = ({
                     const filteredRoutines = myRoutines.filter(routine => routine.id !== id)
                     setMyRoutines(filteredRoutines)
                 } else {
-                    console.log("unable to delete routine")
                 }
             })
     }
@@ -192,7 +191,6 @@ const MyRoutines = ({
                 {
                     myRoutines.map((routine) => {
                         if (user.id === routine.creatorId) {
-                            // console.log(routine)
 
                             return (
                                 <CardDeck key={routine.id}>

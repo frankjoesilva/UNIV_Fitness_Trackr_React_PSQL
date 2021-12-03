@@ -16,7 +16,6 @@
     border-radius: 7px;
     padding: 1rem;
     margin: .5rem;
-    /* margin-left: .5rem; */
     margin-bottom: 5rem;
     background-image: url(../assets/backgroundImg/cardBackground1.jpeg);
     opacity:0.95;
@@ -51,12 +50,6 @@
 }
 
 
-/* #newRoutineTitle{
-    text-align:center;
-    padding: 1rem;
-    color:limegreen;
-} */
-
 .btn-primary {
     padding:.5rem;
     font-size: 1.5;
@@ -70,7 +63,6 @@
 #delete-btn{
     box-shadow: 2px 2px 2px 1px black;
     border:2px solid black;
-    /* margin-right: 1rem; */
 }
 
 #edit-btn{
@@ -79,10 +71,7 @@
     margin-left:1.5rem;
 }
 
-/* #edit-delete-btn{
-    margin-right:1rem;
-    margin-left:1rem;
-} */
+
 
 #add-routines{
     border:3px solid blueviolet;

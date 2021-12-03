@@ -11,7 +11,6 @@ const PublicRoutines = () => {
     useEffect(() => {
         getRoutines()
             .then(routines => {
-                console.log(routines, "rr")
                 setRoutines(routines)
             })
             .catch(error => {
@@ -21,7 +20,6 @@ const PublicRoutines = () => {
 
     return (
         <div className='public-routines'>
-            {/* <h2 className="text-center font-details-b pb-4" id='routine-title'>Routines</h2> */}
             {routines.map((routine) => {
                 return (<CardDeck key={routine.id}>
                     <Container>
@@ -35,7 +33,6 @@ const PublicRoutines = () => {
                                     <Card.Header id="Username" className="text-center  card-header">{routine.creatorName}</Card.Header>
                                     <Card.Text className="text-left">Routine Name: {routine.name}</Card.Text>
                                     <Card.Text className="text-left">Goal:{routine.goal}</Card.Text>
-                                    {/* <Card.Header className="text-center  card-header" id="activities-for-routines" >Activities For Routines</Card.Header> */}
                                     <Accordion.Toggle
                                         id='toggle'
                                         as={Card.Header}

@@ -29,7 +29,6 @@ const Header = ({
 
             {userToken ? <button id='logout-btn' onClick={handleUserLogout}>Logout</button> : null}
 
-            {/* {!userToken ? <Redirect to="/login" /> : null} */}
         </header>
     );
 }

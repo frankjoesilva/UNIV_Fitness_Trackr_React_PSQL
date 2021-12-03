@@ -16,7 +16,6 @@ const Login = ({
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
     const [error, setError] = useState('')
-    // const [showAlert, setShowAlert] = useState(true)
 
     useEffect(() => {
 
@@ -80,13 +79,6 @@ const Login = ({
                 </Form.Group>
             </Container>
         </Form> :
-
-            // (showAlert) ? <Alert variant='success' onClose={() => setShowAlert(false)} dismissible>
-            //     <Alert.Heading>Success!</Alert.Heading>
-            //     <p>
-            //         Successful Login Congratulations!
-            //     </p>
-            // </Alert> :
             <Redirect to='/home' />
     );
 }
